@@ -11,6 +11,7 @@
     + user can remove or change its vote
 
   + #### filtering
+    + search functionality
     + by post type
     + by date by default
     + by trending
