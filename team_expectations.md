@@ -6,7 +6,7 @@
 + We will never push to master
 + We will branch early and often
 + Branches will be named with this convention:
-  + "feature-<descriptive-name-of-feature>"
+  + "feature-{descriptive-name-of-feature}"
 + We will commit early and often with descriptive messages
 + We will leave descriptive comments on our pull requests
 + We will only rebase to master
