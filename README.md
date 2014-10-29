@@ -11,6 +11,7 @@ jokes_and_quotes
 + I want to be able to be able to add a {comment} to a post
 + I want to be able to upvote or downvote a comment
 + I want to be able to add a {response} to a comment
+
 + I want to generate a joke or a quote when I am stumped
 + I want to be able to log in with Twitter or create an account
 
@@ -31,3 +32,4 @@ jokes_and_quotes
 + Users are unable to filter responses
 + User can only have one vote at a time
 + User can only upvote or downvote a post or comment once
+
