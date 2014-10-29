@@ -15,7 +15,7 @@ jokes_and_quotes
 + I want to be able to add a {response} to a comment
 
 
-  ### Filter
+  #### Filter
   + I want to be able to filter posts by post type, trending (posts which have recently gotten a number of votes), vote count, or date range
   + I want to be able to see all the posts a specific user has made
   + I want to be able to see all comments and responses by a specific user
