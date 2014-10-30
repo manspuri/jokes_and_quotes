@@ -16,8 +16,8 @@ class Vote < ActiveRecord::Base
     return self
   end
 
-  def self.tally(voteable_id)
-    votes = Vote.where(voteable_id: voteable_id)
+  def self.tally(voteable_id, voteable_type)
+    votes = Vote.where(voteable_id: voteable_id, voteable_type: voteable_type)
     votes.sum(:value)
   end
 end

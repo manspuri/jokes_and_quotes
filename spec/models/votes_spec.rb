@@ -35,20 +35,20 @@ describe Vote do
 
   describe '.tally' do
     before do
-      post.votes = [ Vote.new(user: current_user, voteable_id: post.id).upvote, 
-                     Vote.new(user: current_user, voteable_id: post.id).upvote, 
-                     Vote.new(user: current_user, voteable_id: post.id).downvote ]
+      post.votes = [ Vote.new(user: current_user, voteable_id: post.id, voteable_type: post.class.to_s).upvote, 
+                     Vote.new(user: current_user, voteable_id: post.id, voteable_type: post.class.to_s).upvote, 
+                     Vote.new(user: current_user, voteable_id: post.id, voteable_type: post.class.to_s).downvote ]
     end
 
     it "should return an object's total points for the object" do
-      expect(Vote.tally(post.id)).to eq(1)
+      expect(Vote.tally(post.id, post.class)).to eq(1)
     end
 
     it "should be responsive" do
-      post.votes << Vote.new(user: current_user, voteable_id: post.id).downvote
-      post.votes << Vote.new(user: current_user, voteable_id: post.id).downvote
-      post.votes << Vote.new(user: current_user, voteable_id: post.id).downvote
-      expect(Vote.tally(post.id)).to eq(-2)
+      post.votes << Vote.new(user: current_user, voteable_id: post.id, voteable_type: post.class.to_s).downvote
+      post.votes << Vote.new(user: current_user, voteable_id: post.id, voteable_type: post.class.to_s).downvote
+      post.votes << Vote.new(user: current_user, voteable_id: post.id, voteable_type: post.class.to_s).downvote
+      expect(Vote.tally(post.id, post.class)).to eq(-2)
     end
   end
 end
