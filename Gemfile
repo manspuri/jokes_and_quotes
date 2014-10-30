@@ -39,4 +39,6 @@ gem 'rspec', group: :development, group: :test
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# continuous integration
 # gem 'travis-lint'
+gem 'coveralls', require: false
