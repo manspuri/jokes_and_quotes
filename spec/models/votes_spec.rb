@@ -22,4 +22,13 @@ describe Vote do
       expect{ vote.downvote }.to change{ vote.value }.by(-1)
     end
   end
+
+  describe '.tally' do
+    it "should return an object's total points for the object" do
+      post.votes = [ Vote.new(user: current_user, voteable_id: post.id).upvote, 
+                     Vote.new(user: current_user, voteable_id: post.id).upvote, 
+                     Vote.new(user: current_user, voteable_id: post.id).downvote ]
+      expect(Vote.tally(post.id)).to eq(1)
+    end
+  end
 end

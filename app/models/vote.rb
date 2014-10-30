@@ -7,15 +7,17 @@ class Vote < ActiveRecord::Base
   def upvote
     self.value = 1
     self.save
+    return self
   end
 
   def downvote
     self.value = -1
     self.save
+    return self
   end
 
-  def self.tally_votes_for(voteable_object)
-    votes = Vote.where(voteable_id: voteable_object.id)
+  def self.tally(voteable_id)
+    votes = Vote.where(voteable_id: voteable_id)
     votes.sum(:value)
   end
 end
