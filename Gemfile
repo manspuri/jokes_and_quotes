@@ -41,4 +41,6 @@ gem 'rspec', group: :development, group: :test
 
 # continuous integration
 # gem 'travis-lint'
+gem 'simplecov', :require => false, :group => :test
+# results can be found in coverage/index.html
 gem 'coveralls', require: false
