@@ -5,3 +5,6 @@ notifications:
   email:
     - roboprog010@gmail.com
     - megan.gaebler@gmail.com
+branches:
+  only:
+    - master

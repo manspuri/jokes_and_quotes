@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-
   def new
     @user = User.new
   end
@@ -8,7 +7,7 @@ class SessionsController < ApplicationController
     @user = User.authenticate(session_params)
 
     if @user
-      session[:id] = @user.id
+      session[:user_id] = @user.id
       redirect_to posts_path
     else
       @user = User.new
@@ -18,7 +17,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:id].clear
+    session[:user_id] == nil
     redirect_to posts_path
   end
 
@@ -28,3 +27,4 @@ class SessionsController < ApplicationController
     params.require(:session).permit(:email, :password)
   end
 end
+
