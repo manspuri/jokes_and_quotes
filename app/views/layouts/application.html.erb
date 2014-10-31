@@ -22,11 +22,11 @@
       <% end %>
 
         <% if current_user.nil? %>
-          <li><%= link_to "Log in", new_user_path %></li>
+          <li><%= link_to "Sign in", new_user_path %></li>
           <li><%= link_to "Sign up", new_session_path %></li>
         <% else %>
           <li><%= link_to "#{current_user.username}", user_path %></li>
-          <li>Log out</li>
+          <li><%= link_to "Sign out", log_out_path, method: "delete" %></li>
         <% end %>
       </ul>
     </nav>
