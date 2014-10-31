@@ -914,3 +914,77 @@
   [1m[35mSQL (0.1ms)[0m  INSERT INTO "votes" ("created_at", "updated_at", "user_id", "value") VALUES (?, ?, ?, ?)  [["created_at", "2014-10-31 01:49:06.787144"], ["updated_at", "2014-10-31 01:49:06.787144"], ["user_id", 1], ["value", -1]]
   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
   [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2014-10-31 01:53:32.736294"], ["updated_at", "2014-10-31 01:53:32.736294"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "votes" ("created_at", "updated_at", "user_id", "value", "voteable_id", "voteable_type") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2014-10-31 01:53:32.739284"], ["updated_at", "2014-10-31 01:53:32.739284"], ["user_id", 1], ["value", 1], ["voteable_id", 1], ["voteable_type", "Post"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.6ms)[0m  INSERT INTO "votes" ("created_at", "updated_at", "user_id", "value", "voteable_id", "voteable_type") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", "2014-10-31 01:53:32.740854"], ["updated_at", "2014-10-31 01:53:32.740854"], ["user_id", 1], ["value", 1], ["voteable_id", 1], ["voteable_type", "Post"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "votes" ("created_at", "updated_at", "user_id", "value", "voteable_id", "voteable_type") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2014-10-31 01:53:32.744482"], ["updated_at", "2014-10-31 01:53:32.744482"], ["user_id", 1], ["value", -1], ["voteable_id", 1], ["voteable_type", "Post"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM("votes"."value") AS sum_id FROM "votes"  WHERE "votes"."voteable_id" = 1 AND "votes"."voteable_type" = 'Post'[0m
+  [1m[35m (15.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2014-10-31 01:53:32.776000"], ["updated_at", "2014-10-31 01:53:32.776000"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "votes" ("created_at", "updated_at", "user_id", "value", "voteable_id", "voteable_type") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", "2014-10-31 01:53:32.776991"], ["updated_at", "2014-10-31 01:53:32.776991"], ["user_id", 1], ["value", 1], ["voteable_id", 1], ["voteable_type", "Post"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "votes" ("created_at", "updated_at", "user_id", "value", "voteable_id", "voteable_type") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2014-10-31 01:53:32.778344"], ["updated_at", "2014-10-31 01:53:32.778344"], ["user_id", 1], ["value", 1], ["voteable_id", 1], ["voteable_type", "Post"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "votes" ("created_at", "updated_at", "user_id", "value", "voteable_id", "voteable_type") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", "2014-10-31 01:53:32.779723"], ["updated_at", "2014-10-31 01:53:32.779723"], ["user_id", 1], ["value", -1], ["voteable_id", 1], ["voteable_type", "Post"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "votes" ("created_at", "updated_at", "user_id", "value", "voteable_id", "voteable_type") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2014-10-31 01:53:32.781304"], ["updated_at", "2014-10-31 01:53:32.781304"], ["user_id", 1], ["value", -1], ["voteable_id", 1], ["voteable_type", "Post"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "votes" ("created_at", "updated_at", "user_id", "value", "voteable_id", "voteable_type") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", "2014-10-31 01:53:32.782474"], ["updated_at", "2014-10-31 01:53:32.782474"], ["user_id", 1], ["value", -1], ["voteable_id", 1], ["voteable_type", "Post"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "votes" ("created_at", "updated_at", "user_id", "value", "voteable_id", "voteable_type") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2014-10-31 01:53:32.783646"], ["updated_at", "2014-10-31 01:53:32.783646"], ["user_id", 1], ["value", -1], ["voteable_id", 1], ["voteable_type", "Post"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM("votes"."value") AS sum_id FROM "votes"  WHERE "votes"."voteable_id" = 1 AND "votes"."voteable_type" = 'Post'[0m
+  [1m[35m (33.8ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2014-10-31 01:53:32.820759"], ["updated_at", "2014-10-31 01:53:32.820759"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "votes" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)  [["created_at", "2014-10-31 01:53:32.821727"], ["updated_at", "2014-10-31 01:53:32.821727"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (5.5ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2014-10-31 01:53:32.829541"], ["updated_at", "2014-10-31 01:53:32.829541"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "votes" ("created_at", "updated_at", "user_id", "value") VALUES (?, ?, ?, ?)  [["created_at", "2014-10-31 01:53:32.830405"], ["updated_at", "2014-10-31 01:53:32.830405"], ["user_id", 1], ["value", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (65.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2014-10-31 01:53:32.897923"], ["updated_at", "2014-10-31 01:53:32.897923"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "votes" ("created_at", "updated_at", "user_id", "value") VALUES (?, ?, ?, ?)  [["created_at", "2014-10-31 01:53:32.898864"], ["updated_at", "2014-10-31 01:53:32.898864"], ["user_id", 1], ["value", -1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (44.2ms)[0m  rollback transaction

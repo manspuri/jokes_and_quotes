@@ -18,9 +18,9 @@ class Vote < ActiveRecord::Base
 
   def put_or_post
     if self.value == 0
-      return "post"
+      return :post
     else
-      return "put"
+      return :put
     end
   end
 
