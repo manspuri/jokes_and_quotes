@@ -5,6 +5,8 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <link href='http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <header>
@@ -13,24 +15,23 @@
 
     <nav>
       <ul>
-      <%= form_tag do %>
-        <li>
-          <label for="search-box" class="search-box">Q</label>
-          <input id="search-box" type="text" placeholder="Search" />
-          <input type="submit" value="search" />
-        </li>
-      <% end %>
-
-        <% if current_user.nil? %>
-          <li><%= link_to "Sign in", new_user_path %></li>
-          <li><%= link_to "Sign up", new_session_path %></li>
-        <% else %>
-          <li><%= link_to "#{current_user.username}", user_path %></li>
-          <li><%= link_to "Sign out", log_out_path, method: "delete" %></li>
-        <% end %>
+        <span class="user_status">
+          <% if current_user.nil? %>
+            <li><%= link_to "Sign in", new_user_path %></li>
+            <li><%= link_to "Sign up", new_session_path %></li>
+          <% else %>
+            <li><%= link_to "#{current_user.username}", user_path(current_user.id) %></li>
+            <li><%= link_to "Sign out", log_out_path, method: "delete" %></li>
+          <% end %>
+        </span>
       </ul>
     </nav>
   </header>
+  <%= form_tag do %>
+    <label for="search-box" class="search-box">Q</label>
+    <input id="search-box" type="text" placeholder="Search" />
+    <input type="submit" value="search" />
+  <% end %>
   <div class="container">
     <%= yield %>
   </div>

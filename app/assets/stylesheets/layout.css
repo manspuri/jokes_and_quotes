@@ -1,15 +1,8 @@
 header h1 {
+  font-family: 'Open Sans Condensed';
   padding-left: 20px;
-}
-
-header ul {
-  display: inline-block;
-  
-}
-
-header ul li {
-  display: inline-block;
   float: left;
+  display: inline-block;
 }
 
 .container {
@@ -17,4 +10,16 @@ header ul li {
   border: 2px dotted black;
   margin: 0 auto;
   clear: both;
+  font-family: 'PT Serif';
+}
+
+nav {
+  display: inline-block;
+  float: right;
+}
+
+nav li {
+  list-style: none;
+  display: inline;
+  padding: 5px;
 }
