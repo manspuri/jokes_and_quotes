@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20141029221937) do
 
   create_table "posts", force: true do |t|
     t.integer  "user_id"
-    t.string   "type"
+    t.string   "type_name"
     t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
