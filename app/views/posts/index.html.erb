@@ -1,16 +1,19 @@
 		<ul>
 			<% @posts.each do |post| %>
-				<li><%= post.user.username %><%= post.created_at  %>
+				Username: <li><%= post.user.username %> Posted on:<%= post.created_at  %><br>
 				<%= post.text %><br>
 				 <% if post.votes != nil %> 
-					<%= post.votes.count %><br>
+					<%= post.votes.count %><br> votes
 					<% end %>
 				<% if post.comments != nil %>
 					<ol>
-					<%= post.comments.count %>
+					<%= post.comments.count %> comments
 					<% end %>
 					</ol>
 				</li>
+		<br>
+		<br>
+		<br>
 			<% end %>
 			
 		</ul>
