@@ -34,7 +34,7 @@ users.each do |user|
 	(rand(5) + 1).times do
 		Post.create!(
 			user: user,
-			type_name:	TYPES.sample,
+			post_type:	TYPES.sample,
 			text: Faker::Company.catch_phrase
 		)
 	end
