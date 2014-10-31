@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
   
   resources :users, except: [:index, :edit, :update, :destroy]
+  resources :sessions, only: [:new, :create, :destroy]
 
   root 'posts#index'
   # The priority is based upon order of creation: first created -> highest priority.
