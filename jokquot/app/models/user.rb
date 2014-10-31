@@ -7,8 +7,8 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :votes
 
-  validates :email, :first_name, :last_name, :password_hash, presence: true
-  validates :email, uniqueness: true
+  validates :email, :first_name, :last_name, :password_hash, :username, presence: true
+  validates :email, :username, uniqueness: true
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 
   def password
@@ -20,10 +20,10 @@ class User < ActiveRecord::Base
     self.password_hash = @password
   end
 
-  def self.authenticate(email, password_input)
-    user = User.find_by(email: email)
+  def self.authenticate(params)
+    user = User.find_by(email: params[:email])
 
-    if user && user.password == password_input
+    if user && user.password == params[:password]
       return user
     end
   end
