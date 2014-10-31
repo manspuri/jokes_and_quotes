@@ -12,13 +12,15 @@
     <h1>jokquot</h1>
 
     <nav>
+      <ul>
       <%= form_tag do %>
-        <label for="search-box" class="search-box">Q</label>
-        <input id="search-box" type="text" placeholder="Search" /> 
-        <input type="submit" value="search" />
+        <li>
+          <label for="search-box" class="search-box">Q</label>
+          <input id="search-box" type="text" placeholder="Search" />
+          <input type="submit" value="search" />
+        </li>
       <% end %>
 
-      <ul>
         <% if current_user.nil? %>
           <li><%= link_to "Log in", new_user_path %></li>
           <li><%= link_to "Sign up", new_session_path %></li>
