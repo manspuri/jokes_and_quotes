@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141029221937) do
+ActiveRecord::Schema.define(version: 20141030210458) do
 
   create_table "comments", force: true do |t|
     t.integer  "user_id"
@@ -24,7 +24,11 @@ ActiveRecord::Schema.define(version: 20141029221937) do
 
   create_table "posts", force: true do |t|
     t.integer  "user_id"
-    t.string   "type"
+<<<<<<< HEAD
+    t.string   "type_name"
+=======
+    t.string   "post_type"
+>>>>>>> 9d70b6b5090d34937ee3d8f34547fe4ba6993eb0
     t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -46,6 +50,7 @@ ActiveRecord::Schema.define(version: 20141029221937) do
     t.string   "voteable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "value",         default: 0
   end
 
 end

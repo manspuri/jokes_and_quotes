@@ -4,16 +4,32 @@ class Vote < ActiveRecord::Base
 
   validates :user, presence: true
 
-  def upvote(post_or_comment, post_or_comment_id)
-    voteable_object = post_or_comment.class.find(post_or_comment_id)
-
-    voteable_object.votes << self
+  def upvote
+    self.value = 1
+    self.save
+    return self
   end
 
-  def downvote(post_or_comment, post_or_comment_id)
-    voteable_object = post_or_comment.class.find(post_or_comment_id)
+  def downvote
+    self.value = -1
+    self.save
+    return self
+  end
 
-    
+  def put_or_post
+    if self.value == 0
+      return :post
+    else
+      return :put
+    end
+  end
 
+  def self.tally(voteable_id, voteable_type)
+    votes = Vote.where(voteable_id: voteable_id, voteable_type: voteable_type)
+    votes.sum(:value)
   end
 end
+
+
+
+

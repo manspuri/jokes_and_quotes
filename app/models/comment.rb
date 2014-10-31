@@ -3,7 +3,5 @@ class Comment < ActiveRecord::Base
   has_many   :votes, as: :voteable
 
   belongs_to :commentable, polymorphic: true
-  has_many   :sub_comments, as: :commentable, class_name: "Comment"
+  has_many   :comments, as: :commentable
 end
-
-

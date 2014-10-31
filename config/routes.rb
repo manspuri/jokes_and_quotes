@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
-  resources :posts, except: [:new, :edit]
-  resources :comments, except: [:show, :index, :new, :edit]
+  resources :posts, except: [:new, :edit] do
+    resources :votes, only: [:new, :create, :edit, :update]
+  end
+
+  resources :comments, except: [:show, :index, :new, :edit] do
+    resources :votes, only: [:new, :create, :edit, :update]
+  end
+
   resources :users, except: [:index, :edit, :update, :destroy]
-  resources :votes, only: [:create, :update]
+  resources :sessions, only: [:new, :create, :destroy]
+
 
   root 'posts#index'
   # The priority is based upon order of creation: first created -> highest priority.

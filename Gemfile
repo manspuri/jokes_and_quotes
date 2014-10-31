@@ -27,8 +27,11 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'rspec-rails',  group: :development, group: :test
 gem 'rspec', group: :development, group: :test
+gem 'capybara', '~>2.2.1'
+gem 'database_cleaner', '~> 1.2.0'
+gem 'launchy'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -38,6 +41,8 @@ gem 'rspec', group: :development, group: :test
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'faker', group: [:development, :test]
 
 # continuous integration
 # gem 'travis-lint'
