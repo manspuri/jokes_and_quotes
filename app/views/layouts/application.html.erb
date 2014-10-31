@@ -7,8 +7,32 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <div id="logo"></div>
+    <h1>jokquot</h1>
 
-<%= yield %>
+    <nav>
+      <ul>
+      <%= form_tag do %>
+        <li>
+          <label for="search-box" class="search-box">Q</label>
+          <input id="search-box" type="text" placeholder="Search" />
+          <input type="submit" value="search" />
+        </li>
+      <% end %>
 
+        <% if current_user.nil? %>
+          <li><%= link_to "Sign in", new_user_path %></li>
+          <li><%= link_to "Sign up", new_session_path %></li>
+        <% else %>
+          <li><%= link_to "#{current_user.username}", user_path %></li>
+          <li><%= link_to "Sign out", log_out_path, method: "delete" %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </header>
+  <div class="container">
+    <%= yield %>
+  </div>
 </body>
 </html>
