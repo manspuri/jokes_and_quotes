@@ -1,7 +1,4 @@
 class SessionsController < ApplicationController
-
-  # skip_before_action :authorized? except: [:destroy]
-
   def new
     @user = User.new
   end
@@ -20,7 +17,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] == nil
+    session[:user_id] = nil
     redirect_to posts_path
   end
 
@@ -29,6 +26,5 @@ class SessionsController < ApplicationController
   def session_params
     params.require(:session).permit(:email, :password)
   end
-
 end
 
