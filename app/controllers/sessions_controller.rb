@@ -1,4 +1,4 @@
-class SessionsController < ActionController::Base
+class SessionsController < ApplicationController
 
   def new
     @user = User.new
@@ -21,10 +21,10 @@ class SessionsController < ActionController::Base
     session[:id].clear
     redirect_to posts_path
   end
-end
 
-private
+  private
 
-def session_params
-  params.require(:session).permit(:email, :password)
+  def session_params
+    params.require(:session).permit(:email, :password)
+  end
 end
