@@ -1,4 +1,14 @@
-header h1 {
+body {
+  background-color: #cfc8cc
+}
+header {
+  background-color: #f6f6f6;
+  color: #303;
+  position: fixed;
+  width: 100%;
+}
+
+.brand {
   font-family: 'Open Sans Condensed';
   padding-left: 20px;
   float: left;
@@ -6,20 +16,51 @@ header h1 {
 }
 
 .container {
-  width: 720px;
-  border: 2px dotted black;
+  width: 800px;
   margin: 0 auto;
+  padding: 15px;
   clear: both;
   font-family: 'PT Serif';
+  margin-top: 100px;
+  background-color: #f6f6f6;
 }
 
 nav {
   display: inline-block;
   float: right;
+  padding: 20px 5px 0 0;
 }
 
 nav li {
   list-style: none;
   display: inline;
   padding: 5px;
+}
+
+.search {
+  float: right;
+  padding: 20px 10px;
+  margin-top: 100px;
+}
+
+.search-button {
+  margin: 0;
+  background-color: #663366;
+  color: #f6f6f6;
+  border: none;
+  padding: 7px;
+  float: right;
+}
+#search-box {
+  border: 2px solid #663366;
+  padding: 5px;
+  outline: none;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+header a, headera a:visited {
+  color: #303;
 }

@@ -7,10 +7,10 @@ Rails.application.routes.draw do
     resources :votes, only: [:new, :create, :edit, :update]
   end
 
-  get "log_out" => "sessions#destroy", :as => "log_out"
   resources :users, except: [:index, :edit, :update, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
 
+  delete "log_out" => "sessions#destroy", :as => "log_out"
 
   root 'posts#index'
   # The priority is based upon order of creation: first created -> highest priority.
