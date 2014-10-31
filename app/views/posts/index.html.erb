@@ -1,12 +1,17 @@
-<!DOCTYPE html>
-<html>
-
-<head>
+		<ul>
+			<% @posts.each do |post| %>
+				<li><%= post.user.username %><%= post.created_at  %>
+				<%= post.text %><br>
+				 <% if post.votes != nil %> 
+					<%= post.votes.count %><br>
+					<% end %>
+				<% if post.comments != nil %>
+					<ol>
+					<%= post.comments.count %>
+					<% end %>
+					</ol>
+				</li>
+			<% end %>
+			
+		</ul>
 	
-</head>
-	<body>
-		<p>
-			"What are Mario's favorite type of pants? A. Denim denim denim"
-		</p>
-	</body>
-</html>
