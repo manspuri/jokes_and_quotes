@@ -29,6 +29,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.6)
     arel (5.0.1.20140414130214)
+    bcrypt (3.1.7)
     builder (3.2.2)
     capybara (2.2.1)
       mime-types (>= 1.16)
@@ -170,14 +171,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   capybara (~> 2.2.1)
   coffee-rails (~> 4.0.0)
   coveralls
-<<<<<<< HEAD
-  faker
-=======
   database_cleaner (~> 1.2.0)
->>>>>>> 9d70b6b5090d34937ee3d8f34547fe4ba6993eb0
+  faker
   jbuilder (~> 2.0)
   jquery-rails
   launchy

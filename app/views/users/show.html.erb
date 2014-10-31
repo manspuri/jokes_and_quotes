@@ -1,0 +1,8 @@
+<h2> Hey there, <%= @user.first_name %>! </h2>
+<h3> Below are your JokQuots! </h3>
+  <%= @posts.each do |post| %>
+    <p><%= post.text %></p>
+    <p><%= post.type %></p>
+    <p><%= post.comments %></p>
+  <% end %>
+
