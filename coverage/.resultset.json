@@ -1,0 +1,54 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/mgaebz/DBc/phase-3-guide/challenges/jokes_and_quotes/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/mgaebz/DBc/phase-3-guide/challenges/jokes_and_quotes/app/models/vote.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        7,
+        7,
+        7,
+        null,
+        null,
+        1,
+        8,
+        8,
+        8,
+        null,
+        null,
+        1,
+        2,
+        2,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/mgaebz/DBc/phase-3-guide/challenges/jokes_and_quotes/app/models/post.rb": [
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/mgaebz/DBc/phase-3-guide/challenges/jokes_and_quotes/app/models/user.rb": [
+        1,
+        1,
+        1,
+        1,
+        null
+      ]
+    },
+    "timestamp": 1414713152
+  }
+}
