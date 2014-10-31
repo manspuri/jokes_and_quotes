@@ -1,3 +1,19 @@
-<p>
-	"What are Mario's favorite type of pants? A. Denim denim denim"
-</p>
+		<ul>
+			<% @posts.each do |post| %>
+				Username: <li><%= post.user.username %> Posted on:<%= post.created_at  %><br>
+				<%= post.text %><br>
+				 <% if post.votes != nil %> 
+					<%= post.votes.count %><br> votes
+					<% end %>
+				<% if post.comments != nil %>
+					<ol>
+					<%= post.comments.count %> comments
+					<% end %>
+					</ol>
+				</li>
+		<br>
+		<br>
+		<br>
+			<% end %>
+			
+		</ul>
