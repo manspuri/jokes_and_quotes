@@ -16,6 +16,14 @@ class Vote < ActiveRecord::Base
     return self
   end
 
+  def put_or_post
+    if self.value == 0
+      return "post"
+    else
+      return "put"
+    end
+  end
+
   def self.tally(voteable_id, voteable_type)
     votes = Vote.where(voteable_id: voteable_id, voteable_type: voteable_type)
     votes.sum(:value)

@@ -51,4 +51,25 @@ describe Vote do
       expect(Vote.tally(post.id, post.class)).to eq(-2)
     end
   end
+
+  describe '#put_or_post' do
+    before do
+      vote.user = current_user
+    end
+
+    it 'should return post if the vote value is 0' do
+      vote.save
+      expect( vote.put_or_post ).to eq("post")
+    end
+
+    it 'should return put if the vote value is 1' do
+      vote.upvote
+      expect( vote.put_or_post ).to eq("put")
+    end
+
+    it 'should return put if the vote value is -1' do
+      vote.downvote
+      expect( vote.put_or_post ).to eq("put")
+    end
+  end
 end
