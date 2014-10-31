@@ -175,8 +175,8 @@ DEPENDENCIES
   capybara (~> 2.2.1)
   coffee-rails (~> 4.0.0)
   coveralls
-  faker
   database_cleaner (~> 1.2.0)
+  faker
   jbuilder (~> 2.0)
   jquery-rails
   launchy
