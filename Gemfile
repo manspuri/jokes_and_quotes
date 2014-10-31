@@ -42,6 +42,8 @@ gem 'launchy'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'faker', group: [:development, :test]
+
 # continuous integration
 # gem 'travis-lint'
 gem 'simplecov', :require => false, :group => :test
