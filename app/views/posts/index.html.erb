@@ -3,8 +3,8 @@
 	<div class="post-index-individual">
 
 		<span class="votes">
-			<div class="upvote"></div>
-			<div class="vote-count">
+			<div class="post-upvote"></div>
+			<div class="post-vote-count">
 				<p>
 				  <% if post.votes != nil %> 
 					  <%= Vote.tally(post.id, post.class) %> points
@@ -13,7 +13,7 @@
 					<% end %>
 				</p>
 			</div>
-			<div class="downvote"></div>
+			<div class="post-downvote"></div>
 		</span>
 
 		<ul class="post-index">
