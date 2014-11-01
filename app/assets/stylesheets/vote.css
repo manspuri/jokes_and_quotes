@@ -1,0 +1,40 @@
+.post-index-individual {
+  padding: 20px;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.votes {
+  display: block;
+  float: left;
+  padding: 25px 0;
+}
+
+.post-upvote {
+  width: 0px;
+  height: 0px;
+  border-bottom: 20px solid #c8c8c8;
+  border-right: 30px solid transparent;
+  border-left: 30px solid transparent;  
+  display: block;
+
+}
+
+.post-downvote {
+  width: 0px;
+  height: 0px;
+  border-top: 20px solid #c8c8c8;
+  border-right: 30px solid transparent;
+  border-left: 30px solid transparent;
+  display: block;
+}
+
+.post-vote-count {
+  color: #c8c8c8;
+  display: block;
+  padding: 5px 0;
+}
+
+.post-index  {
+  display: inline-block;
+}

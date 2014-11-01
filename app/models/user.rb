@@ -2,6 +2,7 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
   include BCrypt
+  include UserHelper
 
   has_many :posts
   has_many :comments
