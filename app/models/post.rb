@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+  
   include PostCommentLibrary
 
   belongs_to :user
@@ -11,6 +12,14 @@ class Post < ActiveRecord::Base
 
   def stringify_class
     self.class.to_s
+  end
+
+  def self.sort_by_type(type)
+    results = Post.all.select do |post|
+      post.post_type == type
+    end
+
+    self.sort_by_created_at_desc(results)
   end
 
   private
@@ -33,4 +42,11 @@ class Post < ActiveRecord::Base
   	end
   	obj
   end
+
+  def self.sort_by_created_at_desc(posts)
+    posts.sort do |p1, p2|
+      p2.created_at <=> p1.created_at
+    end
+  end
+
 end
