@@ -2,8 +2,16 @@
 	
 	<div class="post-index-individual">
 
-		<span class="votes">
-			<div class="post-upvote"></div>
+		<span id="<%= post.id %>" class="votes">
+			<div class="post-upvote">
+
+					<% if @votes %>
+						<div class="<%= VoteHelper.find_method(@votes, post) %>"></div>
+						<%= link_to "", data_remote: true %>
+					<% end %>
+					
+			</div>
+
 			<div class="post-vote-count">
 				<p>
 				  <% if post.votes != nil %> 
@@ -13,6 +21,7 @@
 					<% end %>
 				</p>
 			</div>
+
 			<div class="post-downvote"></div>
 		</span>
 
