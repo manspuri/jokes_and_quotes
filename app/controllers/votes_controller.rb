@@ -1,7 +1,7 @@
 class VotesController < ApplicationController
   def create
     @context = context
-    @vote = @context.votes.new(vote_params)
+    @vote = @context.votes.new(vote: vote_params)
 
     if @vote.save
       redirect_to context_url(context)
@@ -12,7 +12,7 @@ class VotesController < ApplicationController
     @context = context
     @vote = @context.votes.find(params[:id])
 
-    if @vote.update_attributes(vote_params)
+    if @vote.update_attributes(vote: vote_params)
       redirect_to context_url(context)
     end
   end

@@ -3,25 +3,29 @@
 	<div class="post-index-individual">
 
 		<span id="<%= post.id %>" class="votes">
-			<div class="post-upvote">
-				<% if current_user && current_user.voted?(post) %>
-					<%= link_to "", edit_post_vote_path(post, VoteHelper.find_vote(@votes, post)), method: :put, class: "#{VoteHelper.find_vote(@votes, post)}", remote: true %>
-				<% else %>
-					<%= link_to "", post_votes_path(post), method: :post, remote: true %>
+			<% if current_user && current_user.voted?(post) %>
+				<%= link_to(edit_post_vote_path(post, VoteHelper.find_vote(@votes, post)), method: :put, class: "#{VoteHelper.find_vote(@votes, post)}", remote: true ) do %>
+					<div class="post-upvote"></div>
 				<% end %>
-			</div>
+			<% else %>
+				<%= link_to(post_votes_path(post), method: :post, remote: true ) do %>
+					<div class="post-upvote"></div>
+				<% end %>
+			<% end %>
 
 			<div class="post-vote-count">
 				<%= Vote.tally(post.id, post.class) %> points
 			</div>
 
-			<div class="post-downvote">
-				<% if current_user && current_user.voted?(post) %>
-					<%= link_to "", edit_post_vote_path(post, VoteHelper.find_vote(@votes, post)), method: :put, class: "#{VoteHelper.find_vote(@votes, post)}", remote: true %>
-				<% else %>
-					<%= link_to "", post_votes_path(post), method: :post, remote: true %>
+			<% if current_user && current_user.voted?(post) %>
+				<%= link_to(edit_post_vote_path(post, VoteHelper.find_vote(@votes, post)), method: :put, class: "#{VoteHelper.find_vote(@votes, post)}", remote: true ) do %>
+					<div class="post-downvote"></div>
 				<% end %>
-			</div>
+			<% else %>
+				<%= link_to(post_votes_path(post), method: :post, remote: true ) do %>
+					<div class="post-downvote"></div>
+				<% end %>
+			<% end %>
 		</span>
 
 		<ul class="post-index">
