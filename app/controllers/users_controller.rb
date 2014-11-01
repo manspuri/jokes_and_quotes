@@ -1,10 +1,15 @@
 class UsersController < ApplicationController
 
+include ApplicationHelper
+
+  before_filter :authorized?, only: [:show]
+
   def create
     @user = User.new(user_params)
     if @user.save
       redirect_to posts_path
     else
+      @already_email_error = "Email already exists in our system. Sign in!"
       render 'new'
     end
   end
@@ -14,8 +19,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @posts = @user.posts
+    if current_user.id == params[:id]
+      @user = User.find(params[:id])
+      @posts = @user.posts
+    else
+      redirect_to posts_path
+    end
   end
 
   private
@@ -23,7 +32,6 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :username, :password)
   end
-
 end
 
 
