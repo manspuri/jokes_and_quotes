@@ -15,16 +15,28 @@ describe SessionsController do
   end
 
   describe "POST 'create'" do
-    before(:each) do
-      @params = {email: "rich@rich.com", password: "dogs"}
-      expect(User).to receive(:authenticate).with(email: @params[:email], password: @params[:password]).and_return(nil)
+    # before(:each) do
+    #   @params = {email: "rich@rich.com", password: "dogs"}
+    #   expect(User).to receive(:authenticate).with(email: @params[:email], password: @params[:password]).and_return(nil)
+    # end
+    context 'if login was unsuccessful' do
+      it 'should redirect to the sign-up page' do
+        @params = {email: "rich@rich.com", password: "dogs"}
+        expect(User).to receive(:authenticate).with(email: @params[:email], password: @params[:password]).and_return(nil)
+        post :create, session: @params
+        expect(response).to redirect_to(new_user_path)
+      end
     end
 
-    # not working yet
-    it 'should re-render the new page' do
-      post :create, session: @params
-      expect(response).to render_template('new')
-    end
+    # context 'if login was successful' do
+    #   it 'should redirect to the posts page' do
+    #     @params = {email: "rich@rich.com", password: "cats"}
+    #     expect(User).to receive(:authenticate).with(email: @params[:email], password: @params[:password]).and_return(@user)
+    #     post :create, session: @params
+    #     expect(response).to redirect_to(posts_path)
+    #   end
+    # end
+
   end
 end
 
