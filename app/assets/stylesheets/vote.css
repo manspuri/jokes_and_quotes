@@ -1,3 +1,9 @@
+.post-index-individual {
+  padding: 20px;
+  margin: 0 auto;
+  width: 80%;
+}
+
 .votes {
   display: block;
   float: left;
@@ -25,4 +31,8 @@
 .vote-count {
   color: #c8c8c8;
   display: block;
+}
+
+.post-index  {
+  display: inline-block;
 }
