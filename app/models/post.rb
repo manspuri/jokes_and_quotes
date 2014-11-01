@@ -7,6 +7,10 @@ class Post < ActiveRecord::Base
   	build_comments_nest(self)
   end
 
+  def stringify_class
+    self.class.to_s
+  end
+
   private
 
   def build_comments_nest(user_submission)

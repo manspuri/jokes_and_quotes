@@ -2,24 +2,36 @@
 	
 	<div class="post-index-individual">
 
-		<span class="votes">
-			<div class="post-upvote"></div>
+		<span id="<%= post.id %>" class="votes">
+			<% if current_user && current_user.voted?(post) %>
+				<%= link_to(edit_post_vote_path(post, VoteHelper.find_vote(@votes, post)), method: :put, class: "#{VoteHelper.find_vote(@votes, post)}", remote: true ) do %>
+					<div class="post-upvote"></div>
+				<% end %>
+			<% else %>
+				<%= link_to(post_votes_path(post), method: :post, remote: true ) do %>
+					<div class="post-upvote"></div>
+				<% end %>
+			<% end %>
+
 			<div class="post-vote-count">
-				<p>
-				  <% if post.votes != nil %> 
-					  <%= Vote.tally(post.id, post.class) %> points
-				  <% else %> 
-					  0 points
-					<% end %>
-				</p>
+				<%= Vote.tally(post.id, post.class) %> points
 			</div>
-			<div class="post-downvote"></div>
+
+			<% if current_user && current_user.voted?(post) %>
+				<%= link_to(edit_post_vote_path(post, VoteHelper.find_vote(@votes, post)), method: :put, class: "#{VoteHelper.find_vote(@votes, post)}", remote: true ) do %>
+					<div class="post-downvote"></div>
+				<% end %>
+			<% else %>
+				<%= link_to(post_votes_path(post), method: :post, remote: true ) do %>
+					<div class="post-downvote"></div>
+				<% end %>
+			<% end %>
 		</span>
 
 		<ul class="post-index">
-			<li> Username: <%= post.user.username %> </li>
-			<li> Posted on:<%= post.created_at  %></li>
-			<li> <%= post.text %></li>
+			<li>Username: <%= post.user.username %> </li>
+			<li>Posted on: <%= post.created_at %></li>
+			<li><%= post.text %></li>
 			<li>
 				<% if post.comments != nil %>
 					<%= post.comments.count %> comments
