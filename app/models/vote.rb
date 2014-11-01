@@ -8,7 +8,7 @@ class Vote < ActiveRecord::Base
 
   def self.tally(voteable_id, voteable_type)
     votes = Vote.where(voteable_id: voteable_id, voteable_type: voteable_type)
-    votes.sum(:value)
+    votes.empty? ? 0 : votes.sum(:value)
   end
 
 end

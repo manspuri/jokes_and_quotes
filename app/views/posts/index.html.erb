@@ -12,13 +12,7 @@
 			</div>
 
 			<div class="post-vote-count">
-				<p>
-				  <% if post.votes != nil %> 
-					  <%= Vote.tally(post.id, post.class) %> points
-				  <% else %> 
-					  0 points
-					<% end %>
-				</p>
+				<%= Vote.tally(post.id, post.class) %> points
 			</div>
 
 			<div class="post-downvote">
