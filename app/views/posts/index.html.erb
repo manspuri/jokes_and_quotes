@@ -4,8 +4,10 @@
 
 		<span id="<%= post.id %>" class="votes">
 			<div class="post-upvote">
-				<% if @votes %>
-					<%= link_to "", post_votes_path(post), method: VoteHelper.find_method(@votes, post), remote: true %>
+				<% if current_user && current_user.voted?(post) %>
+					<%= link_to "", edit_post_vote_path(post, VoteHelper.find_vote(@votes, post)), method: :put, class: "#{VoteHelper.find_vote(@votes, post)}", remote: true %>
+				<% else %>
+					<%= link_to "", post_votes_path(post), method: :post, remote: true %>
 				<% end %>
 			</div>
 
@@ -20,16 +22,18 @@
 			</div>
 
 			<div class="post-downvote">
-				<% if @votes %>
-					<%= link_to "", post_votes_path(post), method: VoteHelper.find_method(@votes, post), remote: true %>
+				<% if current_user && current_user.voted?(post) %>
+					<%= link_to "", edit_post_vote_path(post, VoteHelper.find_vote(@votes, post)), method: :put, class: "#{VoteHelper.find_vote(@votes, post)}", remote: true %>
+				<% else %>
+					<%= link_to "", post_votes_path(post), method: :post, remote: true %>
 				<% end %>
 			</div>
 		</span>
 
 		<ul class="post-index">
-			<li> Username: <%= post.user.username %> </li>
-			<li> Posted on: <%= post.created_at  %></li>
-			<li> <%= post.text %></li>
+			<li>Username: <%= post.user.username %> </li>
+			<li>Posted on: <%= post.created_at %></li>
+			<li><%= post.text %></li>
 			<li>
 				<% if post.comments != nil %>
 					<%= post.comments.count %> comments

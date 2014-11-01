@@ -10,5 +10,6 @@ class Vote < ActiveRecord::Base
     votes = Vote.where(voteable_id: voteable_id, voteable_type: voteable_type)
     votes.sum(:value)
   end
+
 end
 
