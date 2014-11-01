@@ -1,4 +1,22 @@
 $(document).ready(function(){
+	function sort_comments_by_popularity(comments_list) {
+		var i;
+
+		comments_list.sort(function(a,b) {
+			return b["votes"] - a["votes"];
+		});
+
+		var new_comment_list = [];
+		for(i = 0; i < comments_list.length; i++) {
+			if(typeof comments_list[i]["comments"] != 'undefined' && comments_list[i]["comments"].length > 0) {
+				comments_list[i]["comments"] = sort_comments_by_popularity(comments_list[i]["comments"]);
+			}
+			new_comment_list.push(comments_list[i]);
+		}
+
+		return new_comment_list;
+	}
+
 	function build_comments_list(comments_list) {
 		var html = '';
 		var i;
@@ -32,5 +50,5 @@ $(document).ready(function(){
 		return html;
 	}
 
-	$('.post-comments').append(build_comments_list(comments));
+	$('.post-comments').append(build_comments_list(sort_comments_by_popularity(comments)));
 });
