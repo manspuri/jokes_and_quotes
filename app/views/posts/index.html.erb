@@ -2,7 +2,7 @@
 <% @posts.each do |post| %>
 
 	<div class="post-index-individual">
-		<%= render partial: "votes/post_votes", locals: { post: post, votes: @votes } %>
+		<%= render partial: "votes/post_votes", locals: { post: post, votes: post.votes } %>
 
 		<ul class="post-index">
 			<li>Username: <%= post.user.username %> </li>

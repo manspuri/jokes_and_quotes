@@ -13,6 +13,12 @@ class VotesController < ApplicationController
     @vote.user = User.find(session[:user_id])
     p @vote
 
+    if params[:class] == "upvote"
+      @vote.upvote
+    else
+      @vote.downvote
+    end
+
     if @vote.save
       p @vote
       redirect_to context_url
@@ -23,7 +29,13 @@ class VotesController < ApplicationController
     @context = context
     @vote = @context.votes.find(params[:id])
 
-    if @vote.update_attributes(vote_params)
+    if params[:class] == "upvote"
+      @vote.upvote
+    else
+      @vote.downvote
+    end
+
+    if @vote.save
       redirect_to context_url
     end
   end
