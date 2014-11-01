@@ -1,7 +1,7 @@
 module VoteHelper
 
   def self.find_vote(votes, post)
-    votes.find_by(voteable_id: post.id, voteable_type: post.stringify_class)
+    votes.find_by(voteable_id: post.id, voteable_type: post.stringify_class).attributes
   end
 
   def upvote

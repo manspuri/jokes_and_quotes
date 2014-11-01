@@ -1,32 +1,8 @@
+<%= @error if @error %>
 <% @posts.each do |post| %>
-	
+
 	<div class="post-index-individual">
-
-		<span id="<%= post.id %>" class="votes">
-			<% if current_user && current_user.voted?(post) %>
-				<%= link_to(edit_post_vote_path(post, VoteHelper.find_vote(@votes, post)), method: :put, class: "#{VoteHelper.find_vote(@votes, post)}", remote: true ) do %>
-					<div class="post-upvote"></div>
-				<% end %>
-			<% else %>
-				<%= link_to(post_votes_path(post), method: :post, remote: true ) do %>
-					<div class="post-upvote"></div>
-				<% end %>
-			<% end %>
-
-			<div class="post-vote-count">
-				<%= Vote.tally(post.id, post.class) %> points
-			</div>
-
-			<% if current_user && current_user.voted?(post) %>
-				<%= link_to(edit_post_vote_path(post, VoteHelper.find_vote(@votes, post)), method: :put, class: "#{VoteHelper.find_vote(@votes, post)}", remote: true ) do %>
-					<div class="post-downvote"></div>
-				<% end %>
-			<% else %>
-				<%= link_to(post_votes_path(post), method: :post, remote: true ) do %>
-					<div class="post-downvote"></div>
-				<% end %>
-			<% end %>
-		</span>
+		<%= render partial: "votes/post_votes", locals: { post: post, votes: @votes } %>
 
 		<ul class="post-index">
 			<li>Username: <%= post.user.username %> </li>
@@ -35,7 +11,7 @@
 			<li>
 				<% if post.comments != nil %>
 					<%= post.comments.count %> comments
-				<% else %> 
+				<% else %>
 						0 comments
 				<% end %>
 			</li>
@@ -43,4 +19,4 @@
 	</div>
 
 <% end %>
-	
+

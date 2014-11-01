@@ -1,10 +1,21 @@
 class VotesController < ApplicationController
   def create
+
+    # unless current_user
+    #   @error = "You must be logged in to do that!"
+    #   @posts = Post.all
+    #   render "posts/index"
+    # end
+
+
     @context = context
-    @vote = @context.votes.new(vote: vote_params)
+    @vote = @context.votes.new(vote_params)
+    @vote.user = User.find(session[:user_id])
+    p @vote
 
     if @vote.save
-      redirect_to context_url(context)
+      p @vote
+      redirect_to context_url
     end
   end
 
@@ -12,8 +23,8 @@ class VotesController < ApplicationController
     @context = context
     @vote = @context.votes.find(params[:id])
 
-    if @vote.update_attributes(vote: vote_params)
-      redirect_to context_url(context)
+    if @vote.update_attributes(vote_params)
+      redirect_to context_url
     end
   end
 
