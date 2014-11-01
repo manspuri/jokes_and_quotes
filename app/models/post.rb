@@ -22,6 +22,14 @@ class Post < ActiveRecord::Base
     self.sort_by_created_at_desc(results)
   end
 
+  def self.sort_by_user(username)
+    results = Post.all.select do |post|
+      post.user.username == username
+    end
+
+    self.sort_by_created_at_desc(results)
+  end
+
   private
 
   def build_comments_nest(user_submission)
