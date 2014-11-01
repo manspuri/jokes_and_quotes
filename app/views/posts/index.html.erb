@@ -4,12 +4,9 @@
 
 		<span id="<%= post.id %>" class="votes">
 			<div class="post-upvote">
-
-					<% if @votes %>
-						<div class="<%= VoteHelper.find_method(@votes, post) %>"></div>
-						<%= link_to "", data_remote: true %>
-					<% end %>
-					
+				<% if @votes %>
+					<%= link_to "", post_votes_path(post), method: VoteHelper.find_method(@votes, post), remote: true %>
+				<% end %>
 			</div>
 
 			<div class="post-vote-count">
@@ -22,12 +19,16 @@
 				</p>
 			</div>
 
-			<div class="post-downvote"></div>
+			<div class="post-downvote">
+				<% if @votes %>
+					<%= link_to "", post_votes_path(post), method: VoteHelper.find_method(@votes, post), remote: true %>
+				<% end %>
+			</div>
 		</span>
 
 		<ul class="post-index">
 			<li> Username: <%= post.user.username %> </li>
-			<li> Posted on:<%= post.created_at  %></li>
+			<li> Posted on: <%= post.created_at  %></li>
 			<li> <%= post.text %></li>
 			<li>
 				<% if post.comments != nil %>
