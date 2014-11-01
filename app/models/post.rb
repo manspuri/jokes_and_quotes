@@ -18,7 +18,8 @@ class Post < ActiveRecord::Base
 
   def build_comment_json(comment)
   	obj = { "text" => comment.text,
-  					"username" => comment.user.username }
+  					"username" => comment.user.username,
+            "date" => "#{comment.created_at.to_date}" }
   	if comment.comments.count > 0
   		obj["comments"] = build_comments_nest(comment)
   	end

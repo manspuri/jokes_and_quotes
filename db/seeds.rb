@@ -70,7 +70,7 @@ while comment_stack.count > 0
 		sub_comment = Comment.create!(
 			user: users.sample,
 			commentable_id:	comment.id,
-			commentable_type: 'comment',
+			commentable_type: 'Comment',
 			text: Faker::Company.catch_phrase
 		)
 		comment_stack << sub_comment
