@@ -7,3 +7,10 @@
 	width: 20px;
 	height: 20px;
 }
+
+.main_add_comment {
+	padding: 4px 8px;
+	background-color: #000;
+	color: #fff;
+	display: inline-block;
+}

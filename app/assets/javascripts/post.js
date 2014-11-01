@@ -14,11 +14,12 @@ $(document).ready(function(){
 
 	function build_comment(comment) {
 		var html = '' +
-		'<li>' +
-			'<div><i class="fa fa-chevron-circle-up"></i>'+ comment["votes"] +'<i class="fa fa-chevron-circle-down"></i></div>' +
+		'<li data-id="'+ comment["id"] +'">' +
+			'<div class="vote_control"><i class="fa fa-chevron-circle-up upvote"></i>'+ comment["votes"] +'<i class="fa fa-chevron-circle-down downvote"></i></div>' +
 			'<header>' +
 				'<span class="comment-author">'+ comment["username"] +'</span>' +
 				'<span class="comment-date">'+ comment["date"] +'</span>' +
+				'<i class="fa fa-plus-square add_comment"></i>' +
 			'</header>' +
 			'<div class="comment-text">' + comment["text"] + '</div>';
 		

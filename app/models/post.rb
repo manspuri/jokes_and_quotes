@@ -26,7 +26,8 @@ class Post < ActiveRecord::Base
   	obj = { "text" => comment.text,
   					"username" => comment.user.username,
             "date" => "#{comment.created_at.to_date}",
-            "votes" => "#{comment.vote_count}" }
+            "votes" => "#{comment.vote_count}",
+            "id" => "#{comment.id}" }
   	if comment.comments.count > 0
   		obj["comments"] = build_comments_nest(comment)
   	end
