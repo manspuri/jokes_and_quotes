@@ -15,6 +15,7 @@ $(document).ready(function(){
 	function build_comment(comment) {
 		var html = '' +
 		'<li>' +
+			'<div><i class="fa fa-chevron-circle-up"></i>'+ comment["votes"] +'<i class="fa fa-chevron-circle-down"></i></div>' +
 			'<header>' +
 				'<span class="comment-author">'+ comment["username"] +'</span>' +
 				'<span class="comment-date">'+ comment["date"] +'</span>' +

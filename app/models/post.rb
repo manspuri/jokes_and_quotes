@@ -1,10 +1,16 @@
 class Post < ActiveRecord::Base
+  include PostCommentLibrary
+
   belongs_to :user
   has_many   :votes, as: :voteable
   has_many   :comments, as: :commentable
 
   def get_comments_json
   	build_comments_nest(self)
+  end
+
+  def stringify_class
+    self.class.to_s
   end
 
   private
@@ -19,7 +25,8 @@ class Post < ActiveRecord::Base
   def build_comment_json(comment)
   	obj = { "text" => comment.text,
   					"username" => comment.user.username,
-            "date" => "#{comment.created_at.to_date}" }
+            "date" => "#{comment.created_at.to_date}",
+            "votes" => "#{comment.vote_count}" }
   	if comment.comments.count > 0
   		obj["comments"] = build_comments_nest(comment)
   	end

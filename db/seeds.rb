@@ -22,7 +22,7 @@ users = (1..20).to_a.map do
 		first_name: Faker::Name.first_name,
 		last_name: Faker::Name.last_name,
 		email: Faker::Internet.email,
-		username: "#{Faker::Internet.user_name} #{rand(10_000)}",
+		username: "#{Faker::Internet.user_name}_#{rand(10_000)}",
 		password: 'password'
 	)
 end
@@ -47,6 +47,14 @@ Post.all.each do |post|
 			commentable_id:	post.id,
 			commentable_type: 'Post',
 			text: Faker::Company.catch_phrase
+		)
+	end
+	users.each do |user|
+		Vote.create!(
+			user: user,
+			voteable_id: post.id,
+			voteable_type: 'Post',
+			value: rand(-1..1)
 		)
 	end
 end
@@ -77,3 +85,13 @@ while comment_stack.count > 0
 	end
 end
 
+Comment.all.each do |comment|
+	users.each do |user|
+		Vote.create!(
+			user: user,
+			voteable_id: comment.id,
+			voteable_type: 'Comment',
+			value: rand(-1..1)
+		)
+	end
+end
