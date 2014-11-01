@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+
   def new
     @user = User.new
   end
@@ -11,7 +12,7 @@ class SessionsController < ApplicationController
       redirect_to posts_path
     else
       @user = User.new
-      @error = "Sorry, we don't recognize that email and password.  Why don't you sign up?"
+      @unrecognized_user_error = "Sorry, we don't recognize that email and password.  Why don't you sign up?"
       redirect_to new_user_path
     end
   end

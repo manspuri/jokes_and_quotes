@@ -2,7 +2,9 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+  end
 
+  def create
     unless session[:user_id].nil?
       @votes = User.find(session[:user_id]).votes
     end
