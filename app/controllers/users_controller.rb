@@ -19,7 +19,7 @@ include ApplicationHelper
   end
 
   def show
-    if current_user.id == params[:id]
+    if current_user.id == params[:id].to_i
       @user = User.find(params[:id])
       @posts = @user.posts
     else
@@ -32,6 +32,8 @@ include ApplicationHelper
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :username, :password)
   end
+
+
 end
 
 
