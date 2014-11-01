@@ -1,6 +1,8 @@
 require 'rails_helper'
 
-describe SessionsController do
+RSpec.describe SessionsController do
+  let(:user_params) {{email: "rich@rich.com", password: "cats"}}
+  let(:invalid_user_params) {{email: "", password: "cats"}}
 
   describe "GET 'new'" do
     it "should be successful" do
@@ -14,11 +16,7 @@ describe SessionsController do
     end
   end
 
-  describe "POST 'create'" do
-    # before(:each) do
-    #   @params = {email: "rich@rich.com", password: "dogs"}
-    #   expect(User).to receive(:authenticate).with(email: @params[:email], password: @params[:password]).and_return(nil)
-    # end
+  describe "#create" do
     context 'if login was unsuccessful' do
       it 'should redirect to the sign-up page' do
         @params = {email: "rich@rich.com", password: "dogs"}
@@ -27,16 +25,6 @@ describe SessionsController do
         expect(response).to redirect_to(new_user_path)
       end
     end
-
-    # context 'if login was successful' do
-    #   it 'should redirect to the posts page' do
-    #     @params = {email: "rich@rich.com", password: "cats"}
-    #     expect(User).to receive(:authenticate).with(email: @params[:email], password: @params[:password]).and_return(@user)
-    #     post :create, session: @params
-    #     expect(response).to redirect_to(posts_path)
-    #   end
-    # end
-
   end
 end
 
