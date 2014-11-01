@@ -1,0 +1,12 @@
+<script type='text/javascript'>var comments = <%=raw @post.get_comments_json.to_json %></script>
+<div id='post-container'>
+	<header>
+		<span class='post-author'><%= @post.user.username %></span>
+		<span class='post-date'><%= @post.created_at %></span>
+		<span class='post-type'><%= @post.post_type %></span>
+	</header>
+	<div class='post-text'><%= @post.text %></div>
+	<div class='post-comments'>
+		<ul></ul>
+	</div>
+</div>

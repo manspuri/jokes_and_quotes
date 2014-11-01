@@ -22,8 +22,8 @@ users = (1..20).to_a.map do
 		first_name: Faker::Name.first_name,
 		last_name: Faker::Name.last_name,
 		email: Faker::Internet.email,
-		username: Faker::Internet.user_name,
-		password_hash: 'password'
+		username: "#{Faker::Internet.user_name} #{rand(10_000)}",
+		password: 'password'
 	)
 end
 
