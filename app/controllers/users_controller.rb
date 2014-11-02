@@ -22,6 +22,7 @@ include ApplicationHelper
     if current_user.id == params[:id].to_i
       @user = User.find(params[:id])
       @posts = @user.posts
+      @comments = @user.comments
       @down_votes = @user.votes.select {|vote| vote.value == -1 }
       @up_votes = @user.votes.select {|vote| vote.value == 1}
     else
