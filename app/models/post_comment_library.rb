@@ -1,7 +1,7 @@
 module PostCommentLibrary
 
 	def vote_count
-		votes.sum(:value)
+		self.votes.sum(:value)
 	end
 
 	def vote_count_since_days_ago(days)

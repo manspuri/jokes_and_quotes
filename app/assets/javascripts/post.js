@@ -276,11 +276,9 @@ $(document).ready(function(){
 		};
 	}
 
-	/*
-	
-	*/
-
-	new PostController().run(comments);
-	new CommentFormController().run();
-	new CommentController().run();
+	if(window.location.href.match(/\/posts\/\d+/,'i')) {
+		new PostController().run(comments);
+		new CommentFormController().run();
+		new CommentController().run();
+	}
 });
