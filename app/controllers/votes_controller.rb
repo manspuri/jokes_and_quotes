@@ -26,7 +26,7 @@ class VotesController < ApplicationController
       @vote.downvote
     end
     if @context.votes.sum(:value) <= -20
-      redirect_to :controller=>'post', :action => 'destroy', :post
+        @context.destroy
     if @vote.save
       render partial: 'votes/post_votes', locals: { post: @context, votes: @context.votes }
       # redirect_to post_vote_path(@context, @vote)

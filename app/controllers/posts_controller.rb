@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 
 include PostCommentLibrary
     #This is my best attempt at working with this before_action helper and the rails syntax for controllers. Heeeere we go...
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update]
 
   def index
     @posts = Post.all
@@ -38,6 +38,7 @@ include PostCommentLibrary
   end
 
   def update
+    if @post.votes != nil && @post.comments != nil
     respond_to do |format|
       if @post.update(post_params)
           format.html {redirect_to @post, notice: 'Post was successfully updated, yo.'}
@@ -46,16 +47,17 @@ include PostCommentLibrary
           format.html {render :edit}
           format.json {render json: @post.errors, status: unprocessable_entity}
       end
+      end
     end
   end
 
-  def destroy
-      @post.destroy
-      respond_to do |format|
-          format.html {redirect_to posts_url, notice: 'Post was successfully destroyed, yo.'}
-          format.json {head :no_content}
-    end
-  end
+  # def destroy
+  #     @post.destroy
+  #     respond_to do |format|
+  #         format.html {redirect_to posts_url, notice: 'Post was successfully destroyed, yo.'}
+  #         format.json {head :no_content}
+  #   end
+  # end
 
 private
   def set_post
