@@ -8,6 +8,10 @@ include PostCommentLibrary
     @posts = Post.all
   end
 
+  def new
+    @post = Post.new
+  end
+
   def create
     @post = Post.new(post_params)
     unless session[:user_id].nil?
@@ -27,6 +31,10 @@ include PostCommentLibrary
 
   def show
 
+  end
+
+  def edit
+     
   end
 
   def update
@@ -55,7 +63,7 @@ private
   end
 
   def post_params
-      params.require(:post).permit(:user,:post_type, :text, :votes, :comments)
+      params.require(:post).permit(:post_type, :text)
   end
 
 end

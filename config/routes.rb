@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :posts, except: [:new, :edit] do
+  resources :posts do
     resources :votes, only: [:show, :create, :edit, :update]
   end
 

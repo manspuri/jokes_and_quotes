@@ -2,13 +2,13 @@
 
 describe PostsController do
 
-  let(:user) { User.create}
+  let(:posts) {Post.all}
   let(:post) { Post.create(user_id: 1, post_type:"joke", text: "What do you call a man with a rubbertoe? Roberto")}
 
   	describe "#index" do 
   		it "should assign posts" do
             get :index
-  		expect(post.count).to be_greater_than(1)
+  		expect(posts.count).to be_greater_than(1)
   	end
   end
 
