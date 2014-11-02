@@ -34,7 +34,7 @@ include PostCommentLibrary
   end
 
   def edit
-     
+
   end
 
   def update
@@ -50,10 +50,10 @@ include PostCommentLibrary
   end
 
   def destroy
-    @post.destroy
-    respond_to do |format|
-        format.html {redirect_to posts_url, notice: 'Post was successfully destroyed, yo.'}
-        format.json {head :no_content}
+      @post.destroy
+      respond_to do |format|
+          format.html {redirect_to posts_url, notice: 'Post was successfully destroyed, yo.'}
+          format.json {head :no_content}
     end
   end
 
