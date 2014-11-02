@@ -3,15 +3,16 @@
 <head>
   <title>Jokquot</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
+  <link href='http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 
-  <link href='http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <header>
 
-    <h1 class="brand">jokquot</h1>
+    <h1 class="brand"><%= link_to "jokquot", root_path %></h1>
 
     <nav>
       <ul>

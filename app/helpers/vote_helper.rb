@@ -6,14 +6,10 @@ module VoteHelper
 
   def upvote
     self.value = 1
-    self.save
-    return self
   end
 
   def downvote
     self.value = -1
-    self.save
-    return self
   end
 
   def put_or_post
