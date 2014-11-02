@@ -1,6 +1,30 @@
 $(document).ready(function(){
 	function Comment() {
-
+		this.formSubmit = function(view) {
+			var text = view.formInputValue();
+			if(text !== '') {
+				var data = 'comment[text]=' + encodeURIComponent(text);
+				data += '&comment[commentable_id]=' + view.formId();
+				data += '&comment[commentable_type]=Comment';
+				$.ajax({
+					url: '/comments',
+					type: 'post',
+					data: data,
+					dataType: 'json',
+					success: function(response) {
+						view.appendComment(response);
+						view.deleteForm();
+					},
+					error: function(response) {
+						console.log(response);
+						view.deleteForm();
+					}
+				});
+			}
+			else {
+				view.deleteForm();
+			}
+		};
 	}
 
 	function CommentView() {
@@ -20,15 +44,73 @@ $(document).ready(function(){
 				'</div>';
 			return html;
 		};
+
+		this.document = function() {
+			return $(document);
+		};
+
+		this.submitButtonIdentifier = function() {
+			return '.sub-add-comment-btn';
+		};
+
+		this.formInputValue = function() {
+			return this.root().find('textarea').val();
+		};
+
+		this.formId = function() {
+			return this.root().closest('li').data('id');
+		};
+
+		this.commentInjectionPoint = function() {
+			return this.root().closest('li').children('ul').first();
+		};
+
+		this.secondaryInjectionPoint = function() {
+			return this.root().closest('li');
+		};
+
+		this.appendComment = function(comment) {
+			var html = '' +
+			'<li data-id="'+ comment["id"] +'">' +
+				'<div class="vote_control"><i class="fa fa-chevron-circle-up upvote"></i>'+ comment["votes"] +'<i class="fa fa-chevron-circle-down downvote"></i></div>' +
+				'<header>' +
+					'<span class="comment-author">'+ comment["username"] +'</span>' +
+					'<span class="comment-date">'+ comment["date"] +'</span>' +
+					'<i class="fa fa-plus-square add_comment"></i>' +
+				'</header>' +
+				'<div class="comment-text">' + comment["text"] + '</div>' +
+			'</li>';
+			var injectionPoint = this.commentInjectionPoint();
+			if(injectionPoint.length !== 0) {
+				injectionPoint.append(html);
+			}
+			else {
+				console.log('second');
+				this.secondaryInjectionPoint().append('<ul>'+html+'</ul>');
+			}
+		};
+
+		this.root = function() {
+			return $('.comment-wrapper');
+		};
+
+		this.deleteForm = function() {
+			this.root().remove();
+		};
 	}
 
 	function CommentController() {
+		var comment = new Comment();
 		var view = new CommentView();
 
 		this.run = function() {
 			view.commentButton().on('click', function(e){
 				console.log('button clicked');
 				view.formInjectionPoint(e).after(view.createCommentForm());
+			});
+
+			view.document().on('click',view.submitButtonIdentifier(),function(e){
+				comment.formSubmit(view);
 			});
 		};
 	}
