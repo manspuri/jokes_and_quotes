@@ -7,13 +7,11 @@ class VotesController < ApplicationController
   end
 
   def create
-
     # unless current_user
     #   @error = "You must be logged in to do that!"
     #   @posts = Post.all
     #   render "posts/index"
     # end
-
 
     @context = context
     @vote = @context.votes.new(vote_params)

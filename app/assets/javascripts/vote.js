@@ -1,16 +1,18 @@
 $(document).ready(function(){
 
   $(".post-upvote").on("click", function(event){
+    var url, method, upvoteId, countId;
     event.preventDefault();
-    var url = $(this).parent().attr("href");
-    var method = $(this).parent().attr("data-method");
-    var upvoteId = $(this).attr("id");
-    var countId = $(this).parent().parent().children(':first-child').next().attr("id");
+    url = $(this).parent().attr("href");
+    method = $(this).parent().attr("data-method");
+    upvoteId = $(this).attr("id");
+    countId = $(this).parent().parent().children(':first-child').next().attr("id");
 
     $.ajax({
       url: url,
       type: method,
       success: function(response){
+        console.log(response);
         $("#" + countId).parent().replaceWith(response);
         $("#" + upvoteId).css({"border-bottom-color":"green"});
         $("#" + countId).css({"color":"green"});
@@ -19,11 +21,13 @@ $(document).ready(function(){
   });
 
   $(".post-downvote").on("click", function(event){
+    var url, method, upvoteId, countId;
+
     event.preventDefault();
-    var url = $(this).parent().attr("href");
-    var method = $(this).parent().attr("data-method");
-    var upvoteId = $(this).attr("id");
-    var countId = $(this).parent().parent().children(':first-child').next().attr("id");
+    url = $(this).parent().attr("href");
+    method = $(this).parent().attr("data-method");
+    upvoteId = $(this).attr("id");
+    countId = $(this).parent().parent().children(':first-child').next().attr("id");
 
     $.ajax({
       url: url,
