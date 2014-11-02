@@ -4,11 +4,33 @@ $(document).ready(function(){
 	}
 
 	function CommentView() {
+		this.commentButton = function() {
+			return $('.add_comment');
+		};
 
+		this.formInjectionPoint = function(e) {
+			return $(e.target).closest('li').children('.comment-text').first();
+		};
+
+		this.createCommentForm = function() {
+			var html = '' +
+				'<div class="comment-wrapper">' +
+					'<textarea id="sub-add-comment-input"></textarea>' +
+					'<br><div class="sub-add-comment-btn">Add Comment</div>' +
+				'</div>';
+			return html;
+		};
 	}
 
 	function CommentController() {
+		var view = new CommentView();
 
+		this.run = function() {
+			view.commentButton().on('click', function(e){
+				console.log('button clicked');
+				view.formInjectionPoint(e).after(view.createCommentForm());
+			});
+		};
 	}
 
 	function Post() {
@@ -178,4 +200,5 @@ $(document).ready(function(){
 
 	new PostController().run(comments);
 	new CommentFormController().run();
+	new CommentController().run();
 });

@@ -8,7 +8,7 @@
 	height: 20px;
 }
 
-.main_add_comment_btn {
+.main_add_comment_btn, .sub-add-comment-btn {
 	padding: 4px 8px;
 	background-color: #000;
 	color: #fff;
@@ -18,13 +18,18 @@
 	border: 2px solid #000;
 }
 
-.main_add_comment_btn:hover {
+.main_add_comment_btn:hover, .sub-add-comment-btn:hover {
 	background-color: #fff;
 	color: #000;
 }
 
 #main-add-comment-input {
 	width: 500px;
+	height: 150px;
+}
+
+#sub-add-comment-input {
+	width: 100%;
 	height: 150px;
 }
 
