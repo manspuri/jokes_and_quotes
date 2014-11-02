@@ -1,15 +1,16 @@
 class PostsController < ApplicationController
-
+include PostCommentLibrary
   def index
     @posts = Post.all
-    
+
     unless session[:user_id].nil?
+
       @votes = User.find(session[:user_id]).votes
     end
   end
 
   def show
-      @post = Post.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def create
