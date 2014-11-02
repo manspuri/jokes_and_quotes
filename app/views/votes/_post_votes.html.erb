@@ -1,0 +1,25 @@
+<span class="votes">
+  <% if current_user && current_user.voted?(post) %>
+    <%= link_to(post_vote_path(post, vote: VoteHelper.find_vote(votes, post).attributes, id: (VoteHelper.find_vote(votes, post).id), class: "upvote" ), method: :put, remote: true) do %>
+      <div id="<%= post.id %>-upvote" class="post-upvote"></div>
+    <% end %>
+  <% else %>
+    <%= link_to( post_votes_path(post, vote: Vote.new.attributes, class: "upvote"), method: :post, remote: true ) do %>
+      <div id="<%= post.id %>-upvote" class="post-upvote"></div>
+    <% end %>
+  <% end %>
+
+  <div id="<%= post.id %>-count" class="post-vote-count">
+    <%= post.votes.sum(:value) %> points
+  </div>
+
+  <% if current_user && current_user.voted?(post) %>
+    <%= link_to(post_vote_path(post, id: (VoteHelper.find_vote(votes, post).id), vote: VoteHelper.find_vote(votes, post).attributes), method: :put, remote: true ) do %>
+      <div id="<%= post.id %>-downvote" class="post-downvote"></div>
+    <% end %>
+  <% else %>
+    <%= link_to(post_votes_path( post, vote: Vote.new.attributes ), method: :post, remote: true ) do %>
+      <div id="<%= post.id %>-downvote" class="post-downvote"></div>
+    <% end %>
+  <% end %>
+</span>

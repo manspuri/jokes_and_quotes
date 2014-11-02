@@ -1,14 +1,17 @@
 class PostsController < ApplicationController
+
+include PostCommentLibrary
     #This is my best attempt at working with this before_action helper and the rails syntax for controllers. Heeeere we go...
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.all       
+    @posts = Post.all
   end
 
   def create
     @post = Post.new(post_params)
     unless session[:user_id].nil?
+
       @votes = User.find(session[:user_id]).votes
     end
     respond_to do |format|
@@ -23,6 +26,7 @@ class PostsController < ApplicationController
   end
 
   def show
+
   end
 
   def update

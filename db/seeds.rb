@@ -37,6 +37,7 @@ users.each do |user|
 			post_type:	TYPES.sample,
 			text: Faker::Company.catch_phrase
 		)
+		sleep 1
 	end
 end
 
