@@ -1,4 +1,11 @@
 class VotesController < ApplicationController
+
+  def show
+    @post = Post.find(params[:post_id])
+    @votes = @post.votes
+    render partial: 'votes/post_votes'
+  end
+
   def create
 
     # unless current_user
@@ -20,8 +27,8 @@ class VotesController < ApplicationController
     end
 
     if @vote.save
-      p @vote
-      redirect_to context_url
+      render partial: 'votes/post_votes', locals: { post: @context, votes: @context.votes }
+      # redirect_to post_vote_path(@context, @vote)
     end
   end
 
@@ -36,7 +43,8 @@ class VotesController < ApplicationController
     end
 
     if @vote.save
-      redirect_to context_url
+      render partial: 'votes/post_votes', locals: { post: @context, votes: @context.votes }
+      # redirect_to post_vote_path(@context, @vote)
     end
   end
 
