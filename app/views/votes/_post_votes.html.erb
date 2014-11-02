@@ -1,11 +1,11 @@
 <span class="votes">
   <% if current_user && current_user.voted?(post) %>
     <%= link_to(post_vote_path(post, vote: VoteHelper.find_vote(votes, post).attributes, id: (VoteHelper.find_vote(votes, post).id), class: "upvote" ), method: :put, remote: true) do %>
-      <div id="<%= post.id %>-upvote" class="post-upvote"></div>
+      <div id="<%= post.id %>-upvote" class="post-upvote <%="upvoted" if current_user.upvoted?(post) %>"> </div>
     <% end %>
   <% else %>
     <%= link_to( post_votes_path(post, vote: Vote.new.attributes, class: "upvote"), method: :post, remote: true ) do %>
-      <div id="<%= post.id %>-upvote" class="post-upvote"></div>
+      <div id="<%= post.id %>-upvote" class="post-upvote <%= "upvoted" if current_user.upvoted?(post) %><%= "downvoted" if current_user.downvoted?(post) %>"></div>
     <% end %>
   <% end %>
 

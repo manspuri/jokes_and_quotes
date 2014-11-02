@@ -1,3 +1,7 @@
+.post-index  {
+  display: inline-block;
+}
+
 .post-index-individual {
   padding: 20px;
   margin: 0 auto;
@@ -39,13 +43,7 @@
   color: green;
 }
 
-
 .downvoted {
   border-top-color: red;
   color: red;
-}
-
-
-.post-index  {
-  display: inline-block;
 }
