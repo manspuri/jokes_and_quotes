@@ -19,6 +19,7 @@ class PostsController < ApplicationController
           format.html {render :new}
           format.json {render json: @post.errors, status: unprocessable_entity}
       end
+    end
   end
 
   def show
@@ -50,7 +51,7 @@ private
   end
 
   def post_params
-      params.require(:post).permit(:user_id,:post_type, :text)
+      params.require(:post).permit(:user,:post_type, :text, :votes, :comments)
   end
 
 end
