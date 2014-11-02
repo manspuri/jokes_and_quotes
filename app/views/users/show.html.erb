@@ -1,8 +1,12 @@
 <h2> Hey there, <%= @user.first_name %>! </h2>
+<ul>
+  <li><%= @user.first_name %> <%= @user.last_name %></li>
+  <li><%= @user.email %></li>
+  <li><%= @user.username %></li>
+</ul>
 <h3> Below are your JokQuots! </h3>
   <%= @posts.each do |post| %>
-    <p><%= post.text %></p>
+    <p><%= link_to "#{post.text}", post_path(post)%></p>
     <p><%= post.type %></p>
-    <p><%= post.comments %></p>
   <% end %>
 
