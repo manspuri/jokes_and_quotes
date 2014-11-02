@@ -4,13 +4,13 @@
   <%= form_for :session, url: sessions_path do |f| %>
 
   <p>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.label :email, class: "user-input-field-name" %>
+    <%= f.text_field :email, class: "user-input-field" %>
   </p>
 
   <p>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= f.label :password, class: "user-input-field-name" %>
+    <%= f.password_field :password, class: "user-input-field" %>
   </p>
 
   <p>

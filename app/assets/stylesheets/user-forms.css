@@ -9,16 +9,27 @@
   color: #636;
   margin: 0 auto;
   text-align: right;
-  width: 28%;
+  width: 35%;
 }
 
 
 .submit-user-button {
-  margin-right: 110px;
+  margin-right: 153px;
   background-color: #636;
   color: #f6f6f6;
   border: none;
   border-radius: 8px;
   outline: none;
   padding: 8px;
+}
+
+.user-input-field {
+  border-radius: 4px;
+  padding: 5px 5px;
+  font-family: 'PT Serif';
+}
+
+.user-input-field-name {
+  font-size: 18px;
+  padding-right: 5px;
 }

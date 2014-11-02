@@ -1,11 +1,12 @@
 body {
-  background-color: #ccc5c9
+  background-color: #ccc5c9;
 }
 header {
   background-color: #fcfcfc;
   color: #303;
   position: fixed;
   width: 100%;
+  border-bottom: 6px solid #ccc5c9;
 }
 
 .brand {
