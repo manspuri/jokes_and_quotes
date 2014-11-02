@@ -33,8 +33,6 @@ $(document).ready(function(){
         $("#" + upvoteId).css({"border-top-color":"red"});
         $("#" + countId).css({"color":"red"});
       }
-
+    });
   });
-
-});
 });
