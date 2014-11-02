@@ -10,4 +10,14 @@ module UserHelper
   def downvoted?(post)
     self.votes.find_by(voteable_id: post.id).value == -1
   end
+
+  def upvoted_or_downvoted(post)
+    if voted?(post)
+      if downvoted?(post)
+        return "downvoted"
+      elsif upvoted?(post)
+        return "upvoted"
+      end
+    end
+  end
 end

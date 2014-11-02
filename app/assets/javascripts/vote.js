@@ -1,12 +1,18 @@
 $(document).ready(function(){
 
   $(".post-upvote").on("click", function(event){
-    var url, method, upvoteId, countId;
     event.preventDefault();
-    url = $(this).parent().attr("href");
-    method = $(this).parent().attr("data-method");
+    var url, method, upvoteId, countId;
+    console.log(event);
+    console.log(this);
+    url = $(this).attr("href");
+    console.log("this is the url: " + url);
+
+    method = $(this).attr("data-method");
+    console.log("this is the method: " + method);
+
     upvoteId = $(this).attr("id");
-    countId = $(this).parent().parent().children(':first-child').next().attr("id");
+    countId = $(this).parent().children('div').attr("id");
 
     $.ajax({
       url: url,
@@ -21,13 +27,15 @@ $(document).ready(function(){
   });
 
   $(".post-downvote").on("click", function(event){
-    var url, method, upvoteId, countId;
-
     event.preventDefault();
-    url = $(this).parent().attr("href");
-    method = $(this).parent().attr("data-method");
+    var url, method, upvoteId, countId;
+    url = $(this).attr("href");
+    method = $(this).attr("data-method");
     upvoteId = $(this).attr("id");
-    countId = $(this).parent().parent().children(':first-child').next().attr("id");
+    countId = $(this).parent().children(':first-child').next().attr("id");
+
+    console.log(url);
+    console.log(method);
 
     $.ajax({
       url: url,

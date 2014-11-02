@@ -1,25 +1,18 @@
 <span class="votes">
   <% if current_user && current_user.voted?(post) %>
-    <%= link_to(post_vote_path(post, vote: VoteHelper.find_vote(votes, post).attributes, id: (VoteHelper.find_vote(votes, post).id), class: "upvote" ), method: :put, remote: true) do %>
-      <div id="<%= post.id %>-upvote" class="post-upvote <%="upvoted" if current_user.upvoted?(post) %>"> </div>
-    <% end %>
+    <%= link_to "", post_vote_path(post, vote: VoteHelper.find_vote(votes, post, current_user).attributes, id: (VoteHelper.find_vote(votes, post, current_user).id), class: "upvote"), id: "#{post.id}-upvote", class: "post-upvote #{current_user.upvoted_or_downvoted(post)}", method: :put %>
+
   <% else %>
-    <%= link_to( post_votes_path(post, vote: Vote.new.attributes, class: "upvote"), method: :post, remote: true ) do %>
-      <div id="<%= post.id %>-upvote" class="post-upvote <%= "upvoted" if current_user.upvoted?(post) %><%= "downvoted" if current_user.downvoted?(post) %>"></div>
-    <% end %>
+    <%= link_to "", post_votes_path(post, vote: Vote.new.attributes, class: "upvote"), id: "#{post.id}-upvote", class: "post-upvote #{current_user.upvoted_or_downvoted(post)}", method: :post  %>
   <% end %>
 
-  <div id="<%= post.id %>-count" class="post-vote-count">
+  <div id="<%= post.id %>-count" class="post-vote-count <%= current_user.upvoted_or_downvoted(post) if current_user && current_user.voted?(post) %>">
     <%= post.votes.sum(:value) %> points
   </div>
 
   <% if current_user && current_user.voted?(post) %>
-    <%= link_to(post_vote_path(post, id: (VoteHelper.find_vote(votes, post).id), vote: VoteHelper.find_vote(votes, post).attributes), method: :put, remote: true ) do %>
-      <div id="<%= post.id %>-downvote" class="post-downvote"></div>
-    <% end %>
+    <%= link_to "", post_vote_path(post, id: (VoteHelper.find_vote(votes, post, current_user).id), vote: VoteHelper.find_vote(votes, post, current_user).attributes, class: "downvote"), id: "#{post.id}-downvote", class: "post-downvote #{current_user.upvoted_or_downvoted(post)}", method: :put %>
   <% else %>
-    <%= link_to(post_votes_path( post, vote: Vote.new.attributes ), method: :post, remote: true ) do %>
-      <div id="<%= post.id %>-downvote" class="post-downvote"></div>
-    <% end %>
+    <%= link_to "", post_votes_path( post, vote: Vote.new.attributes, class: "downvote" ), id: "#{post.id}-downvote", class: "post-downvote #{current_user.upvoted_or_downvoted(post)}", method: :post  %>
   <% end %>
 </span>
