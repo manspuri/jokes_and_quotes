@@ -30,6 +30,16 @@ class Post < ActiveRecord::Base
     self.sort_by_created_at_desc(results)
   end
 
+  def self.sort_by_popularity
+    Post.all.map do |post|
+      [post, post.vote_count]
+    end.sort do |p1, p2|
+      p2[1] <=> p1[1]
+    end.map do |array|
+      array[0]
+    end
+  end
+
   private
 
   def build_comments_nest(user_submission)
