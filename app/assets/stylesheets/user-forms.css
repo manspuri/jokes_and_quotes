@@ -1,9 +1,24 @@
 .signup-title {
   font-family: 'Open Sans Condensed';
-  color: #303;
+  color: #636;
+  text-align: center;
 }
 
 .signup-form {
   font-family: 'Open Sans Condensed';
-  color: #303;
+  color: #636;
+  margin: 0 auto;
+  text-align: right;
+  width: 28%;
+}
+
+
+.submit-user-button {
+  margin-right: 110px;
+  background-color: #636;
+  color: #f6f6f6;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  padding: 8px;
 }
