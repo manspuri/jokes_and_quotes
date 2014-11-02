@@ -40,6 +40,31 @@ class Post < ActiveRecord::Base
     end
   end
 
+  def self.sort_by_created_at_desc(posts)
+    posts.sort do |p1, p2|
+      p2.created_at <=> p1.created_at
+    end
+  end
+
+  def self.sort_by_trending
+    Post.all.map do |post|
+      [post, post.trending_value]
+    end.sort do |p1, p2|
+      p2[1] <=> p1[1]
+    end.map do |array|
+      array[0]
+    end
+  end
+
+  def trending_value
+    days_ago = 14.0
+    total_votes = vote_count_since_days_ago(days_ago)
+    time_now = Time.now.in_time_zone('Central Time (US & Canada)')
+    time_created = created_at.in_time_zone('Central Time (US & Canada)')
+    total_days = PostCommentLibrary.convert_to_days(time_now - time_created) > days_ago ? days_ago : PostCommentLibrary.convert_to_days(time_now - time_created)
+    total_votes / total_days
+  end
+
   private
 
   def build_comments_nest(user_submission)
@@ -59,12 +84,6 @@ class Post < ActiveRecord::Base
   		obj["comments"] = build_comments_nest(comment)
   	end
   	obj
-  end
-
-  def self.sort_by_created_at_desc(posts)
-    posts.sort do |p1, p2|
-      p2.created_at <=> p1.created_at
-    end
   end
 
 end
