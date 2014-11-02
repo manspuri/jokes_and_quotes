@@ -14,8 +14,8 @@ $(document).ready(function(){
       success: function(response){
         console.log(response);
         $("#" + countId).parent().replaceWith(response);
-        $("#" + upvoteId).css({"border-bottom-color":"green"});
-        $("#" + countId).css({"color":"green"});
+        $("#" + upvoteId).addClass("upvoted");
+        $("#" + countId).addClass("upvoted");
       }
     });
   });
@@ -34,8 +34,8 @@ $(document).ready(function(){
       type: method,
       success: function(response){
         $("#" + countId).parent().replaceWith(response);
-        $("#" + upvoteId).css({"border-top-color":"red"});
-        $("#" + countId).css({"color":"red"});
+        $("#" + upvoteId).addClass("downvoted");
+        $("#" + countId).addClass("downvoted");
       }
     });
   });

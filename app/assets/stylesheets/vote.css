@@ -17,7 +17,12 @@
   border-right: 30px solid transparent;
   border-left: 30px solid transparent;
   display: block;
+}
 
+.post-vote-count {
+  color: #c8c8c8;
+  display: block;
+  padding: 5px 0;
 }
 
 .post-downvote {
@@ -29,11 +34,17 @@
   display: block;
 }
 
-.post-vote-count {
-  color: #c8c8c8;
-  display: block;
-  padding: 5px 0;
+.upvoted {
+  border-bottom-color: green;
+  color: green;
 }
+
+
+.downvoted {
+  border-top-color: red;
+  color: red;
+}
+
 
 .post-index  {
   display: inline-block;
