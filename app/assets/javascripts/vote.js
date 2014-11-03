@@ -7,6 +7,8 @@ $(document).ready(function(){
     var upvoteId = $(this).attr("id");
     var countId = $(this).parent().parent().children(':first-child').next().attr("id");
 
+
+
     $.ajax({
       url: url,
       type: method,
