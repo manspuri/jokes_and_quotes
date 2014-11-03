@@ -6,7 +6,8 @@
 		<span class='post-type'><%= @post.post_type %></span>
 	</header>
 	<div class='post-text'><%= @post.text %></div>
-	<div class='main_add_comment'>Add Comment</div>
+	<textarea data-id='<%= @post.id %>' id='main-add-comment-input' class='hidden'></textarea>
+	<br><div class='main_add_comment_btn'>Add Comment</div>
 	<div class='post-comments'>
 	</div>
 </div>
