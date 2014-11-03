@@ -1,18 +1,8 @@
 class VotesController < ApplicationController
-
-  # def show
-  #   @post = Post.find(params[:post_id])
-  #   @votes = @post.votes
-  #   render partial: 'votes/post_votes'
-  # end
+  include ApplicationHelper
+  before_filter :authorized?, only: [:create, :update]
 
   def create
-    # unless current_user
-    #   @error = "You must be logged in to do that!"
-    #   @posts = Post.all
-    #   render "posts/index"
-    # end
-
     @context = context
     @vote = @context.votes.new(vote_params)
     @vote.user_id = session[:user_id]

@@ -10,7 +10,7 @@
 
 </head>
 <body>
-  <header>
+  <header class="site-title">
 
     <h1 class="brand"><%= link_to "jokquot", root_path %></h1>
 
@@ -18,12 +18,12 @@
       <ul>
         <span class="user_status">
           <% if current_user.nil? %>
-            <li><%= link_to "Sign in", new_session_path, class: "sign_in_link", remote: true %></li>
-            <li><%= link_to "Sign up", new_user_path, class: "sign_up_link", remote: true %></li>
+            <li><%= link_to "sign in", new_session_path, class: "sign_in_link", remote: true %></li>
+            <li><%= link_to "sign up", new_user_path, class: "sign_up_link", remote: true %></li>
           <% else %>
-            <li><%= link_to "#{current_user.username}", user_path(current_user.id) %></li>
-            <li><%= link_to "Create post", new_post_path %></li>
-            <li><%= link_to "Sign out", log_out_path, method: "delete" %></li>
+            <li><%= link_to "create post", new_post_path %></li>
+            <li><%= link_to "sign out", log_out_path, method: "delete" %></li>
+            <li><%= link_to "#{current_user.username}", user_path(current_user.id), class: "nav-username" %></li>
           <% end %>
         </span>
       </ul>

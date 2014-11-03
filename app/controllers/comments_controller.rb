@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-
-
+	include ApplicationHelper
+	before_filter :authorized?, only: [:create]
 
 	def create
 		user = User.find(session[:user_id])
