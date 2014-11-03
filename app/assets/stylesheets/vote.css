@@ -1,3 +1,7 @@
+.post-index  {
+  display: inline-block;
+}
+
 .post-index-individual {
   padding: 20px;
   margin: 0 auto;
@@ -17,7 +21,12 @@
   border-right: 30px solid transparent;
   border-left: 30px solid transparent;
   display: block;
+}
 
+.post-vote-count {
+  color: #c8c8c8;
+  display: block;
+  padding: 5px 0;
 }
 
 .post-downvote {
@@ -29,12 +38,12 @@
   display: block;
 }
 
-.post-vote-count {
-  color: #c8c8c8;
-  display: block;
-  padding: 5px 0;
+.upvoted {
+  border-bottom-color: green;
+  color: green;
 }
 
-.post-index  {
-  display: inline-block;
+.downvoted {
+  border-top-color: red;
+  color: red;
 }
