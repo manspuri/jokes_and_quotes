@@ -9,13 +9,29 @@
   color: #636;
   margin: 0 auto;
   text-align: right;
-  width: 36%;
+  width: 35%;
 }
 
+.post-form {
+ font-family: 'Open Sans Condensed';
+  color: #636;
+  margin: 0 auto;
+  text-align: right;
+  width: 40%;
+}
 
 .submit-user-button {
   margin-right: 153px;
   background-color: #636;
+  color: #f6f6f6;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  padding: 8px;
+}
+
+.submit-post-button {
+ background-color: #636;
   color: #f6f6f6;
   border: none;
   border-radius: 8px;
