@@ -24,6 +24,7 @@ $(document).ready(function(){
         $("#" + countId).addClass("upvoted");
       }
     });
+    return false;
   });
 
   $(".post-downvote").on("click", function(event){
@@ -46,5 +47,6 @@ $(document).ready(function(){
         $("#" + countId).addClass("downvoted");
       }
     });
+  return false;
   });
 });

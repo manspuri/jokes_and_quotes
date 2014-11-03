@@ -30,50 +30,17 @@ class VotesController < ApplicationController
   end
 
   def update
-    breaker = "----------------------------------"
     @context = context
-
-    p breaker
-    p "This is the context"
-    p @context
-    p breaker
-
     @vote = @context.votes.find(vote_params[:id])
-
-    p breaker
-    p "This is the found vote"
-    p @vote
-    p breaker
-    p "These are the params"
-    p vote_params
-    p breaker
 
     update_params = {}
     if params[:class] == "upvote"
       update_params = {value: 1}
-
-      p breaker
-      p "This is the vote"
-      p @vote
-      p breaker
-
     elsif params[:class] == "downvote"
       update_params = {value: -1}
-
-      p breaker
-      p "This is the vote"
-      p @vote
-      p breaker
-
     end
 
     if @vote.update_attributes(update_params)
-
-      p breaker
-      p "This is the saved vote"
-      p @vote
-      p breaker
-
       render partial: 'votes/post_votes', locals: { post: @context, votes: @context.votes }
     end
   end
