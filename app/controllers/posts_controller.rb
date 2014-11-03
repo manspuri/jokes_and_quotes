@@ -4,7 +4,7 @@ include PostCommentLibrary
 include ApplicationHelper
     #This is my best attempt at working with this before_action helper and the rails syntax for controllers. Heeeere we go...
   before_action :set_post, only: [:show, :edit, :update]
-  before_filter :authorized?, only: [:new, :update, :create]
+  before_filter :authorized?, only: [:new, :edit, :update, :create]
 
   def index
     @posts = Post.all
@@ -36,6 +36,9 @@ include ApplicationHelper
   end
 
   def edit
+    if current_user != @post.user
+      redirect_to post_path(@post)
+    end
   end
 
   def update
