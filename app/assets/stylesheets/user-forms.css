@@ -17,7 +17,7 @@
   color: #636;
   margin: 0 auto;
   text-align: right;
-  width: 40%;
+  width: 60%;
 }
 
 .submit-user-button {
@@ -31,7 +31,8 @@
 }
 
 .submit-post-button {
- background-color: #636;
+  margin-right: 275px;
+  background-color: #636;
   color: #f6f6f6;
   border: none;
   border-radius: 8px;
@@ -43,6 +44,14 @@
   border-radius: 4px;
   padding: 5px 5px;
   font-family: 'PT Serif';
+}
+
+.post-input-field {
+  margin: 3px;
+  border-radius: 4px;
+  padding: 5px 5px;
+  font-family: 'PT Serif';
+  width: 75%;
 }
 
 .user-input-field-name {
