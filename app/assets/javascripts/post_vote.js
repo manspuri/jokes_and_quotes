@@ -1,38 +1,3 @@
-/*
-on click .vote_control
-	get class of button being clicked
-	get id of element being voted on
-	submit ajax vote create request with special param to branch
-		failed_upvote
-			alert('You have already upvoted!')
-		failed_downvote
-			alert('You have already downvoted!')
-		success_upvote
-			increase vote number
-			if bg default
-				make bg green
-			else
-				make bg default
-		success_downvote
-			decrease vote number
-			if bg default
-				make bg red
-			else
-				make bg default
-*/
-
-// function Vote() {
-
-// }
-
-// function voteView() {
-	
-// }
-
-// function VoteController() {
-
-// }
-
 $(document).on('click','.vote_control i', function(e){
 	var current_highlight_class = $(e.target).closest('.vote_control').find('.highlight').first();
 	if(current_highlight_class.length > 0) {
