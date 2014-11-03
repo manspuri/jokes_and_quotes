@@ -1,0 +1,16 @@
+<script type='text/javascript'>var comments = <%=raw @post.get_comments_json.to_json %></script>
+<div id='post-container'>
+	<header class="post-author-details">
+		<span class='post-author'><%= @post.user.username %></span>
+		<span class='post-date small-font'><%= @post.created_at %></span>
+		<span class='post-type'><%= @post.post_type %></span>
+	</header>
+	<div class='post-text'><%= @post.text %></div>
+	<textarea data-id='<%= @post.id %>' id='main-add-comment-input' class='hidden'></textarea>
+	<br><div class='main_add_comment_btn'>Add Comment</div>
+	<% if @post.votes.empty? && @post.comments.empty? %>
+		<%= link_to "Edit post", edit_post_path(@post), class: 'edit_post_button' %>
+	<% end %>
+	<div class='post-comments'>
+	</div>
+</div>

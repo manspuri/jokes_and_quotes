@@ -2,37 +2,39 @@
 <html>
 <head>
   <title>Jokquot</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <link href='http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 
-  <link href='http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <header>
+  <header class="site-title">
 
-    <h1 class="brand">jokquot</h1>
+    <h1 class="brand"><%= link_to "jokquot", root_path %></h1>
 
     <nav>
       <ul>
         <span class="user_status">
           <% if current_user.nil? %>
-            <li><%= link_to "Sign in", new_session_path %></li>
-            <li><%= link_to "Sign up", new_user_path %></li>
+            <li><%= link_to "sign in", new_session_path, class: "sign_in_link", remote: true %></li>
+            <li><%= link_to "sign up", new_user_path, class: "sign_up_link", remote: true %></li>
           <% else %>
-            <li><%= link_to "#{current_user.username}", user_path(current_user.id) %></li>
-            <li><%= link_to "Sign out", log_out_path, method: "delete" %></li>
+            <li><%= link_to "create post", new_post_path %></li>
+            <li><%= link_to "sign out", log_out_path, method: "delete" %></li>
+            <li><%= link_to "#{current_user.username}", user_path(current_user.id), class: "nav-username" %></li>
           <% end %>
         </span>
       </ul>
     </nav>
   </header>
-  <div class="search">
+<!--   <div class="search">
     <%= form_tag do %>
       <input id="search-box" type="text" placeholder="Search" />
       <input class="search-button" type="submit" value="Q" />
     <% end %>
-  </div>
+  </div> -->
   <div class="container">
     <%= yield %>
   </div>

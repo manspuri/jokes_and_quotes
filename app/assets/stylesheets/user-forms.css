@@ -1,0 +1,60 @@
+.signup-title {
+  font-family: 'Open Sans Condensed';
+  color: #636;
+  text-align: center;
+}
+
+.signup-form {
+  font-family: 'Open Sans Condensed';
+  color: #636;
+  margin: 0 auto;
+  text-align: right;
+  width: 35%;
+}
+
+.post-form {
+ font-family: 'Open Sans Condensed';
+  color: #636;
+  margin: 0 auto;
+  text-align: right;
+  width: 60%;
+}
+
+.submit-user-button {
+  margin-right: 153px;
+  background-color: #636;
+  color: #f6f6f6;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  padding: 8px;
+}
+
+.submit-post-button {
+  margin-right: 275px;
+  background-color: #636;
+  color: #f6f6f6;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  padding: 8px;
+}
+
+.user-input-field {
+  border-radius: 4px;
+  padding: 5px 5px;
+  font-family: 'PT Serif';
+}
+
+.post-input-field {
+  margin: 3px;
+  border-radius: 4px;
+  padding: 5px 5px;
+  font-family: 'PT Serif';
+  width: 75%;
+}
+
+.user-input-field-name {
+  font-size: 18px;
+  padding-right: 5px;
+}

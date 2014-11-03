@@ -1,11 +1,13 @@
 body {
-  background-color: #cfc8cc
+  background-color: #ccc5c9;
 }
-header {
-  background-color: #f6f6f6;
+.site-title  {
+  background-color: #fcfcfc;
   color: #303;
   position: fixed;
   width: 100%;
+  top: 0;
+  box-shadow: 0 0 1em #333033;
 }
 
 .brand {
@@ -16,13 +18,15 @@ header {
 }
 
 .container {
-  width: 800px;
+  width: 840px;
   margin: 0 auto;
   padding: 15px;
   clear: both;
   font-family: 'PT Serif';
   margin-top: 100px;
-  background-color: #f6f6f6;
+  background-color: #fcfcfc;
+  border-radius: 5px;
+  box-shadow: 0 0 1.5em #333033;
 }
 
 nav {
@@ -35,6 +39,18 @@ nav li {
   list-style: none;
   display: inline;
   padding: 5px;
+}
+
+nav a, nav a:visited {
+  color: #7AC5CF;
+}
+
+nav a:hover {
+  color: #A1DBE3;
+}
+
+a.nav-username, a.nav-username:visited, a.nav-username:hover {
+  color: #303;
 }
 
 .search {
@@ -63,4 +79,8 @@ a, a:visited {
 
 header a, headera a:visited {
   color: #303;
+}
+
+.small-font {
+  font-size: 11px;
 }
