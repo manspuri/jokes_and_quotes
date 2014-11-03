@@ -1,8 +1,10 @@
 class PostsController < ApplicationController
 
 include PostCommentLibrary
+include ApplicationHelper
     #This is my best attempt at working with this before_action helper and the rails syntax for controllers. Heeeere we go...
   before_action :set_post, only: [:show, :edit, :update]
+  before_filter :authorized?, only: [:new, :update, :create]
 
   def index
     @posts = Post.all
