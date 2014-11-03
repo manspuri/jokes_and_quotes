@@ -19,15 +19,20 @@ $(document).on('click','.vote_control i', function(e){
 			dataType: 'json',
 			data: 'vote[value]='+value+'&vote[voteable_id]='+id+'&vote[voteable_type]=Comment',
 			success: function(response) {
-				if(clicked.closest('.vote_control').find('.highlight').length) {
-					clicked.closest('.vote_control').find('i').removeClass('highlight');
-				} else {
-					clicked.closest('.vote_control').find('i').removeClass('highlight');
-					clicked.addClass('highlight');
+				if(typeof response["oh_no"] !== 'undefined') {
+					clicked.closest('li').remove();
 				}
-				var span = clicked.closest('.vote_control').find('span').first();
-				var span_val = span.text() * 1;
-				span.text(span_val + value);
+				else {
+					if(clicked.closest('.vote_control').find('.highlight').length) {
+						clicked.closest('.vote_control').find('i').removeClass('highlight');
+					} else {
+						clicked.closest('.vote_control').find('i').removeClass('highlight');
+						clicked.addClass('highlight');
+					}
+					var span = clicked.closest('.vote_control').find('span').first();
+					var span_val = span.text() * 1;
+					span.text(span_val + value);
+				}
 			}, error: function(response) {
 				console.log(response);
 			}
