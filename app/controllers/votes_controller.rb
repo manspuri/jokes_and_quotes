@@ -1,12 +1,13 @@
 class VotesController < ApplicationController
-
-  # def show
-  #   @post = Post.find(params[:post_id])
-  #   @votes = @post.votes
-  #   render partial: 'votes/post_votes'
-  # end
+  include ApplicationHelper
+  before_filter :authorized?, only: [:create, :update]
 
   def create
+
+    @context = context
+    @vote = @context.votes.new(vote_params)
+    @vote.user_id = session[:user_id]
+
     if(request.referer.match(/\/posts\/\d+/i))
       user = User.find(session[:user_id])
       vote = Vote.new(vote_params)
@@ -23,16 +24,10 @@ class VotesController < ApplicationController
         render json: {error: 'failed'}
       end
     else
-      
-      # unless current_user
-      #   @error = "You must be logged in to do that!"
-      #   @posts = Post.all
-      #   render "posts/index"
-      # end
-
       @context = context
       @vote = @context.votes.new(vote_params)
       @vote.user_id = session[:user_id]
+
 
       if params[:class] == "upvote"
         @vote.upvote
