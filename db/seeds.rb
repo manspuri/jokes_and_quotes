@@ -22,6 +22,9 @@ foreach comment (recursive) make 0-2 comments
 # 		first_name: Faker::Name.first_name,
 # 		last_name: Faker::Name.last_name,
 # 		email: Faker::Internet.email,
+# 		username: Faker::Internet.user_name,
+# 		password_hash: 'password'
+
 # 		username: "#{Faker::Internet.user_name}_#{rand(10_000)}",
 # 		password: 'password'
 # 	)
@@ -37,6 +40,7 @@ foreach comment (recursive) make 0-2 comments
 # 			post_type:	TYPES.sample,
 # 			text: Faker::Company.catch_phrase
 # 		)
+
 # 		sleep 1
 # 	end
 # end
@@ -50,6 +54,7 @@ foreach comment (recursive) make 0-2 comments
 # 			text: Faker::Company.catch_phrase
 # 		)
 # 	end
+
 # 	users.each do |user|
 # 		Vote.create!(
 # 			user: user,
@@ -79,6 +84,8 @@ foreach comment (recursive) make 0-2 comments
 # 		sub_comment = Comment.create!(
 # 			user: users.sample,
 # 			commentable_id:	comment.id,
+# 			commentable_type: 'comment',
+
 # 			commentable_type: 'Comment',
 # 			text: Faker::Company.catch_phrase
 # 		)
