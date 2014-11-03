@@ -45,7 +45,6 @@
 	display: none;
 }
 
-<<<<<<< HEAD
 .post-author {
 	font-size: 18px;
 	font-weight: bold;
@@ -56,9 +55,9 @@
 	font-style: italic;
 	padding: 8px;
 }
-=======
+
 .vote_control i:hover, .add_comment:hover {
 	color: #ccc;
 	cursor: pointer;
 }
->>>>>>> 4e799448d8940ff8d35323d4ad40d313b04c33a4
+
