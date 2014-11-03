@@ -22,7 +22,7 @@
   <% end %>
 <% end %>
 
-<h3> You Have Commented On <%= @comments.count %> Jokquots</h3>
+<h3> Jokquots You Have Commented On</h3>
   <% @comments.each do |comment| %>
   <% if comment.commentable_type == "Post" %>
     <% found_post = Post.find(comment.commentable_id) %>
