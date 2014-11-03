@@ -65,6 +65,12 @@ class Post < ActiveRecord::Base
     total_votes / total_days
   end
 
+  def self.find_by_text(text)
+    results = Post.where("text like ?", "%#{text}%")
+
+    self.sort_by_created_at_desc(results)
+  end
+
   private
 
   def build_comments_nest(user_submission)
