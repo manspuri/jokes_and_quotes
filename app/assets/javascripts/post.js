@@ -280,7 +280,8 @@ $(document).ready(function(){
 		};
 	}
 
-	if(window.location.href.match(/\/posts\/\d+/,'i')) {
+	if(typeof comments !== 'undefined' && window.location.href.match(/\/posts\/\d+/,'i')) {
+		if(typeof comments[0] === 'undefined'){ comments = []; }
 		new PostController().run(comments);
 		new CommentFormController().run();
 		new CommentController().run();
