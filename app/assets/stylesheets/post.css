@@ -17,7 +17,13 @@
 	border: none;
 	font-family: 'Open Sans Condensed', sans-serif;
 	border-radius: 2px;
-	/*border: 2px solid #636;*/
+}
+
+.upvote.highlight, .upvote.highlight:hover {
+	color: #0f0;
+}
+.downvote.highlight, .downvote.highlight:hover {
+	color: #f00;
 }
 
 .main_add_comment_btn:hover, .sub-add-comment-btn:hover, .edit_post_button:hover {
@@ -39,6 +45,7 @@
 	display: none;
 }
 
+<<<<<<< HEAD
 .post-author {
 	font-size: 18px;
 	font-weight: bold;
@@ -49,3 +56,9 @@
 	font-style: italic;
 	padding: 8px;
 }
+=======
+.vote_control i:hover, .add_comment:hover {
+	color: #ccc;
+	cursor: pointer;
+}
+>>>>>>> 4e799448d8940ff8d35323d4ad40d313b04c33a4

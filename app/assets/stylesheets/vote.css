@@ -2,7 +2,8 @@
   padding: 20px;
   margin: 0 auto;
   width: 90%;
-  display: inline-block;
+  /*display: inline-block;*/
+  overflow: auto;
 }
 
 .post-index {
