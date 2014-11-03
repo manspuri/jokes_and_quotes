@@ -2,7 +2,9 @@ class SessionsController < ApplicationController
 
   def new
     @user = User.new
-    render 'new', layout: false
+    if request.xhr?
+      render 'new', layout: false
+    end
   end
 
   def create

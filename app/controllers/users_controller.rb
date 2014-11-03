@@ -16,7 +16,9 @@ include ApplicationHelper
 
   def new
     @user = User.new
-    render partial: 'form', layout: false
+    if request.xhr?
+      render partial: 'form', layout: false
+    end
   end
 
   def show
