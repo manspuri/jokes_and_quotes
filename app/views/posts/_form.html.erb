@@ -1,8 +1,10 @@
 
-
-<%= form_for @post do |f| %>
-  <%= f.label :post_type, 'Joke/Quote' %>:
-  <%= f.text_field :post_type %><br>
-  <%= f.label :text, 'Text' %>:
-  <%= f.text_area :text %><br>
-<% end %>
+<div class="post-form">
+  <%= form_for @post do |f| %>
+    <%= f.label :post_type, 'Joke/Quote:', class: 'user-input-field-name' %>
+    <%= f.text_field :post_type, class: 'post-input-field' %><br>
+    <%= f.label :text, 'Text:', class: 'user-input-field-name' %>
+    <%= f.text_area :text, class: 'post-input-field' %><br>
+    <%= f.submit 'Make a jokquot!', class: 'submit-post-button' %>
+  <% end %>
+</div>
