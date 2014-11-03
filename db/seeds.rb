@@ -13,67 +13,67 @@ foreach post make 5-20 comments
 foreach comment (recursive) make 0-2 comments
 =end
 
-require 'faker'
+# require 'faker'
 
-TYPES = ['joke', 'quote']
+# TYPES = ['joke', 'quote']
 
-users = (1..20).to_a.map do
-	User.create!(
-		first_name: Faker::Name.first_name,
-		last_name: Faker::Name.last_name,
-		email: Faker::Internet.email,
-		username: Faker::Internet.user_name,
-		password_hash: 'password'
-	)
-end
+# users = (1..20).to_a.map do
+# 	User.create!(
+# 		first_name: Faker::Name.first_name,
+# 		last_name: Faker::Name.last_name,
+# 		email: Faker::Internet.email,
+# 		username: Faker::Internet.user_name,
+# 		password_hash: 'password'
+# 	)
+# end
 
-# how to add records with polymorphic association
-# how to retrieve records with polymorphic association
+# # how to add records with polymorphic association
+# # how to retrieve records with polymorphic association
 
-users.each do |user|
-	(rand(5) + 1).times do
-		Post.create!(
-			user: user,
-			post_type:	TYPES.sample,
-			text: Faker::Company.catch_phrase
-		)
-	end
-end
+# users.each do |user|
+# 	(rand(5) + 1).times do
+# 		Post.create!(
+# 			user: user,
+# 			post_type:	TYPES.sample,
+# 			text: Faker::Company.catch_phrase
+# 		)
+# 	end
+# end
 
-Post.all.each do |post|
-	(rand(16) + 5).times do
-		Comment.create!(
-			user: users.sample,
-			commentable_id:	post.id,
-			commentable_type: 'Post',
-			text: Faker::Company.catch_phrase
-		)
-	end
-end
+# Post.all.each do |post|
+# 	(rand(16) + 5).times do
+# 		Comment.create!(
+# 			user: users.sample,
+# 			commentable_id:	post.id,
+# 			commentable_type: 'Post',
+# 			text: Faker::Company.catch_phrase
+# 		)
+# 	end
+# end
 
-comment_stack = []
-Comment.all.each do |comment|
-	rand(3).times do
-		sub_comment = Comment.create!(
-			user: users.sample,
-			commentable_id:	comment.id,
-			commentable_type: 'Comment',
-			text: Faker::Company.catch_phrase
-		)
-		comment_stack << sub_comment
-	end
-end
+# comment_stack = []
+# Comment.all.each do |comment|
+# 	rand(3).times do
+# 		sub_comment = Comment.create!(
+# 			user: users.sample,
+# 			commentable_id:	comment.id,
+# 			commentable_type: 'Comment',
+# 			text: Faker::Company.catch_phrase
+# 		)
+# 		comment_stack << sub_comment
+# 	end
+# end
 
-while comment_stack.count > 0
-	comment = comment_stack.pop
-	rand(2).times do
-		sub_comment = Comment.create!(
-			user: users.sample,
-			commentable_id:	comment.id,
-			commentable_type: 'comment',
-			text: Faker::Company.catch_phrase
-		)
-		comment_stack << sub_comment
-	end
-end
+# while comment_stack.count > 0
+# 	comment = comment_stack.pop
+# 	rand(2).times do
+# 		sub_comment = Comment.create!(
+# 			user: users.sample,
+# 			commentable_id:	comment.id,
+# 			commentable_type: 'comment',
+# 			text: Faker::Company.catch_phrase
+# 		)
+# 		comment_stack << sub_comment
+# 	end
+# end
 
