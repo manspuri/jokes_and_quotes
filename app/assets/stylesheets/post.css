@@ -14,3 +14,11 @@
 	color: #fff;
 	display: inline-block;
 }
+
+.highlight {
+	background-color: #0f0;
+}
+
+.downlight {
+	background-color: #f00;
+}
