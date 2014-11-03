@@ -1,50 +1,47 @@
 class VotesController < ApplicationController
 
-  def show
-    @post = Post.find(params[:post_id])
-    @votes = @post.votes
-    render partial: 'votes/post_votes'
-  end
+  # def show
+  #   @post = Post.find(params[:post_id])
+  #   @votes = @post.votes
+  #   render partial: 'votes/post_votes'
+  # end
 
   def create
-
     # unless current_user
     #   @error = "You must be logged in to do that!"
     #   @posts = Post.all
     #   render "posts/index"
     # end
 
-
     @context = context
     @vote = @context.votes.new(vote_params)
-    @vote.user = User.find(session[:user_id])
-    p @vote
+    @vote.user_id = session[:user_id]
 
     if params[:class] == "upvote"
       @vote.upvote
-    else
+    elsif params[:class] == "downvote"
       @vote.downvote
     end
 
+
     if @vote.save
       render partial: 'votes/post_votes', locals: { post: @context, votes: @context.votes }
-      # redirect_to post_vote_path(@context, @vote)
     end
   end
 
   def update
     @context = context
-    @vote = @context.votes.find(params[:id])
+    @vote = @context.votes.find(vote_params[:id])
 
+    update_params = {}
     if params[:class] == "upvote"
-      @vote.upvote
-    else
-      @vote.downvote
+      update_params = {value: 1}
+    elsif params[:class] == "downvote"
+      update_params = {value: -1}
     end
 
-    if @vote.save
+    if @vote.update_attributes(update_params)
       render partial: 'votes/post_votes', locals: { post: @context, votes: @context.votes }
-      # redirect_to post_vote_path(@context, @vote)
     end
   end
 
