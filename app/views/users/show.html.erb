@@ -8,16 +8,26 @@
 
 <h3> You Have Downvoted <%= @down_votes.count %> Jokquots </h3>
   <% @down_votes.each do |vote| %>
+  <% if vote.voteable_type == "Post" %>
     <% found_post = Post.find(vote.voteable_id) %>
     <p><%= link_to "#{found_post.text}", post_path(found_post) %></p>
   <% end %>
+<% end %>
 
 <h3> You Have Upvoted <%= @up_votes.count %> Jokquots </h3>
   <% @up_votes.each do |vote| %>
+  <% if vote.voteable_type == "Post" %>
     <% found_post = Post.find(vote.voteable_id) %>
     <p><%= link_to "#{found_post.text}", post_path(found_post) %></p>
   <% end %>
+<% end %>
 
-<h3> You Have Commented On BLAH Jokquots</h3>
+<h3> Jokquots You Have Commented On</h3>
+  <% @comments.each do |comment| %>
+  <% if comment.commentable_type == "Post" %>
+    <% found_post = Post.find(comment.commentable_id) %>
+    <p><%= link_to "#{found_post.text}", post_path(found_post) %></p>
+    <% end %>
+  <% end %>
 </div>
 

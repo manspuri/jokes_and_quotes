@@ -1,38 +1,44 @@
 $(document).ready(function(){
 
-  $(".post-upvote").on("click", function(event){
+  $(".post-index-individual").on("click", ".post-upvote", function(event){
     event.preventDefault();
-    var url = $(this).parent().attr("href");
-    var method = $(this).parent().attr("data-method");
-    var upvoteId = $(this).attr("id");
-    var countId = $(this).parent().parent().children(':first-child').next().attr("id");
+    var url, method, upvoteId, countId;
+    url = $(this).attr("href");
+    method = $(this).attr("data-method");
+    upvoteId = $(this).attr("id");
+    countId = $(this).parent().children('div').attr("id");
+
+
 
     $.ajax({
       url: url,
       type: method,
       success: function(response){
         $("#" + countId).parent().replaceWith(response);
-        $("#" + upvoteId).css({"border-bottom-color":"green"});
-        $("#" + countId).css({"color":"green"});
+        $("#" + upvoteId).addClass("upvoted");
+        $("#" + countId).addClass("upvoted");
       }
     });
+    return false;
   });
 
-  $(".post-downvote").on("click", function(event){
+  $(".post-index-individual").on("click", ".post-downvote", function(event){
     event.preventDefault();
-    var url = $(this).parent().attr("href");
-    var method = $(this).parent().attr("data-method");
-    var upvoteId = $(this).attr("id");
-    var countId = $(this).parent().parent().children(':first-child').next().attr("id");
+    var url, method, upvoteId, countId;
+    url = $(this).attr("href");
+    method = $(this).attr("data-method");
+    upvoteId = $(this).attr("id");
+    countId = $(this).parent().children(':first-child').next().attr("id");
 
     $.ajax({
       url: url,
       type: method,
       success: function(response){
         $("#" + countId).parent().replaceWith(response);
-        $("#" + upvoteId).css({"border-top-color":"red"});
-        $("#" + countId).css({"color":"red"});
+        $("#" + upvoteId).addClass("downvoted");
+        $("#" + countId).addClass("downvoted");
       }
     });
+  return false;
   });
 });
