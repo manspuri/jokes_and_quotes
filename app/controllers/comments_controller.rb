@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
 
+
+
 	def create
 		user = User.find(session[:user_id])
 		comment = Comment.new(comment_params)
@@ -22,4 +24,5 @@ class CommentsController < ApplicationController
 	def comment_params
 		params.require(:comment).permit(:text, :commentable_id, :commentable_type)
 	end
+
 end

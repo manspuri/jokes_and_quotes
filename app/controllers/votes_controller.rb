@@ -23,6 +23,9 @@ class VotesController < ApplicationController
       @vote.downvote
     end
 
+    if @context.votes.sum(:value) <= -20
+        @context.destroy
+    end
 
     if @vote.save
       render partial: 'votes/post_votes', locals: { post: @context, votes: @context.votes }
