@@ -7,28 +7,46 @@ class VotesController < ApplicationController
   # end
 
   def create
-    # unless current_user
-    #   @error = "You must be logged in to do that!"
-    #   @posts = Post.all
-    #   render "posts/index"
-    # end
+    if(request.referer.match(/\/posts\/\d+/i))
+      user = User.find(session[:user_id])
+      vote = Vote.new(vote_params)
+      vote.user = user
+      if(vote.save)
+        render json: {
+          id: vote.id,
+          votes: vote.value,
+          username: vote.user.username,
+          date: vote.voteable_type,
+          text: vote.voteable_id
+        }
+      else
+        render json: {error: 'failed'}
+      end
+    else
+      
+      # unless current_user
+      #   @error = "You must be logged in to do that!"
+      #   @posts = Post.all
+      #   render "posts/index"
+      # end
 
-    @context = context
-    @vote = @context.votes.new(vote_params)
-    @vote.user_id = session[:user_id]
+      @context = context
+      @vote = @context.votes.new(vote_params)
+      @vote.user_id = session[:user_id]
 
-    if params[:class] == "upvote"
-      @vote.upvote
-    elsif params[:class] == "downvote"
-      @vote.downvote
-    end
+      if params[:class] == "upvote"
+        @vote.upvote
+      elsif params[:class] == "downvote"
+        @vote.downvote
+      end
 
-    if @context.votes.sum(:value) <= -20
-        @context.destroy
-    end
+      if @context.votes.sum(:value) <= -20
+          @context.destroy
+      end
 
-    if @vote.save
-      render partial: 'votes/post_votes', locals: { post: @context, votes: @context.votes }
+      if @vote.save
+        render partial: 'votes/post_votes', locals: { post: @context, votes: @context.votes }
+      end
     end
   end
 

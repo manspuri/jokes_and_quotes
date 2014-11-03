@@ -32,6 +32,10 @@ $(document).ready(function(){
 			return $('.add_comment');
 		};
 
+		this.commentButtonIdentifier = function() {
+			return '.add_comment';
+		};
+
 		this.formInjectionPoint = function(e) {
 			return $(e.target).closest('li').children('.comment-text').first();
 		};
@@ -72,7 +76,7 @@ $(document).ready(function(){
 		this.appendComment = function(comment) {
 			var html = '' +
 			'<li data-id="'+ comment["id"] +'">' +
-				'<div class="vote_control"><i class="fa fa-chevron-circle-up upvote"></i>'+ comment["votes"] +'<i class="fa fa-chevron-circle-down downvote"></i></div>' +
+				'<div class="vote_control"><i class="fa fa-chevron-circle-up upvote"></i><span>'+ comment["votes"] +'</span><i class="fa fa-chevron-circle-down downvote"></i></div>' +
 				'<header>' +
 					'<span class="comment-author">'+ comment["username"] +'</span>' +
 					'<span class="comment-date">'+ comment["date"] +'</span>' +
@@ -104,7 +108,7 @@ $(document).ready(function(){
 		var view = new CommentView();
 
 		this.run = function() {
-			view.commentButton().on('click', function(e){
+			view.document().on('click',view.commentButtonIdentifier(),function(e){
 				console.log('button clicked');
 				view.formInjectionPoint(e).after(view.createCommentForm());
 			});
@@ -157,7 +161,7 @@ $(document).ready(function(){
 		function build_comment(comment) {
 			var html = '' +
 			'<li data-id="'+ comment["id"] +'">' +
-				'<div class="vote_control"><i class="fa fa-chevron-circle-up upvote"></i>'+ comment["votes"] +'<i class="fa fa-chevron-circle-down downvote"></i></div>' +
+				'<div class="vote_control"><i class="fa fa-chevron-circle-up upvote"></i><span>'+ comment["votes"] +'</span><i class="fa fa-chevron-circle-down downvote"></i></div>' +
 				'<header>' +
 					'<span class="comment-author">'+ comment["username"] +'</span>' +
 					'<span class="comment-date">'+ comment["date"] +'</span>' +
