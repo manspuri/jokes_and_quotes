@@ -7,6 +7,7 @@ include ApplicationHelper
   def create
     @user = User.new(user_params)
     if @user.save
+      session[:user_id] = @user.id
       redirect_to posts_path
     else
       @already_email_error = "Email already exists in our system. Sign in!"

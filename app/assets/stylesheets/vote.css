@@ -2,14 +2,15 @@
   padding: 20px;
   margin: 0 auto;
   width: 90%;
-  /*display: inline-block;*/
+  display: block;
   overflow: auto;
 }
 
 .post-index {
   list-style-type: none;
   float: left;
-  display: inline;
+  width: 88%;
+  padding-left: 0;
 }
 
 .post-user {
@@ -31,14 +32,14 @@
 }
 
 .votes {
-  display: inline-block;
   float: left;
-  padding: 20px 0;
+  width: 12%;
+  padding: 2% 0;
 }
 
 .post-upvote {
-  width: 0px;
-  height: 0px;
+  width: 0;
+  height: 0;
   border-bottom: 20px solid #c8c8c8;
   border-right: 30px solid transparent;
   border-left: 30px solid transparent;
@@ -52,8 +53,8 @@
 }
 
 .post-downvote {
-  width: 0px;
-  height: 0px;
+  width: 0;
+  height: 0;
   border-top: 20px solid #c8c8c8;
   border-right: 30px solid transparent;
   border-left: 30px solid transparent;
