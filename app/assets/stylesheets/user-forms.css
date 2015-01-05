@@ -16,7 +16,7 @@
  font-family: 'Open Sans Condensed';
   color: #636;
   margin: 0 auto;
-  text-align: right;
+  text-align: left;
   width: 60%;
 }
 
@@ -31,7 +31,7 @@
 }
 
 .submit-post-button {
-  margin-right: 275px;
+  margin-left: 65.5%;
   background-color: #636;
   color: #f6f6f6;
   border: none;
