@@ -55,13 +55,14 @@ include ApplicationHelper
     end
   end
 
-private
+  private
+  
   def set_post
-      @post = Post.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def post_params
-      params.require(:post).permit(:post_type, :text)
+    params.require(:post).permit(:post_type, :text)
   end
 
 end
