@@ -14,18 +14,16 @@
 
     <h1 class="brand"><%= link_to "jokquot", root_path %></h1>
 
-    <nav>
+    <nav class="user_status">
       <ul>
-        <span class="user_status">
-          <% if current_user.nil? %>
-            <li><%= link_to "sign in", new_session_path, class: "sign_in_link", remote: true %></li>
-            <li><%= link_to "sign up", new_user_path, class: "sign_up_link", remote: true %></li>
-          <% else %>
-            <li><%= link_to "create post", new_post_path %></li>
-            <li><%= link_to "sign out", log_out_path, method: "delete" %></li>
-            <li><%= link_to "#{current_user.username}", user_path(current_user.id), class: "nav-username" %></li>
-          <% end %>
-        </span>
+      <% if current_user.nil? %>
+        <li><%= link_to "sign in", new_session_path, class: "sign_in_link", remote: true %></li>
+        <li><%= link_to "sign up", new_user_path, class: "sign_up_link", remote: true %></li>
+      <% else %>
+        <li><%= link_to "create post", new_post_path %></li>
+        <li><%= link_to "sign out", log_out_path, method: "delete" %></li>
+        <li><%= link_to "#{current_user.username}", user_path(current_user.id), class: "nav-username" %></li>
+      <% end %>
       </ul>
     </nav>
   </header>

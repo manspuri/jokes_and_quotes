@@ -6,6 +6,10 @@ class Post < ActiveRecord::Base
   has_many   :votes, as: :voteable
   has_many   :comments, as: :commentable
 
+  def editable?
+    self.comments.empty? && self.votes.empty?
+  end
+
   def get_comments_json
   	build_comments_nest(self)
   end
