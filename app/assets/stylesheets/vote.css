@@ -1,15 +1,27 @@
 .post-index-individual {
-  padding: 20px;
+  padding: 10px 20px 10px;
   margin: 0 auto;
-  width: 90%;
-  /*display: inline-block;*/
-  overflow: auto;
+  width: 94.6%;
+  display: inline-block;
+  border-bottom: 2px solid #cfcfcf;
+  /*overflow: auto;*/
+}
+
+.post-index-individual:first-child {
+  padding-top: 20px;
+}
+
+.post-index-individual:last-child {
+  border: none;
 }
 
 .post-index {
   list-style-type: none;
   float: left;
-  display: inline;
+  margin: 0;
+  /*display: inline;*/
+  width: 80%;
+  padding-bottom: 15px;
 }
 
 .post-user {

@@ -1,57 +1,83 @@
 body {
-  background-color: #ccc5c9;
+  background-color: #f0f0f0;
 }
-.site-title  {
-  background-color: #fcfcfc;
-  color: #303;
+
+.site-title {
+  background-color: #399;
+  display: inline-block;
   position: fixed;
   width: 100%;
   top: 0;
-  box-shadow: 0 0 1em #333033;
+}
+
+.site-title a {
+  color: #fcfcfc;
 }
 
 .brand {
-  font-family: 'Open Sans Condensed';
-  padding-left: 20px;
+  font-family: 'Pacifico';
+  text-align: right;
   float: left;
-  display: inline-block;
+  width: 57.5%;
+}
+
+.wrapper {
+  margin-top: 120px;
+  padding-left: 150px;
+}
+
+.padding {
+  width: 900px;
+  display: block;
+  margin: 0 auto;
 }
 
 .container {
-  width: 840px;
-  margin: 0 auto;
-  padding: 15px;
-  clear: both;
+  width: 83%;
   font-family: 'PT Serif';
-  margin-top: 100px;
   background-color: #fcfcfc;
   border-radius: 5px;
-  box-shadow: 0 0 1.5em #333033;
+  float: left;
 }
 
 nav {
-  display: inline-block;
   float: right;
-  padding: 20px 5px 0 0;
+  margin-left: 775px;
+  background-color: #f0f0f0;
+  width: 125px;
+  border-radius: 5px;
+  position: fixed;
 }
 
-nav li {
+nav ul {
+  margin: 0;
+  padding: 0;
   list-style: none;
-  display: inline;
-  padding: 5px;
+  display: block;
+  text-align: right;
+}
+
+nav ul li {
+  padding: 5px 14px;
+  border-bottom: 1.5px solid #c3c3c3;
+}
+
+nav ul li:last-child{
+  border: none;
 }
 
 nav a, nav a:visited {
-  color: #7AC5CF;
-}
-
-nav a:hover {
+  /*color: #399;*/
   color: #A1DBE3;
 }
 
-a.nav-username, a.nav-username:visited, a.nav-username:hover {
-  color: #303;
+nav a:hover {
+  color: black;
 }
+
+/*a.nav-username, a.nav-username:visited, a.nav-username:hover {
+  color: #303;
+}*/
 
 .search {
   float: right;
@@ -75,10 +101,6 @@ a.nav-username, a.nav-username:visited, a.nav-username:hover {
 
 a, a:visited {
   text-decoration: none;
-}
-
-header a, headera a:visited {
-  color: #303;
 }
 
 .small-font {
