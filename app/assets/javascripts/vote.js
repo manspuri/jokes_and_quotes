@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  $(".post-index-individual").on("click", ".post-upvote", function(event){
+  $(".post-index-individual").on("click", ".upvote", function(event){
     event.preventDefault();
     var url, method, upvoteId, countId;
     url = $(this).attr("href");
@@ -22,7 +22,7 @@ $(document).ready(function(){
     return false;
   });
 
-  $(".post-index-individual").on("click", ".post-downvote", function(event){
+  $(".post-index-individual").on("click", ".downvote", function(event){
     event.preventDefault();
     var url, method, upvoteId, countId;
     url = $(this).attr("href");
