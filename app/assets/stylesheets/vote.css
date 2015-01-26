@@ -52,8 +52,8 @@
   width: 0px;
   height: 0px;
   border-bottom: 20px solid #c8c8c8;
-  border-right: 30px solid transparent;
-  border-left: 30px solid transparent;
+  border-right: 20px solid transparent;
+  border-left: 20px solid transparent;
   display: block;
 }
 
@@ -61,14 +61,15 @@
   color: #c8c8c8;
   display: block;
   padding: 5px 0;
+  text-align: center;
 }
 
 .post-downvote {
   width: 0px;
   height: 0px;
   border-top: 20px solid #c8c8c8;
-  border-right: 30px solid transparent;
-  border-left: 30px solid transparent;
+  border-right: 20px solid transparent;
+  border-left: 20px solid transparent;
   display: block;
 }
 
