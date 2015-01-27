@@ -1,5 +1,6 @@
 body {
   background-color: #f0f0f0;
+  background: url(crossword_green.png) fixed;
 }
 
 .site-title {
@@ -38,7 +39,7 @@ body {
 .container {
   width: 83%;
   font-family: 'Droid Sans';
-  background-color: #fcfcfc;
+  background-color: rgba(250, 250, 250, 0.6);
   border-radius: 5px;
   float: left;
   margin-bottom: 20px;
@@ -47,7 +48,7 @@ body {
 nav {
   float: right;
   margin-left: 775px;
-  background-color: #f0f0f0;
+  /*background-color: rgba(250, 250, 250, 0.6);*/
   width: 125px;
   border-radius: 5px;
   position: fixed;
@@ -72,11 +73,11 @@ nav ul li:last-child{
 
 nav a, nav a:visited {
   /*color: #399;*/
-  color: #A1DBE3;
+  color: #6fcf3f;
 }
 
 nav a:hover {
-  color: black;
+  color: #0f9f3f;
 }
 
 /*a.nav-username, a.nav-username:visited, a.nav-username:hover {

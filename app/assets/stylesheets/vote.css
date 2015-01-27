@@ -1,10 +1,8 @@
 .post-index-individual {
-  /*padding: 10px 20px 0 0;*/
   margin: 5px auto;
-  width: 97.6%;
+  width: 100%;
   display: inline-block;
   border-bottom: 2px solid #cfcfcf;
-  /*overflow: auto;*/
 }
 
 .post-index-individual:first-child {
@@ -19,8 +17,8 @@
   list-style-type: none;
   float: right;
   margin: 0;
-  /*display: inline;*/
-  width: 88%;
+  width: 86%;
+  padding-right: 2%;
   padding-left: 0;
   padding-bottom: 15px;
 }
@@ -31,19 +29,17 @@
 }
 
 .comments-link, .comments-link:visited {
-  color: #7AC5CF;
+  color: #60c000;
 }
 
 .comments-link:hover {
-  color: #A1DBE3;
+  color: #0f9f3f;
 }
 
 .post-text-index {
   font-family: "Open Sans";
   font-size: 24px;
   padding-bottom: 10px;
-  /*font-weight: bold;*/
-  /*font-style: italic;*/
 }
 
 .votes {
@@ -72,7 +68,6 @@
   font-family: "Droid Sans", sans-serif;
   font-weight: bold;
   font-size: 20px;
-  /*width: 85px;/*/
 }
 
 .downvote {
@@ -80,11 +75,13 @@
 }
 
 .upvoted {
-  border-bottom-color: #b7da60;
-  color: #b7da60;
+  border-bottom-color: #f93;
+  color: #f93;
+  /*border-bottom-color: #b7da60;*/
+  /*color: #b7da60;*/
 }
 
 .downvoted {
-  border-top-color: #e7ce66;
-  color: #e7ce66;
+  border-top-color: #6fcf3f;
+  color: #6fcf3f;
 }
