@@ -10,10 +10,7 @@
 				<%= post.text %>
 			</li>
 			<li>
-				<span class="small-font">by</span> <span class="post-user"><%= post.user.username %></span>
-			</li>
-			<li class="created-at small-font">
-				Posted on: <%= post.created_at %>
+				<span class="small-font">by</span><span class="post-user"> <%= post.user.username %></span><span class="created-at small-font"> on <%= posted_on(post.created_at) %></span>
 			</li>
 			<li>
 				<%= link_to "#{post.comments.count} comments", post_path(post), class: "comments-link" %>
