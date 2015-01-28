@@ -1,20 +1,34 @@
 <script type='text/javascript'>var comments = <%=raw @post.get_comments_json.to_json %></script>
+
 <div id='post-container'>
-
-	<header class="post-author-details">
-		<span class='post-author'><%= @post.user.username %></span>
-		<span class='post-date small-font'><%= @post.created_at %></span>
-		<span class='post-type'><%= @post.post_type %></span>
-	</header>
-
-	<div class='post-text'><%= @post.text %></div>
-	<textarea data-id='<%= @post.id %>' id='main-add-comment-input' class='hidden'></textarea>
-
-	<br><div class='main_add_comment_btn'>Add Comment</div>
-
-	<% if @post.votes.empty? && @post.comments.empty? %>
-		<%= link_to "Edit post", edit_post_path(@post), class: 'edit_post_button' %>
-	<% end %>
-	<div class='post-comments'>
+	<div class='post-text'>
+		<%= @post.text %>
 	</div>
+	
+	<p class="post-author-details">
+		<span class='post-type'><%= @post.post_type %></span>
+		by <span class='post-author'><%= @post.user.username %></span>
+		on <%= posted_on(@post.created_at) %>
+	</p>
+
+	<div class='main_add_comment_btn'>
+		<%= link_to "Add Comment", new_post_comment_path(@post) %>
+	</div>
+
+	<% if @post.editable? %>
+		<div class="edit_post_button">
+			<%= link_to "Edit post", edit_post_path(@post) %>
+		</div>
+	<% end %>
+	
+	<div data-id='<%= @post.id %>' id='main-add-comment-input'>
+	</div>
+</div>
+
+<div id="comments-container">
+	<% if @comments %>
+		<% @comments.each do |comment| %>
+			<%= render partial: 'comments/show', locals: { comment: comment } %>
+		<% end %>
+	<% end %>
 </div>

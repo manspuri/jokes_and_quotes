@@ -33,10 +33,11 @@ include ApplicationHelper
   end
 
   def show
+    @comments = @post.comments if @post.has_comments?
   end
 
   def edit
-    if current_user != @post.user
+    if current_user != @post.user || !@post.editable?
       redirect_to post_path(@post)
     end
   end

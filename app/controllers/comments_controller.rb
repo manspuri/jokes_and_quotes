@@ -2,18 +2,23 @@ class CommentsController < ApplicationController
 	include ApplicationHelper
 	before_filter :authorized?, only: [:create]
 
+	def new
+		post = Post.find(params[:post_id])
+		comment = Comment.new
+		render partial: 'comments/new', locals: { post: post, comment: comment }
+	end
+
 	def create
+		post = Post.find(params[:post_id])
 		user = User.find(session[:user_id])
-		comment = Comment.new(comment_params)
-		comment.user = user
-		if(comment.save)
-			render json: {
-				id: comment.id,
-				votes: comment.vote_count,
-				username: comment.user.username,
-				date: comment.created_at,
-				text: comment.text
-			}
+		new_comment = Comment.new(comment_params)
+		new_comment.user = user
+		new_comment.commentable_id = post.id
+		new_comment.commentable_type = "Post"
+		
+		if(new_comment.save)
+			puts params
+			render partial: 'show', locals: { comment: new_comment }
 		else
 			render json: {error: 'failed'}
 		end

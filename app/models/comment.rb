@@ -6,4 +6,8 @@ class Comment < ActiveRecord::Base
 
   belongs_to :commentable, polymorphic: true
   has_many   :comments, as: :commentable
+
+  def author
+    self.user.username
+  end
 end

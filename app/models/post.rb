@@ -1,5 +1,4 @@
 class Post < ActiveRecord::Base
-  
   include PostCommentLibrary
 
   belongs_to :user
@@ -8,6 +7,14 @@ class Post < ActiveRecord::Base
 
   def get_comments_json
   	build_comments_nest(self)
+  end
+
+  def editable?
+    self.votes.empty? && self.comments.empty?
+  end
+
+  def has_comments?
+    !self.comments.empty?
   end
 
   def stringify_class
