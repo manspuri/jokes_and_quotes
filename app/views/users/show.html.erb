@@ -1,33 +1,44 @@
-<div class= "signup-title">
-<h2> Hey there, <%= @user.first_name %>! </h2>
-<h3> Jokquots You Have Created </h3>
-  <% @posts.each do |post| %>
-    <p><%= link_to "#{post.text}", post_path(post)%></p>
-    <p><%= post.votes.sum(:value) %> points <%= post.comments.size %> comments</p>
-  <% end %>
+<div class="users-profile">
+  <h2 class="users-header"> Hey there, <%= @user.first_name %>! </h2>
 
-<h3> You Have Downvoted <%= @down_votes.size %> Jokquots </h3>
-  <% @down_votes.each do |vote| %>
-  <% if vote.voteable_type == "Post" %>
-    <% found_post = Post.find(vote.voteable_id) %>
-    <p><%= link_to "#{found_post.text}", post_path(found_post) %></p>
-  <% end %>
-<% end %>
-
-<h3> You Have Upvoted <%= @up_votes.size %> Jokquots </h3>
-  <% @up_votes.each do |vote| %>
-  <% if vote.voteable_type == "Post" %>
-    <% found_post = Post.find(vote.voteable_id) %>
-    <p><%= link_to "#{found_post.text}", post_path(found_post) %></p>
-  <% end %>
-<% end %>
-
-<h3> Jokquots You Have Commented On</h3>
-  <% @comments.each do |comment| %>
-  <% if comment.commentable_type == "Post" %>
-    <% found_post = Post.find(comment.commentable_id) %>
-    <p><%= link_to "#{found_post.text}", post_path(found_post) %></p>
+  <div class="for-borders">
+    <h3> Jokquots You Have Created </h3>
+      <% @posts.each do |post| %>
+        <p><%= link_to "#{post.text}", post_path(post)%>
+        <p class="points-and-comments"><%= post.votes.sum(:value) %> points <%= post.comments.size %> comments</p>
+        </p>
+      <% end %>
+  </div>
+  <div class="for-borders">
+    <h3> You Have Downvoted <%= @down_votes.size %> Jokquots </h3>
+      <% @down_votes.each do |vote| %>
+      <% if vote.voteable_type == "Post" %>
+        <% found_post = Post.find(vote.voteable_id) %>
+        <p><%= link_to "#{found_post.text}", post_path(found_post) %></p>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
+  <div class="for-borders">
+    <h3> You Have Upvoted <%= @up_votes.size %> Jokquots </h3>
+      <% @up_votes.each do |vote| %>
+      <% if vote.voteable_type == "Post" %>
+        <% found_post = Post.find(vote.voteable_id) %>
+        <p><%= link_to "#{found_post.text}", post_path(found_post) %></p>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="for-borders">
+    <h3> Jokquots You Have Commented On</h3>
+    <% unless @comments.empty? %>
+      <% @comments.each do |comment| %>
+      <% if comment.commentable_type == "Post" %>
+        <% found_post = Post.find(comment.commentable_id) %>
+        <p><%= link_to "#{found_post.text}", post_path(found_post) %></p>
+        <% end %>
+      <% end %>
+    <% else %>
+      <p>Looks like you haven't commented on anything yet!</p>
+    <% end %>
+  </div>
 </div>
 

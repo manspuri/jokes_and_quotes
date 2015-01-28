@@ -1,15 +1,5 @@
 $(document).ready(function(){
 
-  // var postVotes = $(".post-vote-count");
-
-  // postVotes.each(function() {
-  //   if ($(this).text().length > 5){
-  //     $(this).parent().css({"padding-right": 0, "padding-left": 0});
-  //   }
-  //   console.log($(this).text());
-  //   console.log($(this).parent());
-  // });
-
   $(".post-index-individual").on("click", ".upvote", function(event){
     event.preventDefault();
     var url, method, upvoteId, countId;

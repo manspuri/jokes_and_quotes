@@ -1,20 +1,24 @@
 .signup-title {
-  font-family: 'Open Sans Condensed';
-  color: #636;
+  font-family: 'Open Sans';
+  color: #396;
   text-align: center;
 }
 
+.signup-title a, .signup-title a:visited {
+  color: black;
+}
+
 .signup-form {
-  font-family: 'Open Sans Condensed';
-  color: #636;
+  font-family: 'Open Sans';
+  color: #396;
   margin: 0 auto;
   text-align: right;
   width: 35%;
 }
 
 .post-form {
- font-family: 'Open Sans Condensed';
-  color: #636;
+ font-family: 'Open Sans';
+  color: #396;
   margin: 0 auto;
   text-align: right;
   width: 60%;
@@ -22,7 +26,7 @@
 
 .submit-user-button {
   margin-right: 153px;
-  background-color: #636;
+  background-color: #396;
   color: #f6f6f6;
   border: none;
   border-radius: 8px;
@@ -32,7 +36,7 @@
 
 .submit-post-button {
   margin-right: 275px;
-  background-color: #636;
+  background-color: #396;
   color: #f6f6f6;
   border: none;
   border-radius: 8px;
@@ -43,14 +47,14 @@
 .user-input-field {
   border-radius: 4px;
   padding: 5px 5px;
-  font-family: 'PT Serif';
+  font-family: 'Droid Sans';
 }
 
 .post-input-field {
   margin: 3px;
   border-radius: 4px;
   padding: 5px 5px;
-  font-family: 'PT Serif';
+  font-family: 'Droid Sans';
   width: 75%;
 }
 

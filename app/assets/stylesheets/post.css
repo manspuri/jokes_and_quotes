@@ -10,12 +10,12 @@
 
 .main_add_comment_btn, .sub-add-comment-btn, .edit_post_button {
 	padding: 4px 8px;
-	background-color: #636;
+	background-color: #396;
 	color: #fff;
 	display: inline-block;
 	cursor: pointer;
 	border: none;
-	font-family: 'Open Sans Condensed', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	border-radius: 2px;
 }
 
