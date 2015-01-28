@@ -14,7 +14,7 @@ class VotesController < ApplicationController
       vote.user = user
 
 
-      if(vote.save)
+      if vote.save
         if @context.votes.sum(:value) <= -20
           @context.destroy
           render json: {
@@ -45,7 +45,9 @@ class VotesController < ApplicationController
       end
 
       if @context.votes.sum(:value) <= -20
-          @context.destroy
+        @context.destroy
+        @vote.destroy
+        redirect_to root_path
       end
 
       if @vote.save

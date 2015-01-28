@@ -75,13 +75,11 @@
 }
 
 .upvoted {
-  border-bottom-color: #f93;
-  color: #f93;
-  /*border-bottom-color: #b7da60;*/
-  /*color: #b7da60;*/
+  border-bottom-color: #fc0;
+  color: #fc0;
 }
 
 .downvoted {
-  border-top-color: #6fcf3f;
-  color: #6fcf3f;
+  border-top-color: #6c9;
+  color: #6c9;
 }
