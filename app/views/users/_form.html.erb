@@ -1,36 +1,22 @@
-<h2 class="signup-title">JokQuot Sign Up</h2>
+<p class="signup-title">Sign Up</p>
 
-  <div class="signup-form">
+<div class="signup-form">
+  <%= form_for :user, url: users_path do |f| %>
+    <%= f.label :first_name, class: "user-input-field-name" %>
+    <%= f.text_field :first_name, class: "user-input-field" %>
+  
+    <%= f.label :last_name, class: "user-input-field-name" %>
+    <%= f.text_field :last_name, class: "user-input-field" %>
 
-    <%= form_for :user, url: users_path do |f| %>
+    <%= f.label :email, class: "user-input-field-name" %>
+    <%= f.text_field :email, class: "user-input-field" %>
 
-     <p>
-        <%= f.label :first_name, class: "user-input-field-name" %>
-        <%= f.text_field :first_name, class: "user-input-field" %>
-      </p>
+    <%= f.label :username, class: "user-input-field-name" %>
+    <%= f.text_field :username, class: "user-input-field" %>
 
-      <p>
-        <%= f.label :last_name, class: "user-input-field-name" %>
-        <%= f.text_field :last_name, class: "user-input-field" %>
-      </p>
-
-      <p>
-        <%= f.label :email, class: "user-input-field-name" %>
-        <%= f.text_field :email, class: "user-input-field" %>
-      </p>
-      <p>
-        <%= f.label :username, class: "user-input-field-name" %>
-        <%= f.text_field :username, class: "user-input-field" %>
-      </p>
-
-      <p>
-        <%= f.label :password, class: "user-input-field-name" %>
-        <%= f.password_field :password, class: "user-input-field" %>
-      </p>
-
-      <p>
-        <%= f.submit "sign up", class: "submit-user-button" %>
-      </p>
-    <% end %>
-
-  </div>
+    <%= f.label :password, class: "user-input-field-name" %>
+    <%= f.password_field :password, class: "user-input-field" %>
+  
+    <%= f.submit "sign up", class: "submit-user-button" %>
+  <% end %>
+</div>

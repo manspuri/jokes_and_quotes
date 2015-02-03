@@ -3,7 +3,9 @@
 <% @posts.each do |post| %>
 
 	<div class="post-index-individual">
-		<%= render partial: "votes/post_votes", locals: { post: post, votes: post.votes } %>
+		<% if current_user %>
+			<%= render partial: "votes/post_votes", locals: { post: post, votes: post.votes } %>
+		<% end %>
 
 		<ul class="post-index">
 			<li class="post-text-index">

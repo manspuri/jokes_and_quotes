@@ -21,6 +21,18 @@ class User < ActiveRecord::Base
     self.password_hash = @password
   end
 
+  def get_post_comments
+    post_comments = []
+    unless self.comments.empty?
+      self.comments.each do |comment| 
+        if comment.commentable_type == "Post"
+          post_comments << Post.find(comment.commentable_id)
+        end
+      end
+    end
+    post_comments.uniq
+  end
+
   def self.authenticate(params)
     user = User.find_by(email: params[:email])
 

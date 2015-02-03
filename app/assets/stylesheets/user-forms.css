@@ -11,13 +11,25 @@
 .signup-form {
   font-family: 'Open Sans';
   color: #396;
+  font-size: 14px;
   margin: 0 auto;
-  text-align: right;
-  width: 35%;
+  display: block;
+  width: 250px;
+}
+
+.signup-form input {
+  float: left;
+}
+
+.signup-form label {
+  float: left;
+  font-size: 14px;
+  padding: 5px;
+  width: 75px;
 }
 
 .post-form {
- font-family: 'Open Sans';
+  font-family: 'Open Sans';
   color: #396;
   margin: 0 auto;
   text-align: right;
@@ -25,13 +37,18 @@
 }
 
 .submit-user-button {
-  margin-right: 153px;
+  text-align: center;
   background-color: #396;
   color: #f6f6f6;
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
+  margin: 7px 0;
+  float: left;
+  padding: 5px;
+}
+
+.submit-user-button:focus {
   outline: none;
-  padding: 8px;
 }
 
 .submit-post-button {

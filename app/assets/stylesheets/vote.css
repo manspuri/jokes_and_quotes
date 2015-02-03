@@ -48,6 +48,13 @@
   width: 85px;
 }
 
+.comment-votes {
+  float: left;
+  text-align: center;
+  margin-top: 7px;
+  width: 40px;
+}
+
 .vote {
   width: 0;
   height: 0;
@@ -57,8 +64,13 @@
   display: block;
 }
 
-.upvote {
-  border-bottom: 15px solid #c8c8c8;
+.comment-vote {
+  width: 0;
+  height: 0;
+  margin: 0 auto;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+  display: block;
 }
 
 .post-vote-count {
@@ -70,8 +82,30 @@
   font-size: 20px;
 }
 
+.comment-vote-count {
+  color: #c8c8c8;
+  display: block;
+  text-align: center;
+  padding: 4px 0 1px;
+  font-family: "Droid Sans", sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.upvote {
+  border-bottom: 15px solid #c8c8c8;
+}
+
+.comment-upvote {
+ border-bottom: 10px solid #c8c8c8; 
+}
+
 .downvote {
   border-top: 15px solid #c8c8c8;
+}
+
+.comment-downvote {
+  border-top: 10px solid #c8c8c8;
 }
 
 .upvoted {

@@ -1,8 +1,9 @@
 class PostsController < ApplicationController
 
-include PostCommentLibrary
-include ApplicationHelper
-    #This is my best attempt at working with this before_action helper and the rails syntax for controllers. Heeeere we go...
+  include PostCommentLibrary
+  include ApplicationHelper
+  include PostHelper
+
   before_action :set_post, only: [:show, :edit, :update]
   before_filter :authorized?, only: [:new, :edit, :update, :create]
 
@@ -43,7 +44,7 @@ include ApplicationHelper
   end
 
   def update
-    if @post.votes != nil && @post.comments != nil
+    if @post.editable?
       respond_to do |format|
         if @post.update(post_params)
           format.html {redirect_to @post, notice: 'Post was successfully updated, yo.'}

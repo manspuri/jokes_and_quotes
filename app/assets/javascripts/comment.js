@@ -35,4 +35,28 @@ $(document).ready(function(){
     });
   });
 
+  $('.sub_add_comment_btn').on('click', function(e){
+    var button, url, request;
+    e.preventDefault();
+
+    button = $(this);
+
+    var buttonID = button.attr('id');
+    console.log(buttonID);
+
+    url = button.find('a').attr('href');
+    console.log(url);
+    // console.log(button.siblings().);
+
+    request = $.get( url );
+
+    request.done(function(response){
+      console.log(response);
+      console.log($('#' + buttonID));
+
+      $('#comment-' + buttonID + '-input').append(response);
+      button.hide();
+    });
+  });
+
 });

@@ -25,9 +25,8 @@ include ApplicationHelper
     if current_user.id == params[:id].to_i
       @user = User.find(params[:id])
       @posts = @user.posts
-      @comments = @user.comments
+      @post_comments = @user.get_post_comments
       @down_votes = @user.votes.where(value: -1)
-      p @down_votes
       @up_votes = @user.votes.select {|vote| vote.value == 1}
     else
       redirect_to posts_path

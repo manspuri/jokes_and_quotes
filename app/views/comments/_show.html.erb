@@ -1,8 +1,20 @@
 <div class='post-comments'>
-  <p class='comment-details'>
-    <span class='small-text'>
-      on <%= posted_on(comment.created_at) %>, <%= comment.author %> said:
-    </span>
-  </p>
-  <p><%= comment.text %></p>
+  <div class='comment-votes'>
+    <% if current_user %>
+      <%= render partial: 'votes/comment_votes', locals: { comment: comment, votes: comment.votes } %>
+    <% end %>
+  </div>
+
+  <div class='comment-text-index'>
+    <p class='comment-details'>
+      <span class='med-font'>
+        on <%= posted_on(comment.created_at) %>, <%= comment.author %> said:
+      </span>
+    </p>
+    <p class='comment-text'><%= comment.text %></p>
+    <div id='<%= comment.id %>' class='sub_add_comment_btn med-font'>
+      <%= link_to "Reply", new_comment_comment_path(commented_on) %>
+    </div>
+    <div id='comment-<%= comment.id %>-input' class='sub-add-comment-input'></div>
+  </div>
 </div>

@@ -9,6 +9,10 @@ class Post < ActiveRecord::Base
   	build_comments_nest(self)
   end
 
+  def author
+    self.user
+  end
+
   def editable?
     self.votes.empty? && self.comments.empty?
   end
