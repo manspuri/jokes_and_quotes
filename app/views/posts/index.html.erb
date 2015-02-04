@@ -15,7 +15,7 @@
 				<span class="small-font">by</span><span class="post-user"> <%= post.user.username %></span><span class="created-at small-font"> on <%= posted_on(post.created_at) %></span>
 			</li>
 			<li>
-				<%= link_to "#{post.comments.count} comments", post_path(post), class: "comments-link" %>
+				<%= link_to "#{post.count_comments} comments", post_path(post), class: "comments-link" %>
 			</li>
 		</ul>
 	</div>

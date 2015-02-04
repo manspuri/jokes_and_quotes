@@ -30,9 +30,9 @@ $(document).ready(function(){
     request.done(function(response){
       form.hide();
       $('.main_add_comment_btn').show();
-
       $('#comments-container').append(response);
     });
+    return false;
   });
 
   $('.sub_add_comment_btn').on('click', function(e){
@@ -58,5 +58,21 @@ $(document).ready(function(){
       button.hide();
     });
   });
+
+  // $('#main-add-comment-input').on('submit', '.add-comment', function(e){
+  //   var url, comment, form;
+  //   e.preventDefault();
+  //   form = $(this);
+  //   url = form.attr('action');
+  //   comment = form.serialize();
+  //   console.log(comment);
+  //   request = $.post( url, comment );
+
+  //   request.done(function(response){
+  //     form.hide();
+  //     $('.sub_add_comment_btn').show();
+  //     $('#comments-container').append(response);
+  //   });
+  // });
 
 });

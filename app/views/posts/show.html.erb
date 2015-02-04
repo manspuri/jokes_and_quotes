@@ -1,4 +1,4 @@
-<script type='text/javascript'>var comments = <%=raw @post.get_comments_json.to_json %></script>
+<script type='text/javascript'>var comments = <%=raw @post.get_comments_json.to_json %>; console.log(comments) </script>
 
 <div id='post-container'>
 	<div class='post-text'>
@@ -29,15 +29,10 @@
 
 <div id="comments-container">
 	<% if @comments %>
+	<ul>
 		<% @comments.each do |comment| %>
-			<%= render partial: 'comments/show', collection: @comments, locals: { comment: comment, commented_on: comment } %>
-			<% if comment.comments.size > 0 %>
-				<% comment.comments.each do |sub_comment| %>
-					<div class="sub_comment">
-						<%= render partial: 'comments/show', locals: { comment: sub_comment, commented_on: comment } %>
-					</div>
-				<% end %>
-			<% end %>
+			<li><%= render partial: 'comments/show', locals: { comment: comment } %></li>
 		<% end %>
+	</ul>
 	<% end %>
 </div>

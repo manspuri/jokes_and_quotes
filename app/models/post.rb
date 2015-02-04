@@ -82,6 +82,14 @@ class Post < ActiveRecord::Base
     self.sort_by_created_at_desc(results)
   end
 
+  def count_comments
+
+    counted = self.comments.map do |comment|
+      comment.comments.size
+    end
+    counted.empty? ? 0 : (self.comments.size + counted.inject(:+))
+  end
+
   private
 
   def build_comments_nest(user_submission)

@@ -9,7 +9,6 @@ class CommentsController < ApplicationController
 	end
 
 	def create
-		commentable = context
 		user = User.find(session[:user_id])
 		new_comment = context.comments.new(comment_params)
 		new_comment.user = user
