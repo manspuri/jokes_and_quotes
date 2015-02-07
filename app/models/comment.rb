@@ -9,6 +9,8 @@ class Comment < ActiveRecord::Base
 
   validates_length_of :text, minimum: 1
 
+  default_scope { order(vote_total: :desc) }
+
   def author
     self.user.username
   end

@@ -1,26 +1,28 @@
-<div class='comment-votes'>
-  <% if current_user %>
-    <%= render partial: 'votes/comment_votes', locals: { comment: comment, votes: comment.votes } %>
-  <% end %>
-</div>
-
-<div class='comment-text-index'>
-  <p class='comment-details'>
-    <span class='med-font'>
-      on <%= posted_on(comment.created_at) %>, <%= comment.author %> said:
-    </span>
-  </p>
-  <p class='comment-text'><%= comment.text %></p>
-  <div id='<%= comment.id %>' class='sub_add_comment_btn med-font'>
-    <%= link_to "Reply", new_comment_comment_path(comment) %>
+<div class='comments'>
+  <div class='comment-votes'>
+    <% if current_user %>
+      <%= render partial: 'votes/comment_votes', locals: { comment: comment, votes: comment.votes } %>
+    <% end %>
   </div>
-  <div id='comment-<%= comment.id %>-input' class='sub-add-comment-input'></div>
-</div>
 
-<% if comment.comments.size > 0 %>
-  <ul>
-    <% comment.comments.each do |sub_comment| %>
-      <li><%= render partial: 'comments/show', locals: { comment: sub_comment } %></li>
+  <div class='comment-text-index'>
+    <p class='comment-details'>
+      <span class='med-font'>
+        on <%= posted_on(comment.created_at) %>, <%= comment.author %> said:
+      </span>
+    </p>
+    <p class='comment-text'><%= comment.text %></p>
+    <div id='<%= comment.id %>' class='sub_add_comment_link med-font'>
+      <%= link_to "Reply", new_comment_comment_path(comment) %>
+    </div>
+    <div id='comment-<%= comment.id %>-input' class='sub-add-comment-input'></div>
+  </div>
+
+  <ul class='comments-list'>
+    <% if comment.comments.size > 0 %>
+      <% comment.comments.each do |sub_comment| %>
+        <li class='comment-individual'><%= render partial: 'comments/show', locals: { comment: sub_comment } %></li>
+      <% end %>
     <% end %>
   </ul>
-<% end %>
+</div>

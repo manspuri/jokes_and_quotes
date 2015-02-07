@@ -6,7 +6,7 @@
   <% end %>
 
   <div id="<%= comment.id %>-count" class="comment-vote-count <%= current_user.upvoted_or_downvoted(comment) if current_user && current_user.voted?(comment) %>">
-    <%= comment.votes.sum(:value) %>
+    <%= comment.vote_total %>
   </div>
 
   <% if current_user && current_user.voted?(comment) %>

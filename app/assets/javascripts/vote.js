@@ -40,7 +40,7 @@ $(document).ready(function(){
   return false;
   });
 
-  $(".post-comments").on("click", ".comment-upvote", function(event){
+  $("#comments-container").on("click", ".comment-upvote", function(event){
     event.preventDefault();
     var url, method, upvoteId, countId;
     url = $(this).attr("href");
@@ -60,7 +60,7 @@ $(document).ready(function(){
     return false;
   });
 
-  $(".post-comments").on("click", ".comment-downvote", function(event){
+  $("#comments-container").on("click", ".comment-downvote", function(event){
     event.preventDefault();
     var url, method, upvoteId, countId;
     url = $(this).attr("href");

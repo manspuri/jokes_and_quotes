@@ -5,9 +5,7 @@ class Post < ActiveRecord::Base
   has_many   :votes, as: :voteable
   has_many   :comments, as: :commentable
 
-  def get_comments_json
-  	build_comments_nest(self)
-  end
+  default_scope { order(vote_total: :desc) }
 
   def author
     self.user
@@ -42,13 +40,7 @@ class Post < ActiveRecord::Base
   end
 
   def self.sort_by_popularity
-    Post.all.map do |post|
-      [post, post.vote_count]
-    end.sort do |p1, p2|
-      p2[1] <=> p1[1]
-    end.map do |array|
-      array[0]
-    end
+    Post.all.order(vote_total: :desc)
   end
 
   def self.sort_by_created_at_desc(posts)
@@ -89,26 +81,4 @@ class Post < ActiveRecord::Base
     end
     counted.empty? ? 0 : (self.comments.size + counted.inject(:+))
   end
-
-  private
-
-  def build_comments_nest(user_submission)
-  	final = user_submission.comments.map do |comment|
-  		build_comment_json(comment)
-  	end
-    final == [] ? {} : final
-  end
-
-  def build_comment_json(comment)
-  	obj = { "text" => comment.text,
-  					"username" => comment.user.username,
-            "date" => "#{comment.created_at.to_date}",
-            "votes" => "#{comment.vote_count}",
-            "id" => "#{comment.id}" }
-  	if comment.comments.count > 0
-  		obj["comments"] = build_comments_nest(comment)
-  	end
-  	obj
-  end
-
 end

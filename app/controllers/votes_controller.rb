@@ -13,6 +13,7 @@ class VotesController < ApplicationController
       @vote.downvote
     end
 
+
     if @context.votes.sum(:value) <= -20
       @context.destroy
       @vote.destroy
@@ -20,6 +21,7 @@ class VotesController < ApplicationController
     end
 
     if @vote.save
+      @context.update_attribute(:vote_total, @context.votes.sum(:value))
       if @context.is_a? Post
         render partial: 'votes/post_votes', locals: { post: @context, votes: @context.votes }
       elsif @context.is_a? Comment
@@ -40,6 +42,7 @@ class VotesController < ApplicationController
     end
 
     if @vote.update_attributes(update_params)
+      @context.update_attribute(:vote_total, @context.votes.sum(:value))
       if @context.is_a? Post
         render partial: 'votes/post_votes', locals: { post: @context, votes: @context.votes }
       elsif @context.is_a? Comment

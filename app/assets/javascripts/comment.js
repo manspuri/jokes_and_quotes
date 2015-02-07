@@ -1,3 +1,8 @@
+function showCommentInputForm(response, buttonID, button){
+  $('#comment-' + buttonID + '-input').append(response);
+  button.hide();
+}
+
 $(document).ready(function(){
   
   $('.main_add_comment_btn').on('click', function(e){
@@ -24,7 +29,6 @@ $(document).ready(function(){
     form = $(this);
     url = form.attr('action');
     comment = form.serialize();
-    console.log(comment);
     request = $.post( url, comment );
 
     request.done(function(response){
@@ -35,44 +39,37 @@ $(document).ready(function(){
     return false;
   });
 
-  $('.sub_add_comment_btn').on('click', function(e){
+  $('#comments-container').on('click', '.sub_add_comment_link', function(e){
     var button, url, request;
     e.preventDefault();
 
     button = $(this);
 
     var buttonID = button.attr('id');
-    console.log(buttonID);
-
     url = button.find('a').attr('href');
-    console.log(url);
-    // console.log(button.siblings().);
-
     request = $.get( url );
 
     request.done(function(response){
-      console.log(response);
-      console.log($('#' + buttonID));
-
-      $('#comment-' + buttonID + '-input').append(response);
-      button.hide();
+      showCommentInputForm(response, buttonID, button);
     });
   });
 
-  // $('#main-add-comment-input').on('submit', '.add-comment', function(e){
-  //   var url, comment, form;
-  //   e.preventDefault();
-  //   form = $(this);
-  //   url = form.attr('action');
-  //   comment = form.serialize();
-  //   console.log(comment);
-  //   request = $.post( url, comment );
+  $('#comments-container').on('submit', '.add-comment', function(e){
+    var url, comment, form;
+    e.preventDefault();
+    form = $(this);
+    url = form.attr('action');
+    comment = form.serialize();
 
-  //   request.done(function(response){
-  //     form.hide();
-  //     $('.sub_add_comment_btn').show();
-  //     $('#comments-container').append(response);
-  //   });
-  // });
+    request = $.post( url, comment );
+
+    request.done(function(response){
+      console.log(form.siblings());
+      form.hide();
+      $('.sub_add_comment_link').show();
+      form.parent().parent().siblings('ul').append(response);
+    });
+    return false;
+  });
 
 });
