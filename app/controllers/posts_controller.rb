@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update]
   before_filter :authorized?, only: [:new, :edit, :update, :create]
 
+
   def index
     @posts = Post.all
   end
@@ -22,14 +23,13 @@ class PostsController < ApplicationController
     unless session[:user_id].nil?
       @votes = User.find(session[:user_id]).votes
     end
-    respond_to do |format|
-      if @post.save
-        format.html {redirect_to @post, notice:'Post was successfully created, yo.'}
-        format.json {render :show, status: :created, location: @post}
-      else
-        format.html {render :new}
-        format.json {render json: @post.errors, status: unprocessable_entity}
-      end
+
+    if @post.save
+      redirect_to post_path(@post)
+    else
+      @text_error = "Text #{@post.errors.messages[:text].pop}"
+      @type_error = "Post #{@post.errors.messages[:post_type].pop}"
+      render :new
     end
   end
 

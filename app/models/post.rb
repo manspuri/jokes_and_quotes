@@ -1,11 +1,14 @@
 class Post < ActiveRecord::Base
   include PostCommentLibrary
+  include ActiveModel::Validations
 
   belongs_to :user
   has_many   :votes, as: :voteable
   has_many   :comments, as: :commentable
 
   default_scope { order(vote_total: :desc) }
+  validates_inclusion_of :post_type, in: %w(Joke Quote), message: " must be a Joke or Quote"
+  validates_length_of :text, minimum: 1, message: " cannot be empty"
 
   def author
     self.user
