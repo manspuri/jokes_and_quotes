@@ -28,14 +28,6 @@
   width: 75px;
 }
 
-.post-form {
-  font-family: 'Open Sans';
-  color: #396;
-  margin: 0 auto;
-  text-align: right;
-  width: 60%;
-}
-
 .submit-user-button {
   text-align: center;
   background-color: #396;
@@ -58,7 +50,7 @@
   border: none;
   border-radius: 8px;
   outline: none;
-  padding: 8px;
+  /*padding: 8px;*/
 }
 
 .user-input-field {
@@ -67,12 +59,24 @@
   font-family: 'Droid Sans', sans-serif;
 }
 
+.new-post {
+  margin: 25px auto;
+  display: block;
+}
+
+.post-form {
+  font-family: 'Open Sans';
+  color: #396;
+  margin: 0 auto;
+  width: 60%;
+}
+
 .post-input-field {
   font-family: 'Droid Sans', sans-serif;
   margin: 3px;
 }
 
 .user-input-field-name {
-  font-size: 18px;
+  font-size: 14px;
   padding-right: 5px;
 }

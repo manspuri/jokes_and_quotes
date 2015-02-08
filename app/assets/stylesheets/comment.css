@@ -46,7 +46,7 @@
   min-height: 50px;
 }
 
-.main_add_comment_btn, .edit_post_button {
+.button {
   padding: 4px 8px;
   background-color: #396;
   color: #fff;
@@ -57,11 +57,11 @@
   border-radius: 2px;
 }
 
-.main_add_comment_btn {
+.add-comment {
   margin: 10px 0;
 }
 
-.sub_add_comment_link {
+.sub-comment-link {
   padding: 4px 0;
   margin-bottom: 8px;
   display: inline-block;
@@ -69,21 +69,18 @@
   font-family: 'Open Sans,' sans-serif;
 }
 
-.sub_add_comment_link a, .sub_add_comment_link a:visited {
+.sub-comment-link a, .sub-comment-link a:visited {
   color: #396;
 }
 
-.sub_add_comment_link a:hover {
+.sub-comment-link a:hover {
   color: #6c3;
 }
 
-.main_add_comment_btn a, 
-.edit_post_button a, 
-.main_add_comment_btn a:visited, 
-.edit_post_button a:visited {
+.button a, .button a:visited {
   color: #fff;
 }
 
-.main_add_comment_btn:hover, .edit_post_button:hover {
+.button:hover {
   background-color: #6c3;
 }

@@ -12,7 +12,7 @@
       </span>
     </p>
     <p class='comment-text'><%= comment.text %></p>
-    <div id='<%= comment.id %>' class='sub_add_comment_link med-font'>
+    <div id='<%= comment.id %>' class='sub-comment-link med-font'>
       <%= link_to "Reply", new_comment_comment_path(comment) %>
     </div>
     <div id='comment-<%= comment.id %>-input' class='sub-add-comment-input'></div>
