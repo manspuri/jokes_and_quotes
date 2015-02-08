@@ -64,15 +64,12 @@
 .user-input-field {
   border-radius: 4px;
   padding: 5px 5px;
-  font-family: 'Droid Sans';
+  font-family: 'Droid Sans', sans-serif;
 }
 
 .post-input-field {
+  font-family: 'Droid Sans', sans-serif;
   margin: 3px;
-  border-radius: 4px;
-  padding: 5px 5px;
-  font-family: 'Droid Sans';
-  width: 75%;
 }
 
 .user-input-field-name {

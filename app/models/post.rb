@@ -39,10 +39,6 @@ class Post < ActiveRecord::Base
     self.sort_by_created_at_desc(results)
   end
 
-  def self.sort_by_popularity
-    Post.all.order(vote_total: :desc)
-  end
-
   def self.sort_by_created_at_desc(posts)
     posts.sort do |p1, p2|
       p2.created_at <=> p1.created_at
@@ -59,26 +55,10 @@ class Post < ActiveRecord::Base
     end
   end
 
-  def trending_value
-    days_ago = 14.0
-    total_votes = vote_count_since_days_ago(days_ago)
-    time_now = Time.now.in_time_zone('Central Time (US & Canada)')
-    time_created = created_at.in_time_zone('Central Time (US & Canada)')
-    total_days = PostCommentLibrary.convert_to_days(time_now - time_created) > days_ago ? days_ago : PostCommentLibrary.convert_to_days(time_now - time_created)
-    total_votes / total_days
-  end
 
   def self.find_by_text(text)
     results = Post.where("text like ?", "%#{text}%")
 
     self.sort_by_created_at_desc(results)
-  end
-
-  def count_comments
-
-    counted = self.comments.map do |comment|
-      comment.comments.size
-    end
-    counted.empty? ? 0 : (self.comments.size + counted.inject(:+))
   end
 end

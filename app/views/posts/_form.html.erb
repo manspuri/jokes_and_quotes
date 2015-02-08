@@ -1,9 +1,9 @@
 <div class="post-form">
   <%= form_for @post do |f| %>
     <%= f.label :text, 'Text:', class: 'user-input-field-name' %>
-    <%= f.text_area :text, class: 'post-input-field' %><br>
+    <%= f.text_area :text, class: 'post-input-field styled-textarea' %><br>
     <%= f.label :post_type, 'Is this a Joke or a Quote?:', class: 'user-input-field-name' %>
-    <%= f.text_field :post_type, class: 'post-input-field' %><br>
+    <%= f.select(:post_type, [['------', 0], ['Joke', 1], ['Quote', 2]])%><br>
     <%= f.submit 'make a jokquot', class: 'submit-post-button' %>
   <% end %>
 </div>
