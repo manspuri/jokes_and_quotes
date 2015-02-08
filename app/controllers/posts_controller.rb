@@ -44,26 +44,25 @@ class PostsController < ApplicationController
   end
 
   def update
-    if @post.editable?
-      respond_to do |format|
-        if @post.update(post_params)
-          format.html {redirect_to @post, notice: 'Post was successfully updated, yo.'}
-          format.json {render :show, status: :ok, location: @post}
-        else
-          format.html {render :edit}
-          format.json {render json: @post.errors, status: unprocessable_entity}
-        end
-      end
+    @post = Post.find(params[:id])
+    @post.update_attributes(post_params)
+
+    if @post.save
+      redirect_to post_path(@post)
+    else
+      @text_error = "Text #{@post.errors.messages[:text].pop}" if @post.errors.messages[:text]
+      @type_error = "Post #{@post.errors.messages[:post_type].pop}" if @post.errors.messages[:post_type]
+      render :edit
     end
   end
 
 private
   def set_post
-      @post = Post.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def post_params
-      params.require(:post).permit(:post_type, :text)
+    params.require(:post).permit(:post_type, :text)
   end
 
 end

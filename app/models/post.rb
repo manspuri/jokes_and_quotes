@@ -26,7 +26,7 @@ class Post < ActiveRecord::Base
     self.class.to_s
   end
 
-  def self.sort_by_type(type)
+  def self.filter_by_type(type)
     results = Post.all.select do |post|
       post.post_type == type
     end
