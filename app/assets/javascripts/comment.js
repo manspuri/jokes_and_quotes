@@ -5,7 +5,7 @@ function showCommentInputForm(response, buttonID, button){
 
 $(document).ready(function(){
   
-  $('.main_add_comment_btn').on('click', function(e){
+  $('.add-comment').on('click', function(e){
     var button, url, request;
 
     e.preventDefault();
@@ -39,7 +39,7 @@ $(document).ready(function(){
     return false;
   });
 
-  $('#comments-container').on('click', '.sub_add_comment_link', function(e){
+  $('#comments-container').on('click', '.sub-comment-link', function(e){
     var button, url, request;
     e.preventDefault();
 
