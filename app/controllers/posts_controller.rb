@@ -27,8 +27,8 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to post_path(@post)
     else
-      @text_error = "Text #{@post.errors.messages[:text].pop}"
-      @type_error = "Post #{@post.errors.messages[:post_type].pop}"
+      @text_error = "Text #{@post.errors.messages[:text].pop}" if @post.errors.messages[:text]
+      @type_error = "Post #{@post.errors.messages[:post_type].pop}" if @post.errors.messages[:post_type]
       render :new
     end
   end
