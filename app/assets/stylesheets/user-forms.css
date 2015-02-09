@@ -1,7 +1,11 @@
 .signup-title {
-  margin-bottom: 0.35em;
+  width: 110px;
+  margin: 0.5em auto;
   color: #396;
-  text-align: center;
+  /*text-align: center;*/
+  border-bottom: 1px solid #396;
+  /*text-decoration: underline;*/
+  line-height: 120%;
 }
 
 .signup-title a, .signup-title a:visited {
@@ -28,8 +32,8 @@
 .signup-form input:last-child{
   border: none;
   /*text-align: center;*/
-  margin: 6% 3%;
-  float:right;
+  margin: 3% 1.5%;
+  float: right;
 
 }
 
