@@ -1,5 +1,5 @@
 .signup-title {
-  font-family: 'Open Sans';
+  margin-bottom: 0.35em;
   color: #396;
   text-align: center;
 }
@@ -15,10 +15,22 @@
   margin: 0 auto;
   display: block;
   width: 250px;
+  text-align: right;
 }
 
 .signup-form input {
   float: left;
+  border: 2px solid #ccc;
+  border-radius: 2px;
+  margin: 2px;
+}
+
+.signup-form input:last-child{
+  border: none;
+  /*text-align: center;*/
+  margin: 6% 3%;
+  float:right;
+
 }
 
 .signup-form label {
@@ -26,32 +38,9 @@
   font-size: 14px;
   padding: 5px;
   width: 75px;
+  margin: 2px 0;
 }
 
-.submit-user-button {
-  text-align: center;
-  background-color: #396;
-  color: #f6f6f6;
-  border: none;
-  border-radius: 5px;
-  margin: 7px 0;
-  float: left;
-  padding: 5px;
-}
-
-.submit-user-button:focus {
-  outline: none;
-}
-
-.submit-post-button {
-  margin-right: 275px;
-  background-color: #396;
-  color: #f6f6f6;
-  border: none;
-  border-radius: 8px;
-  outline: none;
-  /*padding: 8px;*/
-}
 
 .user-input-field {
   border-radius: 4px;
