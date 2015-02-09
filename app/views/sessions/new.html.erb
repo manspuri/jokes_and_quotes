@@ -1,21 +1,15 @@
-<h2 class="signup-title">JokQuot Sign in</h2>
+<p class="brand signup-title">Sign In&nbsp</p>
 
 <div class="signup-form">
   <%= form_for :session, url: sessions_path do |f| %>
 
-  <p>
     <%= f.label :email, class: "user-input-field-name" %>
     <%= f.text_field :email, class: "user-input-field" %>
-  </p>
 
-  <p>
     <%= f.label :password, class: "user-input-field-name" %>
     <%= f.password_field :password, class: "user-input-field" %>
-  </p>
 
-  <p>
-    <%= f.submit "sign in", class: "submit-user-button" %>
-  </p>
+    <%= f.submit "sign in", class: "sign-up button" %>
 
   <% end %>
 </div>
