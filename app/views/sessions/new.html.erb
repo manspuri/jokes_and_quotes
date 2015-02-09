@@ -1,15 +1,16 @@
 <p class="brand signup-title">Sign In&nbsp</p>
 
+<% if @error %>
+  <p class="error-text"><%= @error %></p>
+<% end %>
+
 <div class="signup-form">
   <%= form_for :session, url: sessions_path do |f| %>
-
     <%= f.label :email, class: "user-input-field-name" %>
     <%= f.text_field :email, class: "user-input-field" %>
-
     <%= f.label :password, class: "user-input-field-name" %>
     <%= f.password_field :password, class: "user-input-field" %>
 
     <%= f.submit "sign in", class: "sign-up button" %>
-
   <% end %>
 </div>

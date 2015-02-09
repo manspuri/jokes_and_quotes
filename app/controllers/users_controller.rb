@@ -9,7 +9,7 @@ include ApplicationHelper
     if @user.save
       redirect_to posts_path
     else
-      @already_email_error = "Email already exists in our system. Sign in!"
+      @errors = @user.errors.full_messages
       render 'new'
     end
   end

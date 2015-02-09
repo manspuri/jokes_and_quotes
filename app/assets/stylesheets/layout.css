@@ -9,17 +9,24 @@ a, a:visited {
 
 .post-form .field_with_errors {
  margin-top: 10px;
- font-weight: bold;
+ /*font-weight: bold;*/
 }
 
 .field_with_errors textarea {
-  border-color: red;
+  border-color: #DF0101;
 }
 
 .error-text {
-  color: red;
+  color: #DF0101;
   font-size: 15px;
-  font-weight: bold;
+}
+
+p.error-text{
+  text-align: center;
+}
+.error-list {
+  margin: 0.5em 35%;
+  list-style-type: circle;
 }
 
 .site-title {

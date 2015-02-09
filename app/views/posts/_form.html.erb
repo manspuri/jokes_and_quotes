@@ -1,6 +1,6 @@
 <div class="post-form">
+  <%= flash[:error] %>
   <%= form_for @post do |f| %>
-    
     <% if @text_error %>
       <div class="field_with_errors">
       <span class="error-text"><%= @text_error %></span>
