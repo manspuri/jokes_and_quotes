@@ -8,7 +8,6 @@ function deliverMyForm(deliveree){
 }
 
 $(document).ready(function(){
-
   $(".sign_in_link").click(function(e){
     e.preventDefault();
     deliverMyForm($(this));
