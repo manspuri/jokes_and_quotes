@@ -8,8 +8,8 @@ $(document).ready(function(){
       url: url,
       type: "get",
       success: function(response) {
-        $(".container").prepend(response)
+        $(".container").prepend(response);
       }
-    })
+    });
   });
 });
