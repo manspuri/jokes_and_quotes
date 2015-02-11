@@ -10,7 +10,11 @@ include ApplicationHelper
       redirect_to posts_path
     else
       @errors = @user.errors.full_messages
-      render 'new'
+      if request.xhr?
+        render :new, layout: false
+      else
+        render :new
+      end
     end
   end
 

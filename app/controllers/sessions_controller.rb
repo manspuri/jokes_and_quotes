@@ -16,7 +16,11 @@ class SessionsController < ApplicationController
     else
       @user = User.new
       @error = "Sorry, we don't recognize that email and password. Did you forget?"
-      render :new
+      if request.xhr?
+        render :new, layout: false
+      else
+        render :new
+      end
     end
   end
 

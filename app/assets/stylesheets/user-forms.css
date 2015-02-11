@@ -1,3 +1,25 @@
+.modal {
+  position: fixed;
+  background: #000;
+  background: rgba(0, 0, 0, 0.3);
+  display: none;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+#sign-in-sign-up {
+  position: fixed;
+  z-index: 2;
+  top: 25%;
+  left: 36%;
+  width: 300px;
+  background: #f0f0f0;
+  border-radius: 2px;
+}
+
 .signup-title {
   width: 110px;
   margin: 0.5em auto;

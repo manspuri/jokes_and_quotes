@@ -1,3 +1,4 @@
+<a href="#" class=".close-modal">Close</a>
 <p class="brand signup-title">Sign Up&nbsp</p>
 
 <% if @errors %>
@@ -9,7 +10,7 @@
 <% end %>
 
 <div class="signup-form">
-  <%= form_for :user, url: users_path do |f| %>
+  <%= form_for :user, url: users_path, html: { class: 'user-form' } do |f| %>
     
     <%= f.label :first_name, class: "user-input-field-name" %>
     <%= f.text_field :first_name, class: "user-input-field" %>

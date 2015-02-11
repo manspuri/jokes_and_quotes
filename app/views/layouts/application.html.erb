@@ -10,6 +10,12 @@
 
 </head>
 <body>
+  <div class="modal"></div>
+  <% if current_user.nil? %>
+    <div id="sign-in-sign-up">
+      
+    </div>
+  <% end %>
   <header class="site-title">
     <div class="brand">
       <h1><%= link_to "jokquot!", root_path %></h1>
