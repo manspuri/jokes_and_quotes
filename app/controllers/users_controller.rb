@@ -12,9 +12,7 @@ include ApplicationHelper
     else
       @errors = @user.errors.full_messages
       if request.xhr?
-        options = _normalize_render(:new, { layout: false })
-        rendered = render_to_body(options)
-        render json: { user_error: true, sign_in_html: rendered }
+        render json: { user_error: true, sign_in_html: render_to_string(:new, { layout: false }) }
       else
         render :new
       end
