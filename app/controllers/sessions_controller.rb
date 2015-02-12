@@ -17,7 +17,10 @@ class SessionsController < ApplicationController
       @user = User.new
       @error = "Sorry, we don't recognize that email and password. Did you forget?"
       if request.xhr?
-        render :new, layout: false
+        # I found these two methods ('_normalize_render' and 'render_to_body') in the 'render' method in the Rails GitHub. God bless open source
+        options = _normalize_render(:new, { layout: false })
+        rendered = render_to_body(options)
+        render json: { user_error: true, sign_in_html: rendered }
       else
         render :new
       end

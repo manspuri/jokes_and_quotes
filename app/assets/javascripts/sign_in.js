@@ -16,10 +16,8 @@ function submitUser(user){
   data = user.serialize();
 
   $.post( url, data ).done(function(response){
-    var error = $(response).find('.error-text');
-    if (error.length > 0) {
-      // $('.modal').show();
-      $('#sign-in-sign-up').html(response);
+    if (response.user_error === true) {
+      $('#sign-in-sign-up').html(response.sign_in_html);
     } else {
       location.reload();
     }

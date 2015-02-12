@@ -7,11 +7,14 @@ include ApplicationHelper
   def create
     @user = User.new(user_params)
     if @user.save
+      session[:user_id] = @user.id
       redirect_to posts_path
     else
       @errors = @user.errors.full_messages
       if request.xhr?
-        render :new, layout: false
+        options = _normalize_render(:new, { layout: false })
+        rendered = render_to_body(options)
+        render json: { user_error: true, sign_in_html: rendered }
       else
         render :new
       end
