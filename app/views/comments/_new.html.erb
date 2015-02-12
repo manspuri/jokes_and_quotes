@@ -1,0 +1,6 @@
+<%= form_for [post, comment], url: {action: 'create'}, html: { class: 'add-comment' } do |f| %>
+  <%= f.text_area :text, class: 'styled-textarea' %>
+  <p class='add-comment-button'>
+    <%= f.submit 'Add Comment', class: 'button med-font' %>
+  </p>
+<% end %>

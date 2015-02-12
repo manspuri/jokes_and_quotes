@@ -1,21 +1,20 @@
-<h2 class="signup-title">JokQuot Sign in</h2>
+<div class="close-modal med-font">
+  <a href="#" class=".close-modal">Close</a>
+</div>
+<p class="brand signup-title">Sign In&nbsp</p>
+
+<% if @error %>
+<p class="error-text"><%= @error %></p>
+<% end %>
 
 <div class="signup-form">
-  <%= form_for :session, url: sessions_path do |f| %>
-
-  <p>
+  <%= form_for :session, url: sessions_path, html: { class: 'user-form'} do |f| %>
     <%= f.label :email, class: "user-input-field-name" %>
     <%= f.text_field :email, class: "user-input-field" %>
-  </p>
-
-  <p>
     <%= f.label :password, class: "user-input-field-name" %>
     <%= f.password_field :password, class: "user-input-field" %>
-  </p>
 
-  <p>
-    <%= f.submit "sign in", class: "submit-user-button" %>
-  </p>
-
+    <%= f.submit "sign in", class: "sign-up button" %>
   <% end %>
 </div>
+

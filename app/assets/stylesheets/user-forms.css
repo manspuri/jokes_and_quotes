@@ -1,60 +1,95 @@
+.modal {
+  position: fixed;
+  background: #000;
+  background: rgba(0, 0, 0, 0.3);
+  display: none;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+#sign-in-sign-up {
+  position: fixed;
+  z-index: 2;
+  top: 25%;
+  left: 36%;
+  width: 300px;
+  background: #f0f0f0;
+  border-radius: 2px;
+}
+
+.close-modal {
+  margin: 1.5em 1em;
+  float: right;
+}
+
 .signup-title {
-  font-family: 'Open Sans Condensed';
-  color: #636;
-  text-align: center;
+  width: 110px;
+  margin: 0.5em auto;
+  color: #396;
+  border-bottom: 1px solid #396;
+  line-height: 120%;
 }
 
 .signup-form {
-  font-family: 'Open Sans Condensed';
-  color: #636;
+  font-family: 'Open Sans';
+  color: #396;
+  font-size: 14px;
   margin: 0 auto;
+  display: block;
+  width: 250px;
   text-align: right;
-  width: 35%;
 }
 
-.post-form {
- font-family: 'Open Sans Condensed';
-  color: #636;
-  margin: 0 auto;
-  text-align: right;
-  width: 60%;
+.signup-form input {
+  float: left;
+  border: 2px solid #ccc;
+  border-radius: 2px;
+  margin: 2px;
 }
 
-.submit-user-button {
-  margin-right: 153px;
-  background-color: #636;
-  color: #f6f6f6;
+.signup-form input:last-child{
   border: none;
-  border-radius: 8px;
-  outline: none;
-  padding: 8px;
+  margin: 3% 1.5%;
+  float: right;
+
 }
 
-.submit-post-button {
-  margin-right: 275px;
-  background-color: #636;
-  color: #f6f6f6;
-  border: none;
-  border-radius: 8px;
-  outline: none;
-  padding: 8px;
+.signup-form label {
+  float: left;
+  font-size: 14px;
+  padding: 5px;
+  width: 75px;
+  margin: 2px 0;
 }
+
 
 .user-input-field {
   border-radius: 4px;
   padding: 5px 5px;
-  font-family: 'PT Serif';
+  font-family: 'Droid Sans', sans-serif;
+}
+
+.new-post {
+  margin: 25px auto;
+  display: block;
+}
+
+.post-form {
+  font-family: 'Open Sans';
+  color: #396;
+  margin: 0 auto;
+  width: 60%;
 }
 
 .post-input-field {
+  font-family: 'Droid Sans', sans-serif;
   margin: 3px;
-  border-radius: 4px;
-  padding: 5px 5px;
-  font-family: 'PT Serif';
-  width: 75%;
 }
 
 .user-input-field-name {
-  font-size: 18px;
+  font-size: 14px;
   padding-right: 5px;
 }

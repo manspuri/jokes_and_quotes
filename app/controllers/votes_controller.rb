@@ -7,49 +7,25 @@ class VotesController < ApplicationController
     @vote = @context.votes.new(vote_params)
     @vote.user_id = session[:user_id]
 
-    if(request.referer.match(/\/posts\/\d+/i))
-
-      user = current_user
-      vote = Vote.new(vote_params)
-      vote.user = user
-
-
-      if(vote.save)
-        if @context.votes.sum(:value) <= -20
-          @context.destroy
-          render json: {
-            oh_no: 'you been destroyed!'
-          }
-        else
-          render json: {
-            id: vote.id,
-            votes: vote.value,
-            username: vote.user.username,
-            date: vote.voteable_type,
-            text: vote.voteable_id
-          }
-        end
-      else
-        render json: {error: 'failed'}
-      end
-    else
-      @context = context
-      @vote = @context.votes.new(vote_params)
-      @vote.user_id = session[:user_id]
+    if params[:class] == "upvote"
+      @vote.upvote
+    elsif params[:class] == "downvote"
+      @vote.downvote
+    end
 
 
-      if params[:class] == "upvote"
-        @vote.upvote
-      elsif params[:class] == "downvote"
-        @vote.downvote
-      end
+    if @context.votes.sum(:value) <= -20
+      @context.destroy
+      @vote.destroy
+      redirect_to root_path
+    end
 
-      if @context.votes.sum(:value) <= -20
-          @context.destroy
-      end
-
-      if @vote.save
+    if @vote.save
+      @context.update_attribute(:vote_total, @context.votes.sum(:value))
+      if @context.is_a? Post
         render partial: 'votes/post_votes', locals: { post: @context, votes: @context.votes }
+      elsif @context.is_a? Comment
+        render partial: 'votes/comment_votes', locals: { comment: @context, votes: @context.votes }
       end
     end
   end
@@ -59,14 +35,19 @@ class VotesController < ApplicationController
     @vote = @context.votes.find(vote_params[:id])
 
     update_params = {}
-    if params[:class] == "upvote"
+    if params[:class] == "upvote" || params[:class] == "comment-upvote"
       update_params = {value: 1}
-    elsif params[:class] == "downvote"
+    elsif params[:class] == "downvote" || params[:class] == "comment-downvote"
       update_params = {value: -1}
     end
 
     if @vote.update_attributes(update_params)
-      render partial: 'votes/post_votes', locals: { post: @context, votes: @context.votes }
+      @context.update_attribute(:vote_total, @context.votes.sum(:value))
+      if @context.is_a? Post
+        render partial: 'votes/post_votes', locals: { post: @context, votes: @context.votes }
+      elsif @context.is_a? Comment
+        render partial: 'votes/comment_votes', locals: { comment: @context, votes: @context.votes }
+      end
     end
   end
 
@@ -78,10 +59,8 @@ class VotesController < ApplicationController
 
   def context
     if params[:post_id]
-      id = params[:post_id]
       Post.find(params[:post_id])
     elsif params[:comment_id]
-      id = params[:comment_id]
       Comment.find(params[:comment_id])
     end
   end

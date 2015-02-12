@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   resources :posts do
     resources :votes, only: [:create, :update]
+    resources :comments, except: [:show, :index, :edit]
   end
 
-  resources :comments, except: [:show, :index, :new, :edit] do
+  resources :comments, except: [:show, :index, :edit] do
     resources :votes, only: [:create, :update]
+    resources :comments, except: [:show, :index, :edit]
   end
 
   resources :users, except: [:index, :edit, :update, :destroy]

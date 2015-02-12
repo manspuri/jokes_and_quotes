@@ -1,6 +1,6 @@
 module UserHelper
   def voted?(post)
-    self.votes.pluck(:voteable_id, :voteable_type).include?([post.id, 'Post'])
+    self.votes.pluck(:voteable_id, :voteable_type).include?([post.id, post.stringify_class])
   end
 
   def upvoted?(post)
