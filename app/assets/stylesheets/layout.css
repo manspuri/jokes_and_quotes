@@ -5,7 +5,11 @@ body {
 }
 
 a, a:visited {
-  color: black;
+  color: #0f9f3f;
+}
+
+a:hover {
+  color: #6fcf3f;
 }
 
 .post-form .field_with_errors {

@@ -5,6 +5,7 @@ function deliverMyForm(deliveree){
   $.get( url ).done(function(response){
     // $('.modal').css({ 'height': $(document).innerHeight(), 'width': $(document).innerWidth() });
     $('.modal').show();
+    $('#sign-in-sign-up').show();
     $("#sign-in-sign-up").html(response);
   });
 }
@@ -39,4 +40,9 @@ $(document).ready(function(){
     e.preventDefault();
     submitUser($(this));
   });
+
+  $('#sign-in-sign-up').on('click', '.close-modal', function(e){
+    $('.modal').hide();
+    $('#sign-in-sign-up').hide();
+  })
 });
