@@ -1,9 +1,31 @@
-<div class="post-form">
-  <%= form_for @post do |f| %>
-    <%= f.label :text, 'Text:', class: 'user-input-field-name' %>
-    <%= f.text_area :text, class: 'post-input-field' %><br>
-    <%= f.label :post_type, 'Is this a Joke or a Quote?:', class: 'user-input-field-name' %>
-    <%= f.text_field :post_type, class: 'post-input-field' %><br>
-    <%= f.submit 'make a jokquot', class: 'submit-post-button' %>
-  <% end %>
+<div class=<%= "container" if Post.all.empty? %>>
+  <div class="post-form">
+    
+    <%= form_for @post do |f| %>
+      <% if @text_error %>
+        <div class="field_with_errors">
+        <span class="error-text"><%= @text_error %></span>
+      <% end %>
+      
+      <%= f.text_area :text, class: "post-input-field styled-textarea" %><br>
+      
+      <% if @text_error %>
+        </div>
+      <% end %>
+      
+      <% if @type_error %>
+        <div class="field_with_errors">
+        <span class="error-text"><%= @type_error %></span><br>
+      <% end %>
+
+      <%= f.label :post_type, 'Is this a Joke or a Quote?:', class: 'user-input-field-name' %>
+      <%= f.select(:post_type, [['------'], ['Joke', 'Joke'], ['Quote', 'Quote']])%><br>
+
+      <% if @type_error %>
+        </div>
+      <% end %>
+
+      <%= f.submit 'make a jokquot!', class: 'new-post button' %>
+    <% end %>
+  </div>
 </div>

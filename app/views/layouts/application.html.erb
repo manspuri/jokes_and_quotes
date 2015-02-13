@@ -2,32 +2,25 @@
 <html>
 <head>
   <title>Jokquot</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <link href='http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <link href='http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic|Open+Sans:300,700|Droid+Sans:400,700|Lato:100,300|Pacifico' rel='stylesheet' type='text/css'>
 
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 
 </head>
 <body>
+  <div class="modal"></div>
+  <% if current_user.nil? %>
+    <div id="sign-in-sign-up">
+      
+    </div>
+  <% end %>
   <header class="site-title">
+    <div class="brand">
+      <h1><%= link_to "jokquot!", root_path %></h1>
+    </div>
 
-    <h1 class="brand"><%= link_to "jokquot", root_path %></h1>
-
-    <nav>
-      <ul>
-        <span class="user_status">
-          <% if current_user.nil? %>
-            <li><%= link_to "sign in", new_session_path, class: "sign_in_link", remote: true %></li>
-            <li><%= link_to "sign up", new_user_path, class: "sign_up_link", remote: true %></li>
-          <% else %>
-            <li><%= link_to "create post", new_post_path %></li>
-            <li><%= link_to "sign out", log_out_path, method: "delete" %></li>
-            <li><%= link_to "#{current_user.username}", user_path(current_user.id), class: "nav-username" %></li>
-          <% end %>
-        </span>
-      </ul>
-    </nav>
   </header>
 <!--   <div class="search">
     <%= form_tag do %>
@@ -35,8 +28,24 @@
       <input class="search-button" type="submit" value="Q" />
     <% end %>
   </div> -->
-  <div class="container">
-    <%= yield %>
+  <div class="wrapper">
+    <div class="padding">
+      <nav>
+        <ul>
+          <% if current_user.nil? && !Post.all.empty? %>
+            <li><%= link_to "sign in", new_session_path, class: "sign_in_link", remote: true %></li>
+            <li><%= link_to "sign up", new_user_path, class: "sign_up_link", remote: true %></li>
+          <% elsif current_user %>
+            <li><%= link_to "#{current_user.username}", user_path(current_user.id), class: "nav-username" %></li>
+            <li><%= link_to "create post", new_post_path %></li>
+            <li><%= link_to "sign out", log_out_path, method: "delete" %></li>
+          <% end %>
+        </ul>
+      </nav>
+      <div class=<%= "container" unless Post.all.empty? %>>
+        <%= yield %>
+      </div>
+    </div>
   </div>
 </body>
 </html>

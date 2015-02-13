@@ -1,0 +1,17 @@
+ <span class="comment-votes">
+  <% if current_user && current_user.voted?(comment) %>
+    <%= link_to "", comment_vote_path(comment, vote: VoteHelper.find_vote(votes, comment, current_user).attributes, id: (VoteHelper.find_vote(votes, comment, current_user).id), class: "upvote"), id: "#{comment.id}-upvote", class: "comment-vote comment-upvote #{current_user.upvoted_or_downvoted(comment)}", method: :put %>
+  <% else %>
+    <%= link_to "", comment_votes_path(comment, vote: Vote.new.attributes, class: "upvote"), id: "#{comment.id}-upvote", class: "comment-vote comment-upvote", method: :post %>
+  <% end %>
+
+  <div id="<%= comment.id %>-count" class="comment-vote-count <%= current_user.upvoted_or_downvoted(comment) if current_user && current_user.voted?(comment) %>">
+    <%= comment.vote_total %>
+  </div>
+
+  <% if current_user && current_user.voted?(comment) %>
+    <%= link_to "", comment_vote_path(comment, id: (VoteHelper.find_vote(votes, comment, current_user).id), vote: VoteHelper.find_vote(votes, comment, current_user).attributes, class: "downvote"), id: "#{comment.id}-downvote", class: "comment-vote comment-downvote #{current_user.upvoted_or_downvoted(comment)}", method: :put %>
+  <% else %>
+    <%= link_to "", comment_votes_path( comment, vote: Vote.new.attributes, class: "downvote" ), id: "#{comment.id}-downvote", class: "comment-vote comment-downvote", method: :post %>
+  <% end %>
+</span>

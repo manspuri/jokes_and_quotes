@@ -1,36 +1,35 @@
-<h2 class="signup-title">JokQuot Sign Up</h2>
+<div class="close-modal med-font">
+  <a href="#">Close</a>
+</div>
+<p class="brand signup-title">Sign Up&nbsp</p>
 
-  <div class="signup-form">
+<% if @errors %>
+  <ul class="error-list error-text">
+  <% @errors.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+<% end %>
 
-    <%= form_for :user, url: users_path do |f| %>
+<div class="signup-form">
+  <%= form_for :user, url: users_path, html: { class: 'user-form' } do |f| %>
+    
+    <%= f.label :first_name, class: "user-input-field-name" %>
+    <%= f.text_field :first_name, class: "user-input-field" %>
+    
+    <%= f.label :last_name, class: "user-input-field-name" %>
+    <%= f.text_field :last_name, class: "user-input-field" %>
+    
+    <%= f.label :email, class: "user-input-field-name" %>
+    <%= f.text_field :email, class: "user-input-field" %>
+    
+    <%= f.label :username, class: "user-input-field-name" %>
+    <%= f.text_field :username, class: "user-input-field" %>
+    
+    <%= f.label :password, class: "user-input-field-name" %>
+    <%= f.password_field :password, class: "user-input-field" %>
 
-     <p>
-        <%= f.label :first_name, class: "user-input-field-name" %>
-        <%= f.text_field :first_name, class: "user-input-field" %>
-      </p>
+    <%= f.submit "sign up", class: "sign-up button" %>
+  <% end %>
+</div>
 
-      <p>
-        <%= f.label :last_name, class: "user-input-field-name" %>
-        <%= f.text_field :last_name, class: "user-input-field" %>
-      </p>
-
-      <p>
-        <%= f.label :email, class: "user-input-field-name" %>
-        <%= f.text_field :email, class: "user-input-field" %>
-      </p>
-      <p>
-        <%= f.label :username, class: "user-input-field-name" %>
-        <%= f.text_field :username, class: "user-input-field" %>
-      </p>
-
-      <p>
-        <%= f.label :password, class: "user-input-field-name" %>
-        <%= f.password_field :password, class: "user-input-field" %>
-      </p>
-
-      <p>
-        <%= f.submit "sign up", class: "submit-user-button" %>
-      </p>
-    <% end %>
-
-  </div>

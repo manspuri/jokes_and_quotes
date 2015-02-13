@@ -15,8 +15,12 @@ class SessionsController < ApplicationController
       redirect_to posts_path
     else
       @user = User.new
-      @unrecognized_user_error = "Sorry, we don't recognize that email and password.  Why don't you sign up?"
-      redirect_to new_user_path
+      @error = "Sorry, we don't recognize that email and password. Did you forget?"
+      if request.xhr?
+        render json: { user_error: true, sign_in_html: render_to_string(:new, { layout: false }) }
+      else
+        render :new
+      end
     end
   end
 

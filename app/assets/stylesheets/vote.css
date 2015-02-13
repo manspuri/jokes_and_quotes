@@ -1,15 +1,26 @@
 .post-index-individual {
-  padding: 20px;
-  margin: 0 auto;
-  width: 90%;
-  /*display: inline-block;*/
-  overflow: auto;
+  margin: 5px auto;
+  width: 100%;
+  display: inline-block;
+  border-bottom: 2px solid #cfcfcf;
+}
+
+.post-index-individual:first-child {
+  margin-top: 20px;
+}
+
+.post-index-individual:last-child {
+  border: none;
 }
 
 .post-index {
   list-style-type: none;
-  float: left;
-  display: inline;
+  float: right;
+  margin: 0;
+  width: 86%;
+  padding-right: 2%;
+  padding-left: 0;
+  padding-bottom: 15px;
 }
 
 .post-user {
@@ -18,54 +29,91 @@
 }
 
 .comments-link, .comments-link:visited {
-  color: #7AC5CF;
+  color: #60c000;
 }
 
 .comments-link:hover {
-  color: #A1DBE3;
+  color: #0f9f3f;
 }
 
 .post-text-index {
+  font-family: "Open Sans";
   font-size: 24px;
-  font-style: italic;
+  padding-bottom: 10px;
 }
 
 .votes {
-  display: inline-block;
   float: left;
-  padding: 20px 0;
+  text-align: center;
+  width: 85px;
 }
 
-.post-upvote {
-  width: 0px;
-  height: 0px;
-  border-bottom: 20px solid #c8c8c8;
-  border-right: 30px solid transparent;
-  border-left: 30px solid transparent;
+.comment-votes {
+  float: left;
+  text-align: center;
+  margin-top: 7px;
+  width: 40px;
+}
+
+.vote {
+  width: 0;
+  height: 0;
+  margin: 0 auto;
+  border-right: 15px solid transparent;
+  border-left: 15px solid transparent;
+  display: block;
+}
+
+.comment-vote {
+  width: 0;
+  height: 0;
+  margin: 0 auto;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
   display: block;
 }
 
 .post-vote-count {
   color: #c8c8c8;
   display: block;
-  padding: 5px 0;
+  padding: 4px 0 1px;
+  font-family: "Droid Sans", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
 }
 
-.post-downvote {
-  width: 0px;
-  height: 0px;
-  border-top: 20px solid #c8c8c8;
-  border-right: 30px solid transparent;
-  border-left: 30px solid transparent;
+.comment-vote-count {
+  color: #c8c8c8;
   display: block;
+  text-align: center;
+  padding: 4px 0 1px;
+  font-family: "Droid Sans", sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.upvote {
+  border-bottom: 15px solid #c8c8c8;
+}
+
+.comment-upvote {
+ border-bottom: 10px solid #c8c8c8; 
+}
+
+.downvote {
+  border-top: 15px solid #c8c8c8;
+}
+
+.comment-downvote {
+  border-top: 10px solid #c8c8c8;
 }
 
 .upvoted {
-  border-bottom-color: #b7da60;
-  color: #b7da60;
+  border-bottom-color: #fc0;
+  color: #fc0;
 }
 
 .downvoted {
-  border-top-color: #e7ce66;
-  color: #e7ce66;
+  border-top-color: #6c9;
+  color: #6c9;
 }

@@ -1,0 +1,35 @@
+.users-profile {
+  color: #396;
+  font-family: 'Open Sans', sans-serif;
+  text-align: left;
+}
+
+.users-header {
+  text-align: center;
+}
+
+.users-profile p {
+  padding-left: 4%;
+}
+
+.for-borders {
+  border-bottom: 2px solid #cfcfcf;
+}
+
+.for-borders:last-child {
+  border: none;
+}
+
+.for-borders h3 {
+  padding-left: 10px;
+}
+
+.for-borders p {
+  margin: 5px 5px 15px;
+  color: black;
+}
+
+.points-and-comments {
+  margin-top: -10px;
+  font-size: 12px;
+}

@@ -1,56 +1,111 @@
 body {
-  background-color: #ccc5c9;
+  background-color: #f0f3f0;
+  background: url('crossword_green.png') fixed;
+  /*position: relative;*/
 }
-.site-title  {
-  background-color: #fcfcfc;
-  color: #303;
+
+a, a:visited {
+  color: #0f9f3f;
+}
+
+a:hover {
+  color: #6fcf3f;
+}
+
+.post-form .field_with_errors {
+   margin-top: 10px;
+}
+
+.field_with_errors textarea {
+  border-color: #DF0101;
+}
+
+.error-text {
+  color: #DF0101;
+  font-size: 15px;
+}
+
+p.error-text{
+  text-align: center;
+}
+.error-list {
+  margin: 0.5em 15%;
+  list-style-type: circle;
+}
+
+.site-title {
+  background-color: #60c000;
+  display: inline-block;
   position: fixed;
   width: 100%;
   top: 0;
-  box-shadow: 0 0 1em #333033;
+}
+
+.site-title a {
+  color: #fcfcfc;
+}
+
+.site-title h1 {
+  margin: 0 0 15px;
 }
 
 .brand {
-  font-family: 'Open Sans Condensed';
-  padding-left: 20px;
-  float: left;
-  display: inline-block;
+  font-family: 'Pacifico';
+  font-size: 25px;
+  text-align: center;
+}
+
+.wrapper {
+  margin-top: 120px;
+  padding-left: 150px;
+}
+
+.padding {
+  width: 900px;
+  display: block;
+  margin: 0 auto;
 }
 
 .container {
-  width: 840px;
-  margin: 0 auto;
-  padding: 15px;
-  clear: both;
-  font-family: 'PT Serif';
-  margin-top: 100px;
-  background-color: #fcfcfc;
+  width: 83%;
+  font-family: 'Droid Sans', sans-serif;
+  background-color: rgba(245, 250, 245, 0.6);
   border-radius: 5px;
-  box-shadow: 0 0 1.5em #333033;
+  float: left;
+  margin: 0 auto 20px;
 }
 
 nav {
-  display: inline-block;
   float: right;
-  padding: 20px 5px 0 0;
+  margin-left: 775px;
+  width: 125px;
+  border-radius: 5px;
+  position: fixed;
 }
 
-nav li {
+nav ul {
+  margin: 0;
+  padding: 0;
   list-style: none;
-  display: inline;
-  padding: 5px;
+  display: block;
+  text-align: right;
+}
+
+nav ul li {
+  padding: 5px 14px;
+  border-bottom: 1.5px solid #c3c3c3;
+}
+
+nav ul li:last-child{
+  border: none;
 }
 
 nav a, nav a:visited {
-  color: #7AC5CF;
+  color: #6fcf3f;
 }
 
 nav a:hover {
-  color: #A1DBE3;
-}
-
-a.nav-username, a.nav-username:visited, a.nav-username:hover {
-  color: #303;
+  color: #0f9f3f;
 }
 
 .search {
@@ -67,6 +122,7 @@ a.nav-username, a.nav-username:visited, a.nav-username:hover {
   padding: 7px;
   float: right;
 }
+
 #search-box {
   border: 2px solid #663366;
   padding: 5px;
@@ -75,10 +131,6 @@ a.nav-username, a.nav-username:visited, a.nav-username:hover {
 
 a, a:visited {
   text-decoration: none;
-}
-
-header a, headera a:visited {
-  color: #303;
 }
 
 .small-font {
