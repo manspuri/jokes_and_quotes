@@ -8,9 +8,7 @@
 			<% end %>
 
 			<ul class="post-index">
-				<li class="post-text-index">
-					<%= post.text %>
-				</li>
+				<%= simple_format(post.text, { class: 'post-text-index' }, { wrapper_tag: 'li' }) %>
 				<li>
 					<span class="small-font">by</span><span class="post-user"> <%= post.user.username %></span><span class="created-at small-font"> on <%= posted_on(post.created_at) %></span>
 				</li>

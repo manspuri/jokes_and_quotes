@@ -1,7 +1,5 @@
 <div id='post-container'>
-	<div class='post-text'>
-		<%= @post.text %>
-	</div>
+	<%= simple_format(@post.text, { class: 'post-text' }, { wrapper_tag: 'div' }) %>
 	
 	<p class="post-author-details">
 		<span class='post-type'><%= @post.post_type %></span>

@@ -81,11 +81,12 @@
   color: #396;
   margin: 0 auto;
   width: 60%;
+  padding: 3%;
 }
 
 .post-input-field {
   font-family: 'Droid Sans', sans-serif;
-  margin: 3px;
+  /*margin: 4% auto 1%;*/
 }
 
 .user-input-field-name {
