@@ -1,0 +1,15 @@
+<div class="no-posts">
+  <h1>Uh-oh, looks like there aren't any posts yet!</h1>
+  <% if current_user.nil? %>
+    <p>
+      <%= link_to "Sign up and start the fun", new_user_path, class: "brand sign_in_link" %>
+    </p>
+    <p class="med-font">
+      <%= link_to "Already a user? Sign in and make a post!", new_session_path, class: "sign_in_link" %>
+    </p>
+  <% else %>
+    <p class="create-post">
+      <%= link_to "Create a post!", new_post_path, class: "brand" %>
+    </p>
+  <% end %>
+</div>

@@ -1,5 +1,5 @@
 <%= @error if @error %>
-<% if @posts %>
+<% if !@posts.empty? %>
 	<% @posts.each do |post| %>
 
 		<div class="post-index-individual">
@@ -21,4 +21,6 @@
 		</div>
 
 	<% end %>
+<% else %>
+	<%= render partial: 'posts/none' %>
 <% end %>
